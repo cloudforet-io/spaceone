@@ -1,3 +1,4 @@
+.DS_Store
 *.swp
 *.bak
 disk
@@ -7,7 +8,6 @@ build
 *.whl
 *.log
 .idea
-.DS_Store
 __pycache__
 venv
 local-conf.yml
