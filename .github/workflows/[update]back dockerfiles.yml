@@ -1,4 +1,4 @@
-name: "[update]backs"
+name: "[update]back dockerfiles"
 on:
   workflow_dispatch:
 
@@ -25,57 +25,53 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/identity.git
-          \cp -rf github_actions/common/workflows identity/.github/workflows
-          \cp -rf github_actions/backend/workflows identity/.github/workflows
+          \cp -f dockerfiles/identity identity/dockerfile
           cd identity
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/inventory.git
-          \cp -rf github_actions/common/workflows inventory/.github/workflows
-          \cp -rf github_actions/backend/workflows inventory/.github/workflows
+          \cp -f dockerfiles/inventory inventory/dockerfile
           cd inventory
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/monitoring.git
-          \cp -rf github_actions/common/workflows monitoring/.github/workflows
-          \cp -rf github_actions/backend/workflows monitoring/.github/workflows
+          \cp -f dockerfiles/monitoring monitoring/dockerfile
           cd monitoring
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/repository.git
-          \cp -rf github_actions/common/workflows repository/.github/workflows
-          \cp -rf github_actions/backend/workflows repository/.github/workflows
+          \cp -f dockerfiles/repository repository/dockerfile
           cd repository
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/statistics.git
-          \cp -rf github_actions/common/workflows statistics/.github/workflows
-          \cp -rf github_actions/backend/workflows statistics/.github/workflows
+          \cp -f dockerfiles/statistics statistics/dockerfile
           cd statistics
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/secret.git
-          \cp -rf github_actions/common/workflows secret/.github/workflows
-          \cp -rf github_actions/backend/workflows secret/.github/workflows
+          \cp -f dockerfiles/secret secret/dockerfile
           cd secret
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/config.git
-          \cp -rf github_actions/common/workflows config/.github/workflows
-          \cp -rf github_actions/backend/workflows config/.github/workflows
+          \cp -f dockerfiles/config config/dockerfile
           cd config
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/supervisor.git
-          \cp -rf github_actions/common/workflows supervisor/.github/workflows
-          \cp -rf github_actions/backend/workflows supervisor/.github/workflows
+          \cp -f dockerfiles/supervisor supervisor/dockerfile
           cd supervisor
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin.git
-          \cp -rf github_actions/common/workflows plugin/.github/workflows
-          \cp -rf github_actions/backend/workflows plugin/.github/workflows
+          \cp -f dockerfiles/plugin plugin/dockerfile
           cd plugin
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/custom-report.git
+          \cp -f dockerfiles/custom-report custom-report/dockerfile
+          cd custom-report
           git add . && git commit -m "[CI/CD] update github actions" && git push
 
   notify_to_slack:
