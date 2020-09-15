@@ -1,10 +1,8 @@
 name: "[CI]tag push"
 on:
   push:
-    branches-ignore:
-      - master
     tags:
-      - "v1.*"
+      - "v*.*"
   workflow_dispatch:
     inputs:
       tag:
@@ -26,13 +24,13 @@ jobs:
       - name: set TAG env
         id: set_env
         run: |
-          if [ ${{ github.event_name }} == "workflow_dispatch" ]
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]
             then
               echo "::set-env name=TAG::${{ github.event.inputs.tag }}"
               echo "::set-output name=TAG::${{ github.event.inputs.tag }}"
               echo "::set-env name=BRANCH::$(echo ${{ github.event.inputs.tag }} | cut -c 2-6 | awk '{print "release-"$1}')"
               echo "::set-output name=BRANCH::$(echo ${{ github.event.inputs.tag }} | cut -c 2-6 | awk '{print "release-"$1}')"
-          elif [[ ${{ github.event_name }} == "push" ]]
+          elif [[ "${{ github.event_name }}" == "push" ]]
             then
               echo "::set-env name=TAG::$(echo ${{ github.ref }} | cut -c 11-)"
               echo "::set-output name=TAG::$(echo ${{ github.ref }} | cut -c 11-)"
@@ -77,19 +75,34 @@ jobs:
       VERSION: ${{ needs.condition_check.outputs.TAG }}
       BRANCH: ${{ needs.condition_check.outputs.BRANCH }}
     steps:
-      - name: task
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: ${{ env.BRANCH }}
+      - name: task
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch'
         run: |
-          git config user.name github-actions
           git config user.email github-actions@github.com
+          git config user.name github-actions
           git pull
           echo ${{ env.VERSION }} > src/VERSION
           git add .
           git commit -m "[CI/CD] release version ${{ env.VERSION }}"
           git tag ${{ env.VERSION }} 
           git push --atomic origin ${{ env.BRANCH }} ${{ env.VERSION }}
+      - name: task
+        if: github.event_name == 'push'
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.BRANCH }}
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git pull
+          echo ${{ env.VERSION }} > src/VERSION
+          git add .
+          git commit -m "[CI/CD] release version ${{ env.VERSION }}"
+          \git tag -f ${{ env.VERSION }} 
+          git push && \git push -f origin "${{ env.VERSION }}"
 
   pypi:
     if: github.repository_owner == 'spaceone-dev'
