@@ -25,54 +25,54 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/identity.git
-          \cp -f dockerfiles/identity identity/dockerfile
+          \cp -f dockerfiles/identity identity/Dockerfile
           cd identity
           git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/inventory.git
-          \cp -f dockerfiles/inventory inventory/dockerfile
+          \cp -f dockerfiles/inventory inventory/Dockerfile
           cd inventory
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/monitoring.git
-          \cp -f dockerfiles/monitoring monitoring/dockerfile
+          \cp -f dockerfiles/monitoring monitoring/Dockerfile
           cd monitoring
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/repository.git
-          \cp -f dockerfiles/repository repository/dockerfile
+          \cp -f dockerfiles/repository repository/Dockerfile
           cd repository
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/statistics.git
-          \cp -f dockerfiles/statistics statistics/dockerfile
+          \cp -f dockerfiles/statistics statistics/Dockerfile
           cd statistics
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/secret.git
-          \cp -f dockerfiles/secret secret/dockerfile
+          \cp -f dockerfiles/secret secret/Dockerfile
           cd secret
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/config.git
-          \cp -f dockerfiles/config config/dockerfile
+          \cp -f dockerfiles/config config/Dockerfile
           cd config
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/supervisor.git
-          \cp -f dockerfiles/supervisor supervisor/dockerfile
+          \cp -f dockerfiles/supervisor supervisor/Dockerfile
           cd supervisor
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin.git
-          \cp -f dockerfiles/plugin plugin/dockerfile
+          \cp -f dockerfiles/plugin plugin/Dockerfile
           cd plugin
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
           git clone git@github.com:spaceone-dev/custom-report.git
-          \cp -f dockerfiles/custom-report custom-report/dockerfile
+          \cp -f dockerfiles/custom-report custom-report/Dockerfile
           cd custom-report
-          git add . && git commit -m "[CI/CD] update github actions" && git push
+          git add . && git commit -m "[CI/CD] update Dockerfile" && git push
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
