@@ -81,15 +81,15 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ env.BRANCH }}
-      - run: |
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git pull
           echo ${{ env.VERSION }} > src/VERSION
           git add .
           git commit -m "[CI/CD] release version ${{ env.VERSION }}"
-          git tag ${{ env.VERSION }} ${{ github.ref }} 
-          git push --atomic origin ${{ github.ref }} ${{ env.VERSION }}
+          git tag ${{ env.VERSION }} 
+          git push --atomic origin ${{ env.BRANCH }} ${{ env.VERSION }}
 
   pypi:
     if: github.repository_owner == 'spaceone-dev'
