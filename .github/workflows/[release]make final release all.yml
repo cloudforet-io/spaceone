@@ -18,6 +18,7 @@ jobs:
   dispatch_final_release_workflow:
     needs: condition_check
     runs-on: ubuntu-latest
+    continue-on-error: true
     env:
       TAG: v${{ github.event.inputs.tag }}
     steps:

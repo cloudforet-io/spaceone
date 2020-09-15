@@ -9,6 +9,7 @@ jobs:
 # pypi만 : api, python-core
   all_in_one_update:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: task
         uses: actions/checkout@v2

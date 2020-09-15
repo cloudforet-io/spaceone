@@ -18,6 +18,7 @@ jobs:
   dispatch_create_workflow:
     needs: condition_check
     runs-on: ubuntu-latest
+    continue-on-error: true
     env:
       TAG: ${{ github.event.inputs.tag }}
     steps:

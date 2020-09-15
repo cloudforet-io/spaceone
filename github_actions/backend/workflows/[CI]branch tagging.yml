@@ -79,7 +79,7 @@ jobs:
       - name: task
         uses: actions/checkout@v2
         with:
-          ref: $env.BRANCH
+          ref: ${{ env.BRANCH }}
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -100,7 +100,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: $env.BRANCH
+          ref: ${{ env.BRANCH }}
       - name: set version
         run: |
           echo ${{ env.VERSION }} | cut -c 2- | sed -e 's/-//g' > src/VERSION
@@ -141,7 +141,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: $env.BRANCH
+          ref: ${{ env.BRANCH }}
       - name: versioning,determine repo
         run: |
           if [[ ${{ env.VERSION }} =~ ^v[0-9]\.[0-9]\.[0-9]dev(.*)$ ]];
