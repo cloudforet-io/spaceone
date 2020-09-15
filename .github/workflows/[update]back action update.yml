@@ -1,4 +1,4 @@
-name: "[submodule]back action update"
+name: "[update]back action update"
 on:
   workflow_dispatch:
 

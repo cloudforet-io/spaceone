@@ -1,0 +1,135 @@
+name: "[release]create all release" # console-asset과 custom-report는 제외
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '`x.y.z` 형태로 버전을 입력해주세요. v접두사와 -dev0 접미사는 자동으로 첨가됩니다.'
+        required: true
+        default: 1.2.3
+
+jobs:
+  condition_check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [[ ${{ github.event.inputs.tag }} =~ ^[0-9]\.[0-9]\.[0-9]$ ]];
+            else exit 1
+          fi
+  dispatch_create_workflow:
+    needs: condition_check
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag }}
+    if: ${{ needs.condition_check.outputs.NOT_FIRST.TAG }} = 'false'
+    steps:
+      - name: identity
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/identity
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: inventory
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/inventory
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: monitoring
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/monitoring
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: repository
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/repository
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: statistics
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/statistics
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: secret
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/secret
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: config
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/config
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: supervisor
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/supervisor
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: plugin
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/plugin
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: console-api
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/console-api
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: console
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/console
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: api
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/api
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: python-core
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/python-core
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+  
+    
+# docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
+# docker만 : console-assets, custom-report, console-api, console
+# pypi만 : api, python-core
+
+  notify_to_slack:
+    if: github.repository_owner == 'spaceone-dev'
+    needs: [dispatch_create_workflow]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack
+        if: always()
+        uses: 8398a7/action-slack@v3.2.0
+        with:
+          status: ${{job.status}}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+          author_name: Github Action Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
