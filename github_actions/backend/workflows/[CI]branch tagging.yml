@@ -46,7 +46,7 @@ jobs:
           fi
       - uses: actions/checkout@v2
         with:
-          ref: $env.BRANCH
+          ref: ${{env.BRANCH}}
       - name: totally same version, redeploy dockerhub
         id: job1
         run: |
