@@ -20,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TAG: ${{ github.event.inputs.tag }}
-    if: ${{ needs.condition_check.outputs.NOT_FIRST.TAG }} = 'false'
     steps:
       - name: identity
         uses: peter-evans/repository-dispatch@v1

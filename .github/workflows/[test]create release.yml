@@ -1,0 +1,31 @@
+name: "[test]create release" # console-asset과 custom-report는 제외
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '`x.y.z` 형태로 버전을 입력해주세요. v접두사와 -dev0 접미사는 자동으로 첨가됩니다.'
+        required: true
+        default: 1.2.3
+
+jobs:
+  condition_check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [[ ${{ github.event.inputs.tag }} =~ ^[0-9]\.[0-9]\.[0-9]$ ]];
+            else exit 1
+          fi
+  dispatch_create_workflow:
+    needs: condition_check
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.inputs.tag }}
+    if: ${{ needs.condition_check.outputs.NOT_FIRST.TAG }} = 'false'
+    steps:
+      - name: identity
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/identity
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
