@@ -45,7 +45,8 @@ jobs:
               echo "::set-output name=BRANCH::$(echo ${{ github.event.client_payload.version }} | cut -c 2-6 | awk '{"release-"print $1}')"
           fi
       - uses: actions/checkout@v2
-        ref: $env.BRANCH
+        with:
+          ref: $env.BRANCH
       - name: totally same version, redeploy dockerhub
         id: job1
         run: |
@@ -77,7 +78,8 @@ jobs:
     steps:
       - name: task
         uses: actions/checkout@v2
-        ref: $env.BRANCH
+        with:
+          ref: $env.BRANCH
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -97,12 +99,13 @@ jobs:
       BRANCH: ${{ needs.condition_check.outputs.BRANCH }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: $env.BRANCH
       - name: set version
         run: |
           echo ${{ env.VERSION }} | cut -c 2- | sed -e 's/-//g' > src/VERSION
       - name: Set up Python
-        uses: actions/checkout@v2
-        ref: $env.BRANCH
+        uses: actions/setup-python@v2
         with:
           python-version: '3.8'
       - name: Install dependencies
@@ -137,7 +140,8 @@ jobs:
       BRANCH: ${{ needs.condition_check.outputs.BRANCH }}
     steps:
       - uses: actions/checkout@v2
-        ref: $env.BRANCH
+        with:
+          ref: $env.BRANCH
       - name: versioning,determine repo
         run: |
           if [[ ${{ env.VERSION }} =~ ^v[0-9]\.[0-9]\.[0-9]dev(.*)$ ]];
