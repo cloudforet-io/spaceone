@@ -76,9 +76,6 @@ jobs:
           cp -r github_actions/backend/workflows plugin/.github/workflows
           cd plugin
           git add . && git commit -m "[CI/CD] update github actions" && git push
-          cd ..
-          cd ..
-          rm -rf spaceone
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
