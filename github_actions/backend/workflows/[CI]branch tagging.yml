@@ -75,6 +75,7 @@ jobs:
     if: ${{ needs.condition_check.outputs.NOT_FIRST.TAG }} = 'false'
     env:
       VERSION: ${{ needs.condition_check.outputs.TAG }}
+      BRANCH: ${{ needs.condition_check.outputs.BRANCH }}
     steps:
       - name: task
         uses: actions/checkout@v2

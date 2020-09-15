@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths-ignore:
-      - '/.github/workflows/**'
+      - '/.github/**'
   workflow_dispatch:
 
 env:
