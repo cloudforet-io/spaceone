@@ -25,56 +25,56 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/identity.git
-          \cp -rf github_actions/common/workflows identity/.github/workflows
-          \cp -rf github_actions/backend/workflows identity/.github/workflows
+          \cp -rf github_actions/common/workflows identity/.github/
+          \cp -rf github_actions/backend/workflows identity/.github/
           cd identity
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/inventory.git
-          \cp -rf github_actions/common/workflows inventory/.github/workflows
-          \cp -rf github_actions/backend/workflows inventory/.github/workflows
+          \cp -rf github_actions/common/workflows inventory/.github/
+          \cp -rf github_actions/backend/workflows inventory/.github/
           cd inventory
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/monitoring.git
-          \cp -rf github_actions/common/workflows monitoring/.github/workflows
-          \cp -rf github_actions/backend/workflows monitoring/.github/workflows
+          \cp -rf github_actions/common/workflows monitoring/.github/
+          \cp -rf github_actions/backend/workflows monitoring/.github/
           cd monitoring
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/repository.git
-          \cp -rf github_actions/common/workflows repository/.github/workflows
-          \cp -rf github_actions/backend/workflows repository/.github/workflows
+          \cp -rf github_actions/common/workflows repository/.github/
+          \cp -rf github_actions/backend/workflows repository/.github/
           cd repository
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/statistics.git
-          \cp -rf github_actions/common/workflows statistics/.github/workflows
-          \cp -rf github_actions/backend/workflows statistics/.github/workflows
+          \cp -rf github_actions/common/workflows statistics/.github/
+          \cp -rf github_actions/backend/workflows statistics/.github/
           cd statistics
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/secret.git
-          \cp -rf github_actions/common/workflows secret/.github/workflows
-          \cp -rf github_actions/backend/workflows secret/.github/workflows
+          \cp -rf github_actions/common/workflows secret/.github/
+          \cp -rf github_actions/backend/workflows secret/.github/
           cd secret
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/config.git
-          \cp -rf github_actions/common/workflows config/.github/workflows
-          \cp -rf github_actions/backend/workflows config/.github/workflows
+          \cp -rf github_actions/common/workflows config/.github/
+          \cp -rf github_actions/backend/workflows config/.github/
           cd config
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/supervisor.git
-          \cp -rf github_actions/common/workflows supervisor/.github/workflows
-          \cp -rf github_actions/backend/workflows supervisor/.github/workflows
+          \cp -rf github_actions/common/workflows supervisor/.github/
+          \cp -rf github_actions/backend/workflows supervisor/.github/
           cd supervisor
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin.git
-          \cp -rf github_actions/common/workflows plugin/.github/workflows
-          \cp -rf github_actions/backend/workflows plugin/.github/workflows
+          \cp -rf github_actions/common/workflows plugin/.github/
+          \cp -rf github_actions/backend/workflows plugin/.github/
           cd plugin
           git add . && git commit -m "[CI/CD] update github actions" && git push
 

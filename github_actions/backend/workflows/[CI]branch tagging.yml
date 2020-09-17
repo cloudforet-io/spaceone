@@ -1,4 +1,4 @@
-name: "[CI]tag push"
+name: "[CI]branch tagging"
 on:
   push:
     tags:
