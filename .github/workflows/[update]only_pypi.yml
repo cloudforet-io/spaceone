@@ -1,4 +1,4 @@
-name: "[update]console"
+name: "[update]only_pypi"
 on:
   workflow_dispatch:
 

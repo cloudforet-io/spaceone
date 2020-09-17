@@ -5,7 +5,7 @@ ENV BUILD_PATH /tmp/spaceone/build
 ENV ROOT_PATH /var/www
 ENV LOG_PATH /var/log/spaceone
 ENV NGINX_CONF_PATH /etc/nginx/conf.d
-ENV NODE_ENV production
+
 
 WORKDIR ${BUILD_PATH}
 
@@ -22,3 +22,4 @@ RUN npm install
 
 COPY tsconfig.json ${BUILD_PATH}/
 COPY vue.config.js ${BUILD_PATH}/
+ENV NODE_ENV production
