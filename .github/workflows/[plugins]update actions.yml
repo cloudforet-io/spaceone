@@ -1,0 +1,68 @@
+name: "[plugins]update actions"
+on:
+  workflow_dispatch:
+
+jobs:
+  all_in_one_update:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: task
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - run: |
+          git config --global user.email admin@spaceone.dev
+          git config --global user.name admin-spaceone
+          eval "$(ssh-agent -s)"
+          cat <<EOF>id_rsa
+          ${{secrets.ssh_key}}
+          EOF
+          chmod 400 ./id_rsa && ssh-add ./id_rsa
+          git pull
+          git clone git@github.com:spaceone-dev/plugin-aws-cloudservices.git
+          mkdir -p plugin-aws-cloudservices/.github/workflows
+          \cp -f github_actions/plugins/* plugin-aws-cloudservices/.github/workflows
+          cd plugin-aws-cloudservices
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/plugin-aws-ec2.git
+          mkdir -p plugin-aws-ec2/.github/workflows
+          \cp -f github_actions/plugins/* plugin-aws-ec2/.github/workflows
+          cd plugin-aws-ec2
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/plugin-googlecloud-compute.git
+          mkdir -p plugin-googlecloud-compute/.github/workflows
+          \cp -f github_actions/plugins/* plugin-googlecloud-compute/.github/workflows
+          cd plugin-googlecloud-compute
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/plugin-aws-cloudwatch.git
+          mkdir -p plugin-aws-cloudwatch/.github/workflows
+          \cp -f github_actions/plugins/* plugin-aws-cloudwatch/.github/workflows
+          cd plugin-aws-cloudwatch
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/plugin-aws-trustedadvisor.git
+          mkdir -p plugin-aws-trustedadvisor/.github/workflows
+          \cp -rf github_actions/plugins/* plugin-aws-trustedadvisor/.github/workflows
+          cd plugin-aws-trustedadvisor
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+
+
+  notify_to_slack:
+    if: github.repository_owner == 'spaceone-dev'
+    needs: [all_in_one_update]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack
+        if: always()
+        uses: 8398a7/action-slack@v3.2.0
+        with:
+          status: ${{job.status}}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+          author_name: Github Action Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
