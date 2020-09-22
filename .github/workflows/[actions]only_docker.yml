@@ -1,4 +1,4 @@
-name: "[update]only docker"
+name: "[actions]only_docker"
 on:
   workflow_dispatch:
 
