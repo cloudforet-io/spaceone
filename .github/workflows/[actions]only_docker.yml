@@ -30,18 +30,18 @@ jobs:
           \cp -f github_actions/only_docker/console/* console/.github/workflows
           cd console
           git add . && git commit -m "[CI/CD] update github actions" && git push
-# git clone git@github.com:spaceone-dev/console-api.git
-# \cp -rf github_actions/common/workflows console-api/.github/
-# \cp -rf github_actions/only_docker/workflows console-api/.github/
-# cd console-api
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/console-assets.git
-# \cp -rf github_actions/common/workflows console-assets/.github/
-# \cp -rf github_actions/only_docker/workflows console-assets/.github/
-# cd console-assets
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
+          git clone git@github.com:spaceone-dev/console-api.git
+          \cp -rf github_actions/common/workflows console-api/.github/
+          \cp -rf github_actions/only_docker/workflows console-api/.github/
+          cd console-api
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/console-assets.git
+          \cp -rf github_actions/common/workflows console-assets/.github/
+          \cp -rf github_actions/only_docker/workflows console-assets/.github/
+          cd console-assets
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
 # git clone git@github.com:spaceone-dev/custom-report.git
 # \cp -rf github_actions/common/workflows custom-report/.github/
 # \cp -rf github_actions/only_docker/workflows custom-report/.github/
