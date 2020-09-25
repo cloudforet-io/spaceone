@@ -22,35 +22,46 @@ jobs:
           git pull
           git clone git@github.com:spaceone-dev/plugin-aws-cloudservices.git
           mkdir -p plugin-aws-cloudservices/.github/workflows
-          \cp -f github_actions/plugins/* plugin-aws-cloudservices/.github/workflows
+          \cp -f github_actions/plugins/public/* plugin-aws-cloudservices/.github/workflows
           cd plugin-aws-cloudservices
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin-aws-ec2.git
           mkdir -p plugin-aws-ec2/.github/workflows
-          \cp -f github_actions/plugins/* plugin-aws-ec2/.github/workflows
+          \cp -f github_actions/plugins/public/* plugin-aws-ec2/.github/workflows
           cd plugin-aws-ec2
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin-googlecloud-compute.git
           mkdir -p plugin-googlecloud-compute/.github/workflows
-          \cp -f github_actions/plugins/* plugin-googlecloud-compute/.github/workflows
+          \cp -f github_actions/plugins/public/* plugin-googlecloud-compute/.github/workflows
           cd plugin-googlecloud-compute
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin-aws-cloudwatch.git
           mkdir -p plugin-aws-cloudwatch/.github/workflows
-          \cp -f github_actions/plugins/* plugin-aws-cloudwatch/.github/workflows
+          \cp -f github_actions/plugins/public/* plugin-aws-cloudwatch/.github/workflows
           cd plugin-aws-cloudwatch
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin-aws-trustedadvisor.git
           mkdir -p plugin-aws-trustedadvisor/.github/workflows
-          \cp -rf github_actions/plugins/* plugin-aws-trustedadvisor/.github/workflows
+          \cp -rf github_actions/plugins/public/* plugin-aws-trustedadvisor/.github/workflows
           cd plugin-aws-trustedadvisor
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
-
+          git clone git@github.com:spaceone-dev/plugin-googlecloud-stackdriver.git
+          mkdir -p plugin-googlecloud-stackdriver/.github/workflows
+          \cp -rf github_actions/plugins/public/* plugin-googlecloud-stackdriver/.github/workflows
+          cd plugin-googlecloud-stackdriver
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/plugin-aws-health.git
+          mkdir -p plugin-aws-health/.github/workflows
+          \cp -rf github_actions/plugins/public/* plugin-aws-health/.github/workflows
+          cd plugin-aws-health
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'

@@ -153,12 +153,12 @@ jobs:
           ref: ${{ env.BRANCH }}
       - name: set some env variable
         run: |
-          echo "::set-env name=SERVICE::$(echo ${{ github.repository }} | cut -c 14-)"
-          echo "::set-env name=ECR_REPO::${{ secrets.AWS_ROOT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/spaceone/report"
+          echo "::set-env name=SERVICE::$(echo ${{ github.repository }} | cut -c 21-)"
+          echo "::set-env name=ECR_REPO::${{ secrets.AWS_ROOT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/spaceone"
           echo "::set-env name=VERSION::$(echo ${{ env.VERSION }} | cut -c 2- | sed -e 's/-//g')"
       - name: docker build
         run: |
-          \docker build -t ${{ env.ECR_REPO }}:${{ env.VERSION }} -c 2048 .
+          \docker build -t ${{ env.ECR_REPO }}/${{ env.SERVICE }}:${{ env.VERSION }} -c 2048 .
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -168,7 +168,7 @@ jobs:
       - name: upload the docker image on ECR
         run: |
           aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ${{ secrets.AWS_ROOT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com
-          docker push ${{ env.ECR_REPO }}
+          docker push ${{ env.ECR_REPO }}/${{ env.SERVICE }}
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'

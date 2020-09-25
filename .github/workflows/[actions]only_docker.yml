@@ -42,6 +42,11 @@ jobs:
           \cp -f github_actions/only_docker/custom-report/\[CI\]branch\ tagging.yml custom-report/.github/workflows/\[CI\]branch\ tagging.yml
           cd custom-report
           git add . && git commit -m "[CI/CD] update github actions" && git push
+          git clone git@github.com:spaceone-dev/power-scheduler.git
+          mkdir -p power-scheduler/.github/workflows
+          \cp -rf github_actions/backend/ecr/* power-scheduler/.github/workflows
+          cd power-scheduler
+          git add . && git commit -m "[CI/CD] update github actions" && git push
 # git clone git@github.com:spaceone-dev/console.git
 # \cp -rf github_actions/common/workflows console/.github/
 # \cp -rf github_actions/only_docker/workflows console/.github/
