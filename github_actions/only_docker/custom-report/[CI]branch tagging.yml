@@ -142,27 +142,33 @@ jobs:
   #         SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
 
   docker:
-    needs: [condition_check, update_local_version_file]
     if: github.repository_owner == 'spaceone-dev'
+    needs: [condition_check, update_local_version_file]
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.condition_check.outputs.TAG }}
     steps:
       - uses: actions/checkout@v2
-      - name: versioning by the convetion
-        run: |
-          echo "::set-env name=VERSION::$(echo ${{ env.VERSION }} | cut -c 2- | sed -e 's/-//g')"
-      - name: get service name
+        with:
+          ref: ${{ env.BRANCH }}
+      - name: set some env variable
         run: |
           echo "::set-env name=SERVICE::$(echo ${{ github.repository }} | cut -c 14-)"
-      - name: Upload docker
-        uses: docker/build-push-action@v1
+          echo "::set-env name=ECR_REPO::${{ secrets.AWS_ROOT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/spaceone/report"
+          echo "::set-env name=VERSION::$(echo ${{ env.VERSION }} | cut -c 2- | sed -e 's/-//g')"
+      - name: docker build
+        run: |
+          \docker build -t ${{ env.ECR_REPO }}:${{ env.VERSION }} -c 2048 .
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          path: .
-          repository: spaceone/${{ env.SERVICE }}
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: ${{ env.VERSION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+      - name: upload the docker image on ECR
+        run: |
+          aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin ${{ secrets.AWS_ROOT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com
+          docker push ${{ env.ECR_REPO }}
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
