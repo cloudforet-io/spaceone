@@ -25,138 +25,58 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/identity.git
-          cd identity
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows identity/.github/
           \cp -rf github_actions/backend/workflows identity/.github/
           cd identity
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/inventory.git
-          cd inventory
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows inventory/.github/
           \cp -rf github_actions/backend/workflows inventory/.github/
           cd inventory
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/monitoring.git
-          cd monitoring
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows monitoring/.github/
           \cp -rf github_actions/backend/workflows monitoring/.github/
           cd monitoring
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/repository.git
-          cd repository
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows repository/.github/
           \cp -rf github_actions/backend/workflows repository/.github/
           cd repository
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/statistics.git
-          cd statistics
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows statistics/.github/
           \cp -rf github_actions/backend/workflows statistics/.github/
           cd statistics
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/secret.git
-          cd secret
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows secret/.github/
           \cp -rf github_actions/backend/workflows secret/.github/
           cd secret
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/config.git
-          cd config
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows config/.github/
           \cp -rf github_actions/backend/workflows config/.github/
           cd config
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/supervisor.git
-          cd supervisor
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows supervisor/.github/
           \cp -rf github_actions/backend/workflows supervisor/.github/
           cd supervisor
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/plugin.git
-          cd plugin
-          git checkout release-1.3.2
-          cd ..
           \cp -rf github_actions/common/workflows plugin/.github/
           \cp -rf github_actions/backend/workflows plugin/.github/
           cd plugin
           git add . && git commit -m "[CI/CD] update github actions" && git push
-# git clone git@github.com:spaceone-dev/identity.git
-# \cp -rf github_actions/common/workflows identity/.github/
-# \cp -rf github_actions/backend/workflows identity/.github/
-# cd identity
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/inventory.git
-# \cp -rf github_actions/common/workflows inventory/.github/
-# \cp -rf github_actions/backend/workflows inventory/.github/
-# cd inventory
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/monitoring.git
-# \cp -rf github_actions/common/workflows monitoring/.github/
-# \cp -rf github_actions/backend/workflows monitoring/.github/
-# cd monitoring
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/repository.git
-# \cp -rf github_actions/common/workflows repository/.github/
-# \cp -rf github_actions/backend/workflows repository/.github/
-# cd repository
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/statistics.git
-# \cp -rf github_actions/common/workflows statistics/.github/
-# \cp -rf github_actions/backend/workflows statistics/.github/
-# cd statistics
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/secret.git
-# \cp -rf github_actions/common/workflows secret/.github/
-# \cp -rf github_actions/backend/workflows secret/.github/
-# cd secret
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/config.git
-# \cp -rf github_actions/common/workflows config/.github/
-# \cp -rf github_actions/backend/workflows config/.github/
-# cd config
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/supervisor.git
-# \cp -rf github_actions/common/workflows supervisor/.github/
-# \cp -rf github_actions/backend/workflows supervisor/.github/
-# cd supervisor
-# git add . && git commit -m "[CI/CD] update github actions" && git push
-# cd ..
-# git clone git@github.com:spaceone-dev/plugin.git
-# \cp -rf github_actions/common/workflows plugin/.github/
-# \cp -rf github_actions/backend/workflows plugin/.github/
-# cd plugin
-# git add . && git commit -m "[CI/CD] update github actions" && git push
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
