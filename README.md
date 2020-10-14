@@ -5,5 +5,5 @@ Repository tracking all SpaceONE repositories as submodules
 
 | Date        |  Version   | See Details  |
 | ---         | ----       | ----         |
-| 2020-9-28   | 1.3.2      | [version_1.3.2](release_notes/version_1.3.2.md) |
+| 2020-9-28   | 1.3.2      | [Version 1.3.2](./release_notes/version_1.3.2.md) |
 
