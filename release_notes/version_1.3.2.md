@@ -31,4 +31,5 @@
 | Service      | Version    |  Description    |
 | ---          | ---        | ---             |
 | console      | 1.3.2.1    | Create User Button error fix |
-| repository   | 1.3.2.1    | Support ECR backend          |
+| console-api  | 1.3.2.1    | Create User Button error fix |
+| monitoring   | 1.3.2.1    | Fix data_source create       |
