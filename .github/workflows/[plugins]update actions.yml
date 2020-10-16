@@ -62,6 +62,11 @@ jobs:
           cd plugin-aws-health
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
+          git clone git@github.com:spaceone-dev/plugin-google-cloud-power-scheduler-controller.git
+          mkdir -p plugin-google-cloud-power-scheduler-controller/.github/workflows
+          \cp -rf github_actions/plugins/public/* plugin-google-cloud-power-scheduler-controller/.github/workflows
+          cd plugin-google-cloud-power-scheduler-controller
+          git add . && git commit -m "[CI/CD] update github actions" && git push
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
