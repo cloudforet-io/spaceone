@@ -8,6 +8,10 @@ jobs:
 # docker만 : console-assets, custom-report, console-api, console
 # pypi만 : api, python-core
   all_in_one_update:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-assets', 'custom-report', 'console-api', 'console']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -15,7 +19,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.PAT_TOKEN }}
-      - run: |
+      - name: task
+        env:
+          target: ${{ matrix.target }}
+        run: |
           git config --global user.email admin@spaceone.dev
           git config --global user.name admin-spaceone
           eval "$(ssh-agent -s)"
@@ -24,55 +31,11 @@ jobs:
           EOF
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
-          git clone git@github.com:spaceone-dev/identity.git
-          \cp -f dockerfiles/identity identity/Dockerfile
-          cd identity
+          git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          \cp -f dockerfiles/${{ env.target }} ${{ env.target }}/Dockerfile
+          cd ${{ env.target }}
           git add . && git commit -m "[CI/CD] update dockerfile" && git push
           cd ..
-          git clone git@github.com:spaceone-dev/inventory.git
-          \cp -f dockerfiles/inventory inventory/Dockerfile
-          cd inventory
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/monitoring.git
-          \cp -f dockerfiles/monitoring monitoring/Dockerfile
-          cd monitoring
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/repository.git
-          \cp -f dockerfiles/repository repository/Dockerfile
-          cd repository
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/statistics.git
-          \cp -f dockerfiles/statistics statistics/Dockerfile
-          cd statistics
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/secret.git
-          \cp -f dockerfiles/secret secret/Dockerfile
-          cd secret
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/config.git
-          \cp -f dockerfiles/config config/Dockerfile
-          cd config
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/supervisor.git
-          \cp -f dockerfiles/supervisor supervisor/Dockerfile
-          cd supervisor
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/plugin.git
-          \cp -f dockerfiles/plugin plugin/Dockerfile
-          cd plugin
-          git add . && git commit -m "[CI/CD] update dockerfile" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/custom-report.git
-          \cp -f dockerfiles/custom-report custom-report/Dockerfile
-          cd custom-report
-          git add . && git commit -m "[CI/CD] update Dockerfile" && git push
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'

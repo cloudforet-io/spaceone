@@ -7,15 +7,21 @@ jobs:
 # docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
 # docker만 : console-assets, custom-report, console-api, console, power-scheduler
 # pypi만 : api, python-core
-  all_in_one_update:
+  all_in_one_update_common:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['console-assets', 'custom-report', 'console-api']
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
-      - name: task
+      - name: set token
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.PAT_TOKEN }}
-      - run: |
+      - name: task
+        env:
+          target: ${{ matrix.target }}
+        run: |
           git config --global user.email admin@spaceone.dev
           git config --global user.name admin-spaceone
           eval "$(ssh-agent -s)"
@@ -23,38 +29,36 @@ jobs:
           ${{secrets.ssh_key}}
           EOF
           chmod 400 ./id_rsa && ssh-add ./id_rsa
-          git pull
+          git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          \cp -rf github_actions/common/workflows ${{ env.target }}/.github/
+          \cp -rf github_actions/only_docker/workflows ${{ env.target }}/.github/
+          cd ${{ env.target }}
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+  special_case_update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set token
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: task
+        run: |
+          git config --global user.email admin@spaceone.dev
+          git config --global user.name admin-spaceone
+          eval "$(ssh-agent -s)"
+          cat <<EOF>id_rsa
+          ${{secrets.ssh_key}}
+          EOF
+          chmod 400 ./id_rsa && ssh-add ./id_rsa
           git clone git@github.com:spaceone-dev/console.git
           \cp -rf github_actions/common/workflows console/.github/
-          \cp -rf github_actions/only_docker/workflows console/.github/
           \cp -f github_actions/only_docker/console/* console/.github/workflows
           cd console
-          git add . && git commit -m "[CI/CD] update github actions" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/console-api.git
-          \cp -rf github_actions/common/workflows console-api/.github/
-          \cp -rf github_actions/only_docker/workflows console-api/.github/
-          cd console-api
-          git add . && git commit -m "[CI/CD] update github actions" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/console-assets.git
-          \cp -rf github_actions/common/workflows console-assets/.github/
-          \cp -rf github_actions/only_docker/workflows console-assets/.github/
-          cd console-assets
-          git add . && git commit -m "[CI/CD] update github actions" && git push
-          cd ..
-          git clone git@github.com:spaceone-dev/custom-report.git
-          \cp -rf github_actions/common/workflows custom-report/.github/
-          rm -f custom-report/.github/workflows/\[CI\]master\ push.yml
-          \cp -rf github_actions/only_docker/workflows custom-report/.github/
-          \cp -rf github_actions/only_docker/custom-report/\[CI\]branch\ tagging.yml custom-report/.github/workflows
-          cd custom-report
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/power-scheduler.git
           \cp -rf github_actions/common/workflows power-scheduler/.github/
           rm -f power-scheduler/.github/workflows/\[CI\]master\ push.yml
-          \cp -rf github_actions/only_docker/workflows power-scheduler/.github/
           \cp -rf github_actions/only_docker/power-scheduler/\[CI\]branch\ tagging.yml power-scheduler/.github/workflows
           cd power-scheduler
           git add . && git commit -m "[CI/CD] update github actions" && git push
@@ -64,7 +68,7 @@ jobs:
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
-    needs: [all_in_one_update]
+    needs: [all_in_one_update_common, special_case_update]
     runs-on: ubuntu-latest
     steps:
       - name: Slack
