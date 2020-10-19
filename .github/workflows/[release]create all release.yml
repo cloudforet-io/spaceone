@@ -1,4 +1,4 @@
-name: "[release]create all release" # console-asset과 custom-report는 제외
+name: "[release]create all release"
 on:
   workflow_dispatch:
     inputs:
@@ -99,6 +99,27 @@ jobs:
           repository: spaceone-dev/console
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: custom-report
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/custom-report
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: power-scheduler
+          uses: peter-evans/repository-dispatch@v1
+          with:
+            token: ${{ secrets.PAT_TOKEN }}
+            repository: spaceone-dev/power-scheduler
+            event-type: create_release_branch
+            client-payload: '{"version": "${{ env.TAG }}"}'
+      - name: console-assets
+          uses: peter-evans/repository-dispatch@v1
+          with:
+            token: ${{ secrets.PAT_TOKEN }}
+            repository: spaceone-dev/console-assets
+            event-type: create_release_branch
+            client-payload: '{"version": "${{ env.TAG }}"}'
       - name: api
         uses: peter-evans/repository-dispatch@v1
         with:
