@@ -47,7 +47,7 @@ jobs:
           \cp -rf github_actions/common/workflows custom-report/.github/
           rm -f custom-report/.github/workflows/\[CI\]master\ push.yml
           \cp -rf github_actions/only_docker/workflows custom-report/.github/
-          \cp -rf github_actions/only_docker/custom-report custom-report/.github/
+          \cp -rf github_actions/only_docker/custom-report/\[CI\]branch\ tagging.yml power-scheduler/.github/
           cd custom-report
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
@@ -55,7 +55,7 @@ jobs:
           \cp -rf github_actions/common/workflows power-scheduler/.github/
           rm -f power-scheduler/.github/workflows/\[CI\]master\ push.yml
           \cp -rf github_actions/only_docker/workflows power-scheduler/.github/
-          \cp -rf github_actions/only_docker/power-scheduler power-scheduler/.github/
+          \cp -rf github_actions/only_docker/power-scheduler/\[CI\]branch\ tagging.yml power-scheduler/.github/
           cd power-scheduler
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
