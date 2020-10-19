@@ -4,8 +4,8 @@ on:
 
 jobs:
 
-# docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin, power-scheduler
-# docker만 : console-assets, custom-report, console-api, console
+# docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
+# docker만 : console-assets, custom-report, console-api, console, power-scheduler
 # pypi만 : api, python-core
   all_in_one_update:
     runs-on: ubuntu-latest
