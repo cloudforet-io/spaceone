@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console-assets', 'custom-report', 'console-api']
+        target: ['console-assets', 'console-api']
     runs-on: ubuntu-latest
     steps:
       - name: set token
@@ -30,6 +30,10 @@ jobs:
           EOF
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          cd ${{ env.target }}
+          git checkout master
+          cd ..
+          rm -rf ${{ env.target }}/.github/workflows/*
           \cp -rf github_actions/common/workflows ${{ env.target }}/.github/
           \cp -rf github_actions/only_docker/workflows ${{ env.target }}/.github/
           cd ${{ env.target }}
@@ -51,20 +55,37 @@ jobs:
           EOF
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git clone git@github.com:spaceone-dev/console.git
+          cd console
+          git checkout master
+          cd ..
+          rm -rf console/.github/workflows/*
           \cp -rf github_actions/common/workflows console/.github/
           \cp -f github_actions/only_docker/console/* console/.github/workflows
           cd console
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/power-scheduler.git
+          cd power-scheduler
+          git checkout master
+          cd ..
+          rm -rf power-scheduler/.github/workflows/*
           \cp -rf github_actions/common/workflows power-scheduler/.github/
-          rm -f power-scheduler/.github/workflows/\[CI\]master\ push.yml
-          \cp -rf github_actions/only_docker/power-scheduler/\[CI\]branch\ tagging.yml power-scheduler/.github/workflows
+          \cp -rf github_actions/only_docker/power-scheduler/* power-scheduler/.github/workflows
+          rm -f power-scheduler/.github/workflows/CI_master_push.yml
           cd power-scheduler
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
-
-
+          git clone git@github.com:spaceone-dev/custom-report.git
+          cd custom-report
+          git checkout master
+          cd ..
+          rm -rf custom-report/.github/workflows/*
+          \cp -rf github_actions/common/workflows custom-report/.github/
+          \cp -rf github_actions/only_docker/custom-report/* custom-report/.github/workflows
+          rm -f custom-report/.github/workflows/CI_master_push.yml
+          cd custom-report
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'

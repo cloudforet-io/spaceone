@@ -25,13 +25,21 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/python-core.git
+          cd python-core
+          git checkout master
+          cd ..
+          rm -rf python-core/.github/workflows/*
           \cp -rf github_actions/common/workflows/* python-core/.github/workflows
-          rm -f python-core/.github/workflows/\[CI\]master\ push.yml
           \cp -rf github_actions/only_pypi/python-core/* python-core/.github/workflows
+          rm -f python-core/.github/workflows/CI_master_push.yml
           cd python-core
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
           git clone git@github.com:spaceone-dev/api.git
+          cd api
+          git checkout master
+          cd ..
+          rm -rf api/.github/workflows/*
           \cp -rf github_actions/only_pypi/api/* api/.github/workflows
           cd api
           git add . && git commit -m "[CI/CD] update github actions" && git push

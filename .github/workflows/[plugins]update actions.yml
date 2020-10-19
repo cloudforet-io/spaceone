@@ -28,8 +28,41 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
           \cp -f github_actions/plugins/public/* ${{ env.target }}/.github/workflows
+          cd ${{ env.target }}
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+  all_in_one_update_before_publish:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['plugin-google-cloud-power-scheduler-controller']
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: set token
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: task
+        env:
+          target: ${{ matrix.target }}
+        run: |
+          git config --global user.email admin@spaceone.dev
+          git config --global user.name admin-spaceone
+          eval "$(ssh-agent -s)"
+          cat <<EOF>id_rsa
+          ${{secrets.ssh_key}}
+          EOF
+          chmod 400 ./id_rsa && ssh-add ./id_rsa
+          git pull
+          git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          rm -rf ${{ env.target }}/.github/workflows/*
+          mkdir -p ${{ env.target }}/.github/workflows
+          \cp -f github_actions/plugins/public/* ${{ env.target }}/.github/workflows
+          \cp -f github_actions/plugins/before_publish/* ${{ env.target }}/.github/workflows
           cd ${{ env.target }}
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
