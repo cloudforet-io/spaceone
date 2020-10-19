@@ -4,7 +4,7 @@ on:
 
 jobs:
 
-# docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
+# docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin, power-scheduler
 # docker만 : console-assets, custom-report, console-api, console
 # pypi만 : api, python-core
   all_in_one_update:
@@ -47,8 +47,18 @@ jobs:
           \cp -rf github_actions/common/workflows custom-report/.github/
           rm -f custom-report/.github/workflows/\[CI\]master\ push.yml
           \cp -rf github_actions/only_docker/workflows custom-report/.github/
+          \cp -rf github_actions/only_docker/custom-report custom-report/.github/
           cd custom-report
           git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
+          git clone git@github.com:spaceone-dev/power-scheduler.git
+          \cp -rf github_actions/common/workflows power-scheduler/.github/
+          rm -f power-scheduler/.github/workflows/\[CI\]master\ push.yml
+          \cp -rf github_actions/only_docker/workflows power-scheduler/.github/
+          \cp -rf github_actions/only_docker/power-scheduler power-scheduler/.github/
+          cd power-scheduler
+          git add . && git commit -m "[CI/CD] update github actions" && git push
+          cd ..
 
 
 
