@@ -117,7 +117,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/
+          repository: spaceone-dev/console-assets
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}'
       - name: api
