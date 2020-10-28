@@ -19,121 +19,20 @@ jobs:
     needs: condition_check
     runs-on: ubuntu-latest
     continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'custom-report', 'power-scheduler', 'console-assets', 'api', 'python-core']
     env:
       TAG: ${{ github.event.inputs.tag }}
     steps:
-      - name: identity
+      - name: task
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/identity
+          repository: spaceone-dev/${{ matrix.target }}
           event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: inventory
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/inventory
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: monitoring
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/monitoring
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: repository
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/repository
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: statistics
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/statistics
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: secret
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/secret
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: config
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/config
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: supervisor
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/supervisor
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: plugin
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/plugin
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: console-api
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/console-api
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: console
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/console
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: custom-report
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/custom-report
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: power-scheduler
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/power-scheduler
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: console-assets
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/console-assets
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: api
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/api
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: python-core
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/python-core
-          event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'
+          client-payload: '{"version": "${{ env.TAG }}"}'    
   
     
 # docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
