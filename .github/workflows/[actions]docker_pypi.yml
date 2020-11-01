@@ -12,6 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin']
+        branch: ['master', 'release-1.4.3']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -33,7 +34,7 @@ jobs:
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
           cd ${{ env.target }}
-          git checkout master
+          git checkout ${{ matrix.branch }}
           cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           \cp -rf github_actions/common/workflows ${{ env.target }}/.github/

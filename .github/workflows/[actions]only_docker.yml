@@ -12,6 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['console-assets', 'console-api']
+        branch: ['master', 'release-1.4.3']
     runs-on: ubuntu-latest
     steps:
       - name: set token
@@ -31,7 +32,7 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
           cd ${{ env.target }}
-          git checkout master
+          git checkout ${{ matrix.branch }}
           cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           \cp -rf github_actions/common/workflows ${{ env.target }}/.github/
@@ -43,7 +44,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['console', 'power-scheduler', 'custom-report']
-        branch: ['master']
+        branch: ['master', 'release-1.4.3']
     runs-on: ubuntu-latest
     steps:
       - name: set token

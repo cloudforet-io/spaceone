@@ -15,14 +15,14 @@ jobs:
           if [[ !(${{ github.event.inputs.tag }} =~ ^[0-9]\.[0-9]\.[0-9]$) ]];
             then exit 1
           fi
-  dispatch_create_workflow:
-    needs: condition_check
-    runs-on: ubuntu-latest
-    continue-on-error: true
+  dispatch_create_workflow_base:
     strategy:
       fail-fast: false
       matrix:
-        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'custom-report', 'power-scheduler', 'console-assets', 'api', 'python-core']
+        target: ['api', 'python-core']
+    needs: condition_check
+    runs-on: ubuntu-latest
+    continue-on-error: true
     env:
       TAG: ${{ github.event.inputs.tag }}
     steps:
@@ -32,7 +32,41 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository: spaceone-dev/${{ matrix.target }}
           event-type: create_release_branch
-          client-payload: '{"version": "${{ env.TAG }}"}'    
+          client-payload: '{"version": "${{ env.TAG }}"}'
+  dispatch_create_workflow_svc:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'custom-report', 'power-scheduler', 'console-assets']
+    needs: dispatch_create_workflow_base
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      TAG: ${{ github.event.inputs.tag }}
+    steps:
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '240s'
+      - name: check upload
+        run: |
+          apt update && apt install jq -y
+          export check=0
+          while [ $check -eq '0' ];
+          do
+            echo "waiting"
+            if [ $(curl -s https://pypi.org/pypi/spaceone-core/json | jq -r '.releases | keys[]' | sort -V | tail -1) == "${{ env.TAG }}-rc1" ] && [ $(curl -s https://pypi.org/pypi/spaceone-api/json | jq -r '.releases | keys[]' | sort -V | tail -1) == "${{ env.TAG }}-rc1" ];
+              then export check=1
+            fi
+            sleep 1
+          done
+      - name: task
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/${{ matrix.target }}
+          event-type: create_release_branch
+          client-payload: '{"version": "${{ env.TAG }}"}' 
   
     
 # docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
@@ -41,7 +75,7 @@ jobs:
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
-    needs: [dispatch_create_workflow]
+    needs: [dispatch_create_workflow_svc]
     runs-on: ubuntu-latest
     steps:
       - name: Slack

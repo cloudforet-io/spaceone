@@ -8,6 +8,11 @@ jobs:
 # docker만 : console-assets, custom-report, console-api, console
 # pypi만 : api, python-core
   all_in_one_update:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['python-core', 'api']
+        branch: ['master', 'release-1.4.3']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -24,25 +29,16 @@ jobs:
           EOF
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
-          git clone git@github.com:spaceone-dev/python-core.git
-          cd python-core
-          git checkout master
+          git clone git@github.com:spaceone-dev/${{ matrix.target }}.git
+          cd ${{ matrix.target }}
+          git checkout ${{ matrix.branch }}
           cd ..
-          rm -rf python-core/.github/workflows/*
-          \cp -rf github_actions/common/workflows/* python-core/.github/workflows
-          \cp -rf github_actions/only_pypi/python-core/* python-core/.github/workflows
-          rm -f python-core/.github/workflows/CI_master_push.yml
-          cd python-core
+          \cp -rf github_actions/common/workflows/* ${{ matrix.target }}/.github/workflows
+          \cp -rf github_actions/only_pypi/${{ matrix.target }}/* ${{ matrix.target }}/.github/workflows
+          rm -f ${{ matrix.target }}/.github/workflows/CI_master_push.yml
+          cd ${{ matrix.target }}
           git add . && git commit -m "[CI/CD] update github actions" && git push
           cd ..
-          git clone git@github.com:spaceone-dev/api.git
-          cd api
-          git checkout master
-          cd ..
-          rm -rf api/.github/workflows/*
-          \cp -rf github_actions/only_pypi/api/* api/.github/workflows
-          cd api
-          git add . && git commit -m "[CI/CD] update github actions" && git push
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'

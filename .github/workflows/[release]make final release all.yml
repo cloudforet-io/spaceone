@@ -15,102 +15,56 @@ jobs:
           if [[ !(${{ github.event.inputs.tag }} =~ ^[0-9]\.[0-9]\.[0-9]$) ]];
             then exit 1
           fi
-  dispatch_final_release_workflow:
+  dispatch_make_final_release_base:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['api', 'python-core']
     needs: condition_check
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
       TAG: v${{ github.event.inputs.tag }}
     steps:
-      - name: identity
+      - name: dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/identity
+          repository: spaceone-dev/${{ matrix.target }}
           event-type: branch_tagging
           client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: inventory
+  dispatch_make_final_release_svc:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'custom-report', 'power-scheduler', 'console-assets']
+    needs: dispatch_make_final_release_base
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      TAG: v${{ github.event.inputs.tag }}
+    steps:
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '240s'
+      - name: check upload
+        run: |
+          apt update && apt install jq -y
+          export check=0
+          while [ $check -eq '0' ];
+          do
+            echo "waiting"
+            if [ $(curl -s https://pypi.org/pypi/spaceone-core/json | jq -r '.releases | keys[]' | sort -V | tail -1) == "${{ env.TAG }}" ] && [ $(curl -s https://pypi.org/pypi/spaceone-api/json | jq -r '.releases | keys[]' | sort -V | tail -1) == "${{ env.TAG }}" ];
+              then export check=1
+            fi
+            sleep 1
+          done
+      - name: dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/inventory
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: monitoring
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/monitoring
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: repository
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/repository
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: statistics
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/statistics
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: secret
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/secret
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: config
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/config
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: supervisor
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/supervisor
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: plugin
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/plugin
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: console-api
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/console-api
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: console
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/console
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: api
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/api
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
-      - name: python-core
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/python-core
+          repository: spaceone-dev/${{ matrix.target }}
           event-type: branch_tagging
           client-payload: '{"version": "${{ env.TAG }}"}'
   
@@ -121,7 +75,7 @@ jobs:
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
-    needs: [dispatch_final_release_workflow]
+    needs: [dispatch_make_final_release_svc]
     runs-on: ubuntu-latest
     steps:
       - name: Slack

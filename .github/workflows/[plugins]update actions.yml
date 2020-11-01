@@ -8,6 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-aws-health', 'plugin-google-cloud-services', 'plugin-google-cloud-power-scheduler-controller']
+        branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -28,6 +29,9 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          cd ${{ env.target }}
+          git checkout ${{ matrix.branch }}
+          cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
           \cp -f github_actions/plugins/public/* ${{ env.target }}/.github/workflows
@@ -39,6 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['plugin-google-cloud-power-scheduler-controller']
+        branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -59,6 +64,9 @@ jobs:
           chmod 400 ./id_rsa && ssh-add ./id_rsa
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          cd ${{ env.target }}
+          git checkout ${{ matrix.branch }}
+          cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
           \cp -f github_actions/plugins/public/* ${{ env.target }}/.github/workflows
