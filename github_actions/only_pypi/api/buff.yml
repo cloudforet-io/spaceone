@@ -10,23 +10,15 @@ jobs:
   buff:
     if: github.repository_owner == 'spaceone-dev'
     runs-on: ubuntu-latest
-
+    env:
+      SERVICE: api
+      PYPI_UPLOAD: true # upload pypi if this is true
+      # LOCATION points the parent directory
+      LOCATION_SETUP_PY: dist/python # optional. for pypi upload
+      LOCATION_VERSION: . # the location for VERSION file (ex- . means the location of VERSION is ./VERSION)
+      IS_SUDO: true
     steps:
     - uses: actions/checkout@v2
-    - name: Set environment virables
-      env:
-        SERVICE: api
-        PYPI_UPLOAD: true # upload pypi if this is true
-        # LOCATION points the parent directory
-        LOCATION_SETUP_PY: dist/python # optional. for pypi upload
-        LOCATION_VERSION: . # the location for VERSION file (ex- . means the location of VERSION is ./VERSION)
-        IS_SUDO: true
-      run: |
-        echo "::set-env name=SERVICE::$SERVICE"
-        echo "::set-env name=PYPI_UPLOAD::$PYPI_UPLOAD"
-        echo "::set-env name=LOCATION_SETUP_PY::$LOCATION_SETUP_PY"
-        echo "::set-env name=LOCATION_VERSION::$LOCATION_VERSION"
-        echo "::set-env name=IS_SUDO::$IS_SUDO"
     - name: Clone master branch
       uses: actions/checkout@v2
       with:
