@@ -30,7 +30,7 @@ jobs:
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
           cd ${{ env.target }}
-          git checkout ${{ matrix.branch }}
+          git checkout ${{ matrix.branch }} || true
           cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['plugin-google-cloud-power-scheduler-controller']
+        target: ['plugin-google-cloud-power-scheduler-controller', 'plugin-google-cloud-power-state']
         branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -65,7 +65,7 @@ jobs:
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
           cd ${{ env.target }}
-          git checkout ${{ matrix.branch }}
+          git checkout ${{ matrix.branch }} || true
           cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
