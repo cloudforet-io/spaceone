@@ -33,6 +33,7 @@ jobs:
           cd ${{ matrix.target }}
           git checkout ${{ matrix.branch }}
           cd ..
+          rm -f ${{ matrix.target }}/.github/workflows/*
           \cp -rf github_actions/common/workflows/* ${{ matrix.target }}/.github/workflows
           \cp -rf github_actions/only_pypi/${{ matrix.target }}/* ${{ matrix.target }}/.github/workflows
           rm -f ${{ matrix.target }}/.github/workflows/CI_master_push.yml
