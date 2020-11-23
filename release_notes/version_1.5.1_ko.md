@@ -51,7 +51,7 @@
 
 ### 버그픽스
 
-- Collector의 세부 정보 탭에서 Last Collected/Created 정보 누략
+- Collector의 세부 정보 탭에서 Last Collected/Created 정보 누락 현상
 - 기타 minor한 UI bug
 
 
@@ -65,11 +65,11 @@ SpaceOne v1.5.1 에 호환되는 플러그인 버전을 안내 드립니다.
 |inventory.Collector|aws|aws-cloud-service|v1.2|
 |inventory.Collector|aws|plugin-aws-power-state|v1.2|
 |inventory.Collector|google cloud|google-cloud-compute|v1.1|
-|inventory.Collector|google cloud|google-cloud-services|v1.0|
+|inventory.Collector|google cloud|google-cloud-services|v1.0.2|
 |inventory.Collector|google cloud|plugin-google-cloud-power-state|v1.0|
 |inventory.Collector|Azure|azure-vm|v1.1|
-|monitoring.DataSource|aws|aws-cloudwatch|v1.0|
-|monitoring.DataSource|aws|aws-health|v1.0|
+|monitoring.DataSource|aws|aws-cloudwatch|v1.0.2|
+|monitoring.DataSource|aws|aws-health|v1.0.2|
 |monitoring.DataSource|aws|google-cloud-stackdriver|v1.0.1|
 |power_scheduler.Controller|aws|plugin-aws-power-scheduler-controller|v1.0|
 |power_scheduler.Controller|google cloud|plugin-google-cloud-power-scheduler-controller|v1.0|
