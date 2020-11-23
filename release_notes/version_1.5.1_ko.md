@@ -60,7 +60,7 @@ SpaceOne v1.5.1 에 호환되는 플러그인 버전을 안내 드립니다.
 기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
 
 |plugin 종류|Provider|플러그인 이름|버전|
-|---|:---:|---:|---:|
+|---|:---:|:---:|:---:|
 |inventory.Collector|aws|aws-ec2|v1.4|
 |inventory.Collector|aws|aws-cloud-service|v1.2|
 |inventory.Collector|aws|plugin-aws-power-state|v1.2|

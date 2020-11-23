@@ -42,12 +42,8 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
-      TAG: v${{ github.event.inputs.tag }}
+      TAG: ${{ github.event.inputs.tag }}
     steps:
-      - name: Wait / Sleep
-        uses: jakejarvis/wait-action@v0.1.0
-        with:
-          time: '240s'
       - name: check upload
         run: |
           apt update && apt install jq -y
@@ -66,7 +62,7 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository: spaceone-dev/${{ matrix.target }}
           event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
+          client-payload: '{"version": "v${{ env.TAG }}"}'
   
     
 # docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
