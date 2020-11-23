@@ -49,13 +49,13 @@
 - 기타 plugin의 버그 패치 
 
 
-## 버그픽스
+### 버그픽스
 
 - Collector의 세부 정보 탭에서 Last Collected/Created 정보 누략
 - 기타 minor한 UI bug
 
 
-#### Plugin 호환 버전 
+### Plugin 호환 버전 
 SpaceOne v1.5.1 에 호환되는 플러그인 버전을 안내 드립니다. 
 기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
 
@@ -75,6 +75,7 @@ SpaceOne v1.5.1 에 호환되는 플러그인 버전을 안내 드립니다.
 |power_scheduler.Controller|google cloud|plugin-google-cloud-power-scheduler-controller|v1.0|
 
 ## Hotfix Update
+
 
 
 
