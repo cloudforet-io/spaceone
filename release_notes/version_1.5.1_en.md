@@ -3,10 +3,10 @@
 ## Release Notes
 
 
-### PowerScheduler 서비스 추가(beta)
+### PowerScheduler service (beta)
 
-- 사용자의 업무 패턴에 맞게, Cloud Server의 Power State를 관리 해주는 PowerScheduler 서비스를 신규로 추가 하였습니다! 
-- 지정한 서버 그룹을 스케쥴 기반 자동으로 Stop/Start 관리가 가능합니다. 
+- PowerScheduler service to manages the Cloud Server's Power State according to the user's work pattern!
+- Schedule-based automatic stop/start management of the specified server group is possible.
 
  
 ### Main Dashboard 기능개선
@@ -22,16 +22,16 @@
 | --- |
 
 
-### SpaceOne Console 다국어 지원 
+### Multi-Language support on Space One Console
 
-- 해외 사용자를 위한 Console 다국어 지원 추가(ko/en/jp)
-- Profile의 언어 설정 변경으로 가능합니다. 
+- Multi language support for overseas users on Console (ko/en/jp)
+- You can change your language setting on user profile. 
 
 
-### 즐겨찾기 기능 추가
+### Bookmark functionality
 
-- Project와 Cloud Service 에 즐겨찾기 설정이 가능합니다. 
-- 사용자별 자주 찾아보는 Project와 Cloud Service를 등록하여, 신속한 리소스 현황 파악이 가능합니다.
+- Bookmark function is available for favorites Project and Cloud Service. 
+- Bookmark function for frequently access projects and cloud services per user to help to find resource status.
 
 ### Cloud Service Category 분류 세분화
 
@@ -39,20 +39,19 @@
 - 각 Cloud Resource별 가장 핵심이 되는 자원들을 뻐르게 찾아볼 수 있습니다.
 
 
-### Plugin 확장/기능개선
+### Plugin Expansion/function improvement
 
-- google-cloud-service plugin 추가
-- Cloud SQL, Instance Group, Instance Template, Machine Image 서비스 수집이 가능합니다.
-- azure compute plugin 추가
-- azure의 Virtual Machine 정보를 수집할 수 있습니다. 
-- (power-scheduler 전용) aws-power-state/google-cloud-power-state plugin 추가 
-- 기타 plugin의 버그 패치 
+- Cloud SQL, Instance Group, Instance Template, Machine Image service collectors are available.
+- Azure compute plugin is now available (Azure). 
+- View for azure's Virtual Machine information.
+- (Power-Scheduler only) added aws-power-state/google-cloud-power-state plugin
+- Other plugin bug fixes
 
 
 ### Bug fix
 
-- Collector의 세부 정보 탭에서 Last Collected/Created 정보 누락 현상
-- 기타 minor한 UI bug
+- Last Collected/Created information is missing in Collector's details tab
+- Other minor UI bugs
 
 
 ## Plugin compatible version
@@ -65,7 +64,7 @@ Updates may requires with following versions if service doesn't work as necessar
 |inventory.Collector|aws|aws-cloud-service|v1.2|
 |inventory.Collector|aws|plugin-aws-power-state|v1.2|
 |inventory.Collector|google cloud|google-cloud-compute|v1.1|
-|inventory.Collector|google cloud|google-cloud-services|v1.0|
+|inventory.Collector|google cloud|google-cloud-services|v1.0.2|
 |inventory.Collector|google cloud|plugin-google-cloud-power-state|v1.0|
 |inventory.Collector|Azure|azure-vm|v1.1|
 |monitoring.DataSource|aws|aws-cloudwatch|v1.0.2|
