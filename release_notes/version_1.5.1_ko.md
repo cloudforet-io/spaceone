@@ -18,6 +18,11 @@
 - Project 별 Cloud Resource 사용량을 더 신속하게 확인 가능합니다.
 - 사용자의 운영 편의를 위한 다양한 widget을 지속적으로 개발해 나갈 예정입니다.    
 
+### SpaceOne Console 다국어 지원 
+
+- 해외 사용자를 위한 Console 다국어 지원 추가(ko/en/jp)
+- Profile의 언어 설정 변경으로 가능합니다. 
+
 
 ### 즐겨찾기 기능 추가
 
