@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-aws-health', 'plugin-google-cloud-services', 'plugin-google-cloud-power-scheduler-controller', 'plugin-azure-vm', 'plugin-aws-power-state']
+        target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-aws-health', 'plugin-google-cloud-services', 'plugin-google-cloud-power-scheduler-controller', 'plugin-azure-vm', 'plugin-aws-power-state', 'plugin-google-cloud-power-state']
         branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['plugin-google-cloud-power-scheduler-controller', 'plugin-google-cloud-power-state']
+        target: ['plugin-google-cloud-power-scheduler-controller']
         branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
