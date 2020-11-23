@@ -6,19 +6,19 @@
 ### PowerScheduler service (beta)
 
 - PowerScheduler service to manages the Cloud Server's Power State according to the user's work pattern!
-- Schedule-based automatic stop/start management of the specified server group is possible.
+- Auto on/off scheduler to manage server resources cost within certain user customized group.
 
  
-### Main Dashboard 기능개선
+### Main Dashboard improvement
 
-- SpaceOne Main Dashboard 가 리뉴얼 되었습니다.
-- Compute/Database/Storage/Billing 분류에 따라 전체 서비스 사용 현황을 편리하게 확인 가능합니다.
-- 즐겨찾기로 등록한 Project/Cloud Service 로 편리한 이동이 가능합니다. 
-- 지역별 분산되어있는 Cloud Resource 현황을 한눈에 확인 가능합니다. 
-- Project 별 Cloud Resource 사용량을 더 신속하게 확인 가능합니다.
-- 사용자의 운영 편의를 위한 다양한 widget을 지속적으로 개발해 나갈 예정입니다.    
+- Brand new SpaceOne Main Dashboard!
+- Categorized View for Compute/Database/Storage/Billing services.  
+- Move to your favorite Project/Cloud Service with one click on the bookmark.
+- Check the status of Cloud Resources distributed by region at a glance.
+- Check the Cloud Resource usage by project more quickly.
+- New various widgets for user to boost operation convenience is upcoming soon. 
 
-| **중요**: 통계 데이터 수집을 위한 쿼리 변경으로, 기존 수집 중이었던 EC2 및 Cloud Service 일별 데이터가 리셋 됩니다.|
+| **Note**: the previous EC2 and Cloud Service daily data will be reset due to changing in query to collect statistical data.|
 | --- |
 
 
