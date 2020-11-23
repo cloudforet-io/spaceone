@@ -51,7 +51,7 @@
 
 ### 버그픽스
 
-- Collector의 세부 정보 탭에서 Last Collected/Created 정보 누략
+- Collector의 세부 정보 탭에서 Last Collected/Created 정보 누락 현상
 - 기타 minor한 UI bug
 
 
