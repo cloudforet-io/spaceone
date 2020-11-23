@@ -33,10 +33,10 @@
 - Bookmark function is available for favorites Project and Cloud Service. 
 - Bookmark function for frequently access projects and cloud services per user to help to find resource status.
 
-### Cloud Service Category 분류 세분화
+### Reorganized Category in Cloud Services
 
-- Cloud Service의 분류 체계를 Major/Minor 서비스로 세분화 하였습니다.
-- 각 Cloud Resource별 가장 핵심이 되는 자원들을 뻐르게 찾아볼 수 있습니다.
+- The classification for Cloud Service has been subdivided into Major & Minor services.
+- You access to the most core resources quickly for each Cloud services.
 
 
 ### Plugin Expansion/function improvement
