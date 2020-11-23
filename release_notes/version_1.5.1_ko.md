@@ -18,6 +18,10 @@
 - Project 별 Cloud Resource 사용량을 더 신속하게 확인 가능합니다.
 - 사용자의 운영 편의를 위한 다양한 widget을 지속적으로 개발해 나갈 예정입니다.    
 
+| **중요**: 통계 데이터 수집을 위한 쿼리 변경으로, 기존 수집 중이었던 EC2 및 Cloud Service 일별 데이터가 리셋 됩니다.|
+| --- |
+
+
 ### SpaceOne Console 다국어 지원 
 
 - 해외 사용자를 위한 Console 다국어 지원 추가(ko/en/jp)
