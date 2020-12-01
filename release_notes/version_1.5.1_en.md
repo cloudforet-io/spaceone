@@ -65,16 +65,20 @@ Updates may requires with following versions if service doesn't work as necessar
 |inventory.Collector|aws|plugin-aws-power-state|v1.2|
 |inventory.Collector|google cloud|google-cloud-compute|v1.1|
 |inventory.Collector|google cloud|google-cloud-services|v1.0.2|
-|inventory.Collector|google cloud|plugin-google-cloud-power-state|v1.0|
+|inventory.Collector|google cloud|google-cloud-power-state|v1.0|
 |inventory.Collector|Azure|azure-vm|v1.1|
 |monitoring.DataSource|aws|aws-cloudwatch|v1.0.2|
 |monitoring.DataSource|aws|aws-health|v1.0.2|
 |monitoring.DataSource|aws|google-cloud-stackdriver|v1.0.1|
-|power_scheduler.Controller|aws|plugin-aws-power-scheduler-controller|v1.0|
-|power_scheduler.Controller|google cloud|plugin-google-cloud-power-scheduler-controller|v1.0|
+|power_scheduler.Controller|aws|aws-power-controller|v1.0|
+|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.0|
 
 ## Hotfix Update
-
+|Date|Micro Service|Version|Fixed Issue|
+|---|:---:|:---:|:---:|
+|2020.11.24|console|1.5.1.2|query filter missing fixed|
+|2020.11.25|inventory|1.5.1.3|garbage collection issue fixed|
+|2020.11.25|console-api|1.5.1.4|dashboard loading latency decreased|
 
 
 
