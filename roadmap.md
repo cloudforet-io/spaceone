@@ -1,6 +1,7 @@
 # SpaceONE Development Roadmap
 
-You can find the SpaceONE roadmap at [SpaceONE project page](https://github.com/spaceone-dev/spaceone/projects/1).
+![](docs/images/spaceone_key_roadmap.png)
+You can find the detailed SpaceONE roadmap at [SpaceONE project page](https://github.com/spaceone-dev/spaceone/projects/1).
 
 The feature list of roadmap can be changed after summarizing users' issues or requests.
 If you have new idea or requests, create a new **issue**. 
