@@ -1,5 +1,14 @@
-# spaceone
-Repository tracking all SpaceONE repositories as submodules
+# SpaceONE
+
+This is TOP repository for all micro services in SpaceONE.
+
+# Roadmap
+
+You can find the SpaceONE roadmap at [SpaceONE project page](https://github.com/spaceone-dev/spaceone/projects/1).
+Our product roadmap is where you can learn about what features we're working on, what stage they're in, 
+and when we expect to bring them to you.
+
+The change history of roadmap can be found at [roadmap](./roadmap.md)
 
 # Release Notes
 
