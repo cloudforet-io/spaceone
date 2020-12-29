@@ -11,40 +11,25 @@
 
 ### 2. Multi Cloud 리소스 통합관리/모니터링 기능
 
-- Global Public Cloud 3사(AWS, Azure, Google Cloud)에 대한 통합 관리 기능을 완성 하였습니다. 
+- Global Public Cloud 3사(AWS, Azure, Google Cloud)에 대한 통합 관리 기능을 제공 합니다. 
 - 이제 각 회사에서 제공하는 Cloud Console에 로그인 하지 않아도, SpaceONE 통해 자원을 관리/모니터링 할 수 있습니다.       
 
-#### 1) AWS
-- 수집 가능 서비스 : EC2, ELB, VPC, S3, RDS, DocumentDB, DynamoDB, EKS, ECR, ECS, EFS, API Gateway, AutoScaling, CloudFront, CloudTrail, DirectConnect, Security Group, EIP, IAM, KMS, Lambda, Redshift, Route53, Secrets Manager, SNS, SQS, Personal Health Dashboard, Trusted Advisor
-- 모니터링 연동 : cloudwatch
 
-#### 2) Azure
-- 수집 가능 서비스 : Server, Snapshot, Disk
-- 모니터링 연동 : azure monitor
+### 3. Dashboard Widget 
 
-#### 3) Google Cloud
-- 수집 가능 서비스 : Server, Instance Group, Instance Template, Machine Images
-- 모니터링 연동 : google stackdriver
-
-#### 4) 향후 예정사항
-- Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, KT Cloud 등 국내외 주요 클라우드로 확장해 나갈 예정입니다.  
-
-
-### 3. Dashboard Widget
-
-#### 1) AWS Trusted Advisor Widget
+**AWS Trusted Advisor Widget**
 
 - AWS의 비용/보안 최적화 관리기능인 Trusted Advisor를 SpaceONE을 통해 편리하게 활용할 수 있습니다. 
 - Trusted Advisor가 제안하는 요소들을 한눈에 파악하고, 신속한 조치를 할 수 있도록 지원합니다. 
 
 
-#### 2) AWS Personal Health Dashboard Widget
+**AWS Personal Health Dashboard Widget**
 
 - AWS의 작업 및 장애 내역 및 이로인해 영향받는 Cloud 자원 리스트를 편리하게 확인할 수 있습니다.     
 
 
 
-### 4. Role Based Access Control(RBAC, Alpha Release)
+**Role Based Access Control(RBAC, Alpha Release)**
 
 - 이제 도메인 구성원들을 역할별로 구분하여 관리 가능합니다. 
 - 사용자를 Domain Admin, Project Admin, Project User 단계로 나누어 API 레벨의 기능/접근권한 관리가 가능합니다.
@@ -65,6 +50,24 @@
 
 - API 인증 관련 마이너 버그 다수 개선
 - PowerScheduler Console Bug 수정
+
+
+## 수집/모니터링 가능한 Cloud Service List
+
+### AWS
+- 수집 가능 서비스 : EC2, ELB, VPC, S3, RDS, DocumentDB, DynamoDB, EKS, ECR, ECS, EFS, API Gateway, AutoScaling, CloudFront, CloudTrail, DirectConnect, Security Group, EIP, IAM, KMS, Lambda, Redshift, Route53, Secrets Manager, SNS, SQS, Personal Health Dashboard, Trusted Advisor
+- 모니터링 연동 : cloudwatch
+
+### Azure
+- 수집 가능 서비스 : Server, Snapshot, Disk
+- 모니터링 연동 : azure monitor
+
+### Google Cloud
+- 수집 가능 서비스 : Server, Instance Group, Instance Template, Machine Images
+- 모니터링 연동 : google stackdriver
+
+### 향후 예정사항
+- Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, KT Cloud 등 국내외 주요 클라우드로 확장해 나갈 예정입니다.  
 
 
 ## Plugin 
