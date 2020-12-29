@@ -63,7 +63,7 @@
 - 모니터링 연동 : azure monitor
 
 ### Google Cloud
-- 수집 가능 서비스 : Server, Instance Group, Instance Template, Machine Images, Disk, Snapshot, Storage, Cloud SQL, VPC, 
+- 수집 가능 서비스 : Server, Instance Group, Instance Template, Machine Images, Disk, Snapshot, Storage, Cloud SQL, VPC 
 - 모니터링 연동 : google stackdriver
 
 ### 향후 예정사항
