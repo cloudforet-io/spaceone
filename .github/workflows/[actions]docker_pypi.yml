@@ -11,8 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin']
-        branch: ['master', 'release-1.4.3']
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'billing']
+        branch: ['master', 'release-1.5.3']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:

@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['console-assets', 'console-api']
-        branch: ['master', 'release-1.4.3']
+        branch: ['master']
     runs-on: ubuntu-latest
     steps:
       - name: set token
@@ -39,12 +39,12 @@ jobs:
           \cp -rf github_actions/only_docker/workflows ${{ env.target }}/.github/
           cd ${{ env.target }}
           git add . && git commit -m "[CI/CD] update github actions" && git push
-  special_case_update:
+  no_master_push_update:
     strategy:
       fail-fast: false
       matrix:
         target: ['console', 'power-scheduler', 'custom-report']
-        branch: ['master', 'release-1.4.3']
+        branch: ['master']
     runs-on: ubuntu-latest
     steps:
       - name: set token
