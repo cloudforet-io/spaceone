@@ -76,27 +76,28 @@ SpaceOne v1.5.3 에 호환되는 플러그인 버전을 안내 드립니다.
 
 ### 호환 플러그인 리스트
 
-|plugin 종류|Provider|플러그인 이름|버전|
-|---|:---:|:---:|:---:|
-|identity.Auth|oAuth|google-oauth2|v1.1|
-|inventory.Collector|aws|aws-trusted-advisor|v1.1|
-|inventory.Collector|aws|aws-ec2|v1.7|
-|inventory.Collector|aws|aws-cloud-service|v1.5|
-|inventory.Collector|aws|plugin-aws-power-state|v1.3|
-|inventory.Collector|aws|aws-personal-health-dashboard|v1.0|
-|inventory.Collector|google cloud|google-cloud-compute|v1.2|
-|inventory.Collector|google cloud|google-cloud-services|v1.1|
-|inventory.Collector|google cloud|google-cloud-power-state|v1.0|
-|inventory.Collector|azure|azure-vm|v1.2|
-|inventory.Collector|azure|azure-cloud-services|v1.0|
-|inventory.Collector|azure|azure-power-state|v1.0|
-|inventory.Collector|spaceone|monitoring-metric-collector|v1.0|
-|monitoring.DataSource|aws|aws-cloudwatch|v1.1|
-|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.2|
-|monitoring.DataSource|aws|azure-monitor|v1.0|
-|power_scheduler.Controller|aws|aws-power-controller|v1.0|
-|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.0.1|
-|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
+|추가여부|plugin 종류|Provider|플러그인 이름|버전|
+|:---:|---|:---:|:---:|:---:|
+|-|identity.Auth|oAuth|google-oauth2|v1.1|
+|new|inventory.Collector|aws|aws-trusted-advisor|v1.1|
+|-|inventory.Collector|aws|aws-ec2|v1.7|
+|-|inventory.Collector|aws|aws-cloud-service|v1.5|
+|-|inventory.Collector|aws|plugin-aws-power-state|v1.3|
+|new|inventory.Collector|aws|aws-personal-health-dashboard|v1.0|
+|-|inventory.Collector|google cloud|google-cloud-compute|v1.2|
+|-|inventory.Collector|google cloud|google-cloud-services|v1.1|
+|-|inventory.Collector|google cloud|google-cloud-power-state|v1.0|
+|-|inventory.Collector|azure|azure-vm|v1.2|
+|new|inventory.Collector|azure|azure-cloud-services|v1.0|
+|new|inventory.Collector|azure|azure-power-state|v1.0|
+|new|inventory.Collector|spaceone|monitoring-metric-collector|v1.0|
+|-|monitoring.DataSource|aws|aws-cloudwatch|v1.1|
+|-|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.2|
+|new|monitoring.DataSource|aws|azure-monitor|v1.0|
+|-|power_scheduler.Controller|aws|aws-power-controller|v1.0|
+|-|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.0.1|
+|new|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
+
 
 ### 지원 제외 플러그인
 - 대상 플러그인은 aws-personal-health-dashboard 로 대체되어 기능 제공 됩니다
