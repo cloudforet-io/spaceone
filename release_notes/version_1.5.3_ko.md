@@ -110,6 +110,11 @@ SpaceOne v1.5.3 에 호환되는 플러그인 버전을 안내 드립니다.
 ## Hotfix Update
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
-|-|-|-|-|
+|2020.12.30|inventory|1.5.3.5|modified resource collecting stability issue|
+|2020.12.30|identity|1.5.3.1|fixed minor bug|
+|2020.12.30|console-api|1.5.3.1|fixed minor bug|
+|2020.12.30|repository|1.5.3.1|fixed minor bug|
+|2020.01.04|console|1.5.3.1|fixed minor bug|
+
 
 
