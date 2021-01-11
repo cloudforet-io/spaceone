@@ -12,7 +12,7 @@
 ### 2. Multi Cloud 리소스 통합관리/모니터링 기능
 
 - Global Public Cloud 3사(AWS, Azure, Google Cloud)에 대한 통합 관리 기능을 제공 합니다. 
-- 이제 각 회사에서 제공하는 Cloud Console에 로그인 하지 않아도, SpaceONE 통해 자원을 관리/모니터링 할 수 있습니다.       
+- 이제 각 회사에서 제공하는 Cloud Console에 로그인 하지 않아도, SpaceONE 통해 자원을 관리/모니터링 할 수 있습니다.
 
 
 ### 3. Dashboard Widget 
@@ -25,7 +25,7 @@
 
 **AWS Personal Health Dashboard Widget**
 
-- AWS의 작업 및 장애 내역 및 이로인해 영향받는 Cloud 자원 리스트를 편리하게 확인할 수 있습니다.     
+- AWS의 작업 및 장애 내역 및 이로인해 영향받는 Cloud 자원 리스트를 편리하게 확인할 수 있습니다.
 
 
 
@@ -67,7 +67,7 @@
 - 모니터링 연동 : google stackdriver
 
 ### 향후 예정사항
-- Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, KT Cloud 등 국내외 주요 클라우드로 확장해 나갈 예정입니다.  
+- Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, KT Cloud 등 국내외 주요 클라우드로 확장해 나갈 예정입니다.
 
 
 ## Plugin 
@@ -115,6 +115,6 @@ SpaceOne v1.5.3 에 호환되는 플러그인 버전을 안내 드립니다.
 |2020.12.30|console-api|1.5.3.1|fixed minor bug|
 |2020.12.30|repository|1.5.3.1|fixed minor bug|
 |2020.01.04|console|1.5.3.1|fixed minor bug|
-
-
+|2020.01.11|console|1.5.3.2|fix power-scheduler|
+|2020.01.11|console-api|1.5.3.2|fix power-scheduler|
 
