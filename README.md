@@ -10,6 +10,16 @@ and when we expect to bring them to you.
 
 The change history of roadmap can be found at [roadmap](./roadmap.md)
 
+# Supported Features
+
+## Collector
+
+The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.md)
+
+* AWS
+* Google Cloud
+* Microsoft Azure
+
 # Release Notes
 
 | Date        |  Version   | See Details  |
