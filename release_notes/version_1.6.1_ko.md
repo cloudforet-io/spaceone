@@ -68,7 +68,9 @@ SpaceOne v1.6.1 에 호환되는 플러그인 버전을 안내 드립니다.
 ## Hotfix Update
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
-|-|-|-|-|
+|2020.01.25|statistics|1.6.1.3|query bug fixed|
+|2020.01.26|identity|1.6.1.1|authentication handler added|
+
 
 
 
