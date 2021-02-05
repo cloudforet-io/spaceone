@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console-assets', 'console-api']
+        target: ['console-assets', 'console-api', 'power-scheduler']
         branch: ['master']
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console', 'power-scheduler', 'custom-report']
+        target: ['console', 'custom-report']
         branch: ['master']
     runs-on: ubuntu-latest
     steps:
@@ -74,7 +74,7 @@ jobs:
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
-    needs: [all_in_one_update_common, special_case_update]
+    needs: [all_in_one_update_common, no_master_push_update]
     runs-on: ubuntu-latest
     steps:
       - name: Slack
