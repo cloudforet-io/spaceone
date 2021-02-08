@@ -1,0 +1,34 @@
+name: "[temp] update_policy"
+on:
+  workflow_dispatch:
+jobs:
+  remove_outdated_CI_Workflow:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-aws-health', 'plugin-google-cloud-services', 'plugin-azure-vm', 'plugin-aws-power-state', 'plugin-google-cloud-power-state', 'plugin-azure-monitor', 'plugin-monitoring-metric-collector', 'plugin-azure-power-state', 'plugin-azure-cloud-services', 'plugin-aws-personal-health-dashboard', 'plugin-google-cloud-power-controller']
+        branch: ['1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10']
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: set token
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: task
+        env:
+          target: ${{ matrix.target }}
+        run: |
+          git config --global user.email admin@spaceone.dev
+          git config --global user.name admin-spaceone
+          eval "$(ssh-agent -s)"
+          cat <<EOF>id_rsa
+          ${{secrets.ssh_key}}
+          EOF
+          chmod 400 ./id_rsa && ssh-add ./id_rsa
+          git pull
+          git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          cd ${{ env.target }}
+          git checkout release-${{ matrix.branch }}
+          rm -rf .github
+          git add . && git commit -m "[CI/CD] policy change: unite CI workflows to master branch" && git push
