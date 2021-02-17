@@ -51,11 +51,12 @@ SpaceONE v1.6.2 에 호환되는 플러그인 버전을 안내 드립니다.
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
 |2021.02.09|config|1.6.2.1|RBAC related bug fixed|
-|2021.02.09|console-client|1.6.2.1|RBAC related bug fixed|
-|2021.02.16|identity|1.6.2.5|RBAC related bug fixed|
-|2021.02.17|inventory|1.6.2.3|RBAC related bug fixed|
+|2021.02.09|console|1.6.2.1|RBAC related bug fixed|
 |2021.02.09|monitoring|1.6.2.1|RBAC related bug fixed|
 |2021.02.09|repository|1.6.2.1|RBAC related bug fixed|
 |2021.02.09|secret|1.6.2.1|RBAC related bug fixed|
 |2021.02.16|statistics|1.6.2.1|RBAC related statistics topic modified|
+|2021.02.17|console-api|1.6.2.2|RBAC related bug fixed|
+|2021.02.17|inventory|1.6.2.6|RBAC related bug fixed|
+|2021.02.16|identity|1.6.2.5|RBAC related bug fixed|
 
