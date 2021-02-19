@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console-assets', 'console-api', 'power-scheduler']
+        target: ['console-assets', 'console-api', 'power-scheduler', 'project-site']
         branch: ['master']
     runs-on: ubuntu-latest
     steps:
