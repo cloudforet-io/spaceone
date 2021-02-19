@@ -30,7 +30,7 @@ SpaceONE v1.6.2 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|inventory.Collector|aws|aws-trusted-advisor|v1.2|
 |Updated|inventory.Collector|aws|aws-ec2|v1.8|
 |Updated|inventory.Collector|aws|aws-cloud-service|v1.6|
-|Updated|inventory.Collector|aws|plugin-aws-power-state|v1.3|
+|Updated|inventory.Collector|aws|plugin-aws-power-state|v1.4|
 |Updated|inventory.Collector|aws|aws-personal-health-dashboard|v1.1|
 |Updated|inventory.Collector|google cloud|google-cloud-compute|v1.2.1|
 |Updated|inventory.Collector|google cloud|google-cloud-services|v1.1.2|
