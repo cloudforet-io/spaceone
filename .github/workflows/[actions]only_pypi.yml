@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['python-core', 'api']
-        branch: ['master', 'release-1.4.3']
+        branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
