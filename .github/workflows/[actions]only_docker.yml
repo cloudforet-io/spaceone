@@ -7,6 +7,38 @@ jobs:
 # docker/pypi : identity, inventory, monitoring, repository, statistics, secret, config, supervisor, plugin
 # docker만 : console-assets, custom-report, console-api, console, power-scheduler
 # pypi만 : api, python-core
+  console:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['console']
+        branch: ['master']
+    runs-on: ubuntu-latest
+    steps:
+      - name: set token
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: task
+        env:
+          target: ${{ matrix.target }}
+        run: |
+          git config --global user.email admin@spaceone.dev
+          git config --global user.name admin-spaceone
+          eval "$(ssh-agent -s)"
+          cat <<EOF>id_rsa
+          ${{secrets.ssh_key}}
+          EOF
+          chmod 400 ./id_rsa && ssh-add ./id_rsa
+          git clone git@github.com:spaceone-dev/${{ env.target }}.git
+          cd ${{ env.target }}
+          git checkout ${{ matrix.branch }}
+          cd ..
+          rm -rf ${{ env.target }}/.github/workflows/*
+          \cp -rf github_actions/common/workflows ${{ matrix.target }}/.github/
+          \cp -f github_actions/only_docker/${{ matrix.target }}/* ${{ matrix.target }}/.github/workflows
+          cd ${{ env.target }}
+          git add . && git commit -m "[CI/CD] update github actions" && git push
   all_in_one_update_common:
     strategy:
       fail-fast: false
@@ -43,7 +75,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console', 'custom-report']
+        target: ['custom-report', 'cost-saving']
         branch: ['master']
     runs-on: ubuntu-latest
     steps:
