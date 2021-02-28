@@ -5,43 +5,43 @@ console:
 console-api:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 identity:
   image:
     version: 1.6.4-rc3
-    repository: pyengine
+    repository: spaceone
 secret:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 repository:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 plugin:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 config:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 inventory:
   image:
     version: 1.6.4-rc3
-    repository: pyengine
+    repository: spaceone
 monitoring:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 statistics:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 billing:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
 power-scheduler:
   image:
     version: 1.6.2
