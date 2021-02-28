@@ -3,7 +3,7 @@ console:
     version: 1.6.2.1
 console-api:
   image:
-    version: 1.6.2.1
+    version: 1.6.4-rc1.20210301.023941
 identity:
   image:
     version: 1.6.4-rc3
