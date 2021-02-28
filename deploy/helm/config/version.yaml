@@ -46,4 +46,4 @@ power-scheduler:
 supervisor:
   image:
     version: 1.6.4-rc2
-    repository: pyengine
+    repository: spaceone
