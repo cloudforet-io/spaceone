@@ -10,7 +10,7 @@ identity:
     repository: pyengine
 secret:
   image:
-    version: 1.6.2.1.20210301.002212
+    version: 1.6.4-rc2
     repository: pyengine
 repository:
   image:
