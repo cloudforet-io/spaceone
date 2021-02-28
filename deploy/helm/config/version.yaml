@@ -11,6 +11,7 @@ identity:
 secret:
   image:
     version: 1.6.2.1.20210301.002212
+    repository: pyengine
 repository:
   image:
     version: 1.6.2.1
