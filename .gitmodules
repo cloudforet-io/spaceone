@@ -37,3 +37,6 @@
 [submodule "cost-saving"]
 	path = cost-saving
 	url = https://github.com/spaceone-dev/cost-saving.git
+[submodule "supervisor"]
+	path = supervisor
+	url = https://github.com/spaceone-dev/supervisor.git
