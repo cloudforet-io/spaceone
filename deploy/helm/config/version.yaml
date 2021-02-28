@@ -38,7 +38,7 @@ statistics:
     repository: pyengine
 billing:
   image:
-    version: 1.6.4-rc1.20210301.005341
+    version: 1.6.4-rc2
     repository: pyengine
 power-scheduler:
   image:
