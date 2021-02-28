@@ -34,7 +34,7 @@ monitoring:
     repository: pyengine
 statistics:
   image:
-    version: 1.6.2.1
+    version: 1.6.4-rc1.20210301.005134
 billing:
   image:
     version: 1.6.2
