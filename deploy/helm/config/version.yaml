@@ -19,6 +19,7 @@ repository:
 plugin:
   image:
     version: 1.6.4-rc1.20210301.003119
+    repository: pyengine
 config:
   image:
     version: 1.6.2.1
