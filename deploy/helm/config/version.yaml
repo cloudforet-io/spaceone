@@ -15,6 +15,7 @@ secret:
 repository:
   image:
     version: 1.6.4-rc1.20210301.002800
+    repository: pyengine
 plugin:
   image:
     version: 1.6.2
