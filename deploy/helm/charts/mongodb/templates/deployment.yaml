@@ -1,0 +1,53 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+{{ include "spaceone.labels" . | indent 4 }}
+    spaceone.service: mongodb
+  name: mongodb 
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      spaceone.service: mongodb
+  template:
+    metadata:
+      annotations:
+        spaceone.deployment.tool: helm
+      labels:
+{{ include "spaceone.labels" . | indent 8 }}
+        spaceone.service: mongodb
+    spec:
+      terminationGracePeriodSeconds: {{ .Values.gracePeriod }}
+      containers:
+        - name: mongodb
+          image: {{ .Values.image.name }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongodb-data
+              mountPath: /data/db
+            - name: mongodb-user-conf
+              mountPath: /docker-entrypoint-initdb.d/user.js
+              subPath: user.js
+              readOnly: true
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: {{ .Values.username }}
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: {{ .Values.password }}
+            - name: MONGO_INITDB_DATABASE
+              value: admin
+
+      volumes:
+        - name: mongodb-data
+          emptyDir: {}
+        - name: mongodb-user-conf
+          configMap:
+            name: mongodb-user-conf
+
+{{- end }}

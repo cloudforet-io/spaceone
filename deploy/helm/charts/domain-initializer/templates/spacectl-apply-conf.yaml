@@ -1,0 +1,23 @@
+{{ if .Values.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: domain-spacectl-apply-files-conf
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
+data:
+{{ if eq .Values.auth "local" }}
+{{ range $path, $_ :=  .Files.Glob  "config/spacectl/local/*.yaml" }}
+{{ $file_name := split "/" $path }}
+  {{ $file_name._3 }}: |
+{{ $.Files.Get $path | indent 4 }}
+{{ end }}
+
+{{ else if eq .Values.auth "oauth" }}
+{{ range $path, $_ :=  .Files.Glob  "config/spacectl/oauth/*.yaml" }}
+{{ $file_name := split "/" $path }}
+  {{ $file_name._3 }}: |
+{{ $.Files.Get $path | indent 4 }}
+{{ end }}
+{{ end }}
+
+{{ end }}

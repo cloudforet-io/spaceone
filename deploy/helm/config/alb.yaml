@@ -1,0 +1,26 @@
+console:
+    console_api: https://console-api.cloudeco.io
+    imagePullPolicy: Always
+    service:
+        type: NodePort
+
+
+console-api:
+    service:
+        type: NodePort
+
+ingress:
+    enabled: true
+    name: ingress
+    annotations:
+        kubernetes.io/ingress.class: alb
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+        alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+        alb.ingress.kubernetes.io/inbound-cidrs: 0.0.0.0/0 
+        alb.ingress.kubernetes.io/scheme: "internet-facing"
+        alb.ingress.kubernetes.io/target-type: instance 
+        alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-west-1:257706363616:certificate/214b530c-bd15-4ab6-a1eb-b6ea1fca6510"
+    endpoint:
+        console: "console.cloudeco.io"
+        console_api: "console-api.cloudeco.io"
+

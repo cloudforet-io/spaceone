@@ -1,0 +1,22 @@
+import:
+  - root_domain.yaml
+  - repository.yaml
+    #  - register_plugins.yaml
+  - marketplace.yaml
+    #  - schema.yaml
+    #  - monitoring.yaml
+  - statistics.yaml
+  - monitoring_from_marketplace.yaml
+    #- plugin_endpoint.yaml
+
+var:
+  domain_name: root
+  domain_owner:
+    id: admin
+    password: AdministratoR1
+  user:
+    id: root_api_key
+  marketplace_token: ey____PUT_MARKET_PLACE_TOKEN_HERE_____________
+  domain_policy_id: policy-0386cce2730b
+  project_policy_id: policy-0386cce2730b
+tasks: []

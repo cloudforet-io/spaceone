@@ -1,0 +1,141 @@
+tasks:
+  - name: Create Domain
+    id: domain
+    uses: "@modules/resource"
+    spec:
+      resource_type: identity.Domain
+      data:
+        name: ${{ var.domain_name }}
+      matches:
+        - name
+      mode: NO_UPDATE
+
+  - name: Create DomainOwner
+    id: domain_owner
+    uses: "@modules/resource"
+    spec:
+      resource_type: identity.DomainOwner
+      data:
+        name: Domain Admin
+        owner_id: ${{ var.domain_owner.id }}
+        password: ${{ var.domain_owner.password }}
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      matches:
+        - domain_id
+      mode: NO_UPDATE
+      verb:
+        read: get
+
+
+  - name: Create DomainOwner Token
+    id: domain_owner_token
+    uses: "@modules/resource"
+    spec:
+      resource_type: identity.Token
+      data:
+        user_id: ${{ tasks.domain_owner.spec.data.owner_id }}
+        user_type: DOMAIN_OWNER
+        credentials:
+          password: ${{ tasks.domain_owner.spec.data.password }}
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: issue
+
+  - name: Update spacectl configure
+    id: shell
+    uses: "@modules/shell"
+    spec:
+      run: |
+        spacectl config set api_key ${{ tasks.domain_owner_token.output.access_token }}
+
+  - name: List Provider
+    id: list_provider
+    uses: "@modules/shell"
+    spec:
+      run: |
+        spacectl list provider -p domain_id=${{ tasks.domain.output.domain_id }}
+
+  - name: Create System Policy
+    id: system_policy
+    uses: "modules/resource"
+    spec:
+      resource_type: identity.Policy
+      data:
+        name: "System Full Acess"
+        permissions:
+          - "*"
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: create
+
+  - name: Create System Role
+    id: system_role
+    uses: "modules/resource"
+    spec:
+      resource_type: identity.Role
+      data:
+        name: "System Admin"
+        role_type: SYSTEM
+        policies:
+          - policy_type: CUSTOM
+            policy_id: ${{ tasks.system_policy.output.policy_id }}
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: create
+
+  - name: Create admin user
+    id: admin_user
+    uses: "@modules/resource"
+    spec:
+      resource_type: identity.User
+      data:
+        user_id: ${{ var.user.id }}
+        user_type: API_USER
+        backend: LOCAL
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: create
+
+  - name: System Role Binding
+    id: system_role_binding
+    uses: "modules/resource"
+    spec:
+      resource_type: identity.RoleBinding
+      data:
+        resource_type: identity.User
+        resource_id: ${{ var.user.id }}
+        role_id: ${{ tasks.system_role.output.role_id }}
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: create
+
+  - name: Create admin user API(Domain) key
+    id: admin_user_api_key
+    uses: "@modules/resource"
+    spec:
+      resource_type: identity.APIKey
+      data:
+        user_id: ${{ tasks.admin_user.output.user_id }}
+        domain_id: ${{ tasks.domain.output.domain_id }}
+      mode: EXEC
+      verb:
+        exec: create
+
+  - name: Update spacectl configure (admin)
+    id: shell
+    uses: "@modules/shell"
+    spec:
+      run: |
+        spacectl config set api_key ${{ tasks.admin_user_api_key.output.api_key }}
+
+
+  - name: Consul Supervisor API Key
+    uses: "@modules/shell"
+    spec:
+      run: |
+          curl -X PUT http://consul:8500/v1/kv/debug/supervisor/TOKEN -d '${{ tasks.admin_user_api_key.output.api_key }}'

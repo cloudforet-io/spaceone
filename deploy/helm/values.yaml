@@ -1,0 +1,128 @@
+enabled: true
+
+# Service
+mongodb:
+    enabled: false
+redis:
+    enabled: true
+consul:
+    enabled: true
+
+console:
+    enable: true
+
+console-api:
+    enable: true
+
+identity:
+    enabled: true
+secret:
+    enabled: true
+    application:
+        CONNECTORS:
+            AWSSecretManagerConnector:
+                aws_access_key_id: aaaaaaaaaaaaaaaaaaaa
+                aws_secret_access_key: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                region_name: us-west-1
+
+repository:
+    enabled: true
+    application:
+        ROOT_TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+        CONNECTORS:
+            RegistryConnector:
+                host: https://257706363616.dkr.ecr.ap-northeast-2.amazonaws.com
+                verify_ssl: False
+                api_version: 2
+                username: AWS
+
+plugin:
+    enabled: true
+    scheduler: true
+    worker: true
+    application_scheduler:
+        TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+
+config:
+    enabled: true
+
+inventory:
+    enabled: true
+    scheduler: true
+    worker: true
+    application:
+        TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+        collect_queue: collector_q
+
+    application_scheduler:
+        TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+
+
+monitoring:
+    enabled: true
+
+statistics:
+    enabled: true
+    scheduler: true
+    worker: true
+    application_scheduler:
+        TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+
+
+billing:
+    enabled: true
+
+power-scheduler:
+    enabled: true
+    scheduler: true
+    worker: true
+    application_scheduler:
+        TOKEN_INFO:
+            protocol: consul
+            config:
+                host: consul
+            uri: debug/supervisor/TOKEN
+
+
+# include config/alb.yaml (for ALB)
+# include config/nlb.yaml (for NLB)
+supervisor:
+    enabled: true
+
+spaceone-initializer:
+    enabled: true
+    image:
+        version: 1.6.2
+
+domain-initialzer:
+    enabled: false
+
+global:
+    namespace: spaceone
+    supervisor_namespace: root-supervisor
+    backend:
+        sidecar: []
+        volumes: []
+    frontend:
+        sidecar: []
+        volumes: []

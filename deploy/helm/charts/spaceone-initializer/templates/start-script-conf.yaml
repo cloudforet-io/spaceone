@@ -1,0 +1,12 @@
+# deploy always
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: start-script-conf
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
+data:
+  initialize.sh: |
+    echo START SPACEONE INITIALIZE
+    cd /root/spacectl/apply
+    spacectl apply main.yaml
+    echo FINISH SPACEONE INITIALIZE

@@ -1,0 +1,20 @@
+console:
+    console_api: https://console-api.cloudeco.io
+    service:
+        type: LoadBalancer
+        annotations:
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+            service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:us-west-1:257706363616:certificate/214b530c-bd15-4ab6-a1eb-b6ea1fca6510"
+            service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+
+
+console-api:
+    service:
+        type: LoadBalancer
+        annotations:
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+            service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:us-west-1:257706363616:certificate/214b530c-bd15-4ab6-a1eb-b6ea1fca6510"
+            service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+
+ingress:
+    enabled: false

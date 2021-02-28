@@ -1,0 +1,29 @@
+# global is all shared variable in this namespace
+global:
+    backend:
+        sidecar:
+            - name: mongos
+              image: mongo:4.4.0-bionic
+              command: [ 'mongos', '--config', '/mnt/mongos.yml', '--bind_ip_all' ]
+              volumeMounts:
+                - name: mongos-conf
+                  mountPath: /mnt/mongos.yml
+                  subPath: mongos.yml
+                  readOnly: true
+                - name: mongo-shard-key
+                  mountPath: /opt/mongos/mongo-shard.pem
+                  subPath: mongo-shard.pem
+                  readOnly: true
+
+        volumes:
+            - name: mongo-shard-key
+              secret:
+                  defaultMode: 0400
+                  secretName: mongo-shard-key
+            - name: mongos-conf
+              configMap:
+                  name: mongos-conf
+
+    frontend:
+        sidecar: []
+        volumes: []

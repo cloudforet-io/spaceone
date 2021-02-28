@@ -1,0 +1,39 @@
+[submodule "console"]
+	path = console
+	url = https://github.com/spaceone-dev/console.git
+[submodule "console-api"]
+	path = console-api
+	url = https://github.com/spaceone-dev/console-api.git
+[submodule "identity"]
+	path = identity
+	url = https://github.com/spaceone-dev/identity.git
+[submodule "secret"]
+	path = secret
+	url = https://github.com/spaceone-dev/secret.git
+[submodule "repository"]
+	path = repository
+	url = https://github.com/spaceone-dev/repository.git
+[submodule "plugin"]
+	path = plugin
+	url = https://github.com/spaceone-dev/plugin.git
+[submodule "config"]
+	path = config
+	url = https://github.com/spaceone-dev/config.git
+[submodule "inventory"]
+	path = inventory
+	url = https://github.com/spaceone-dev/inventory.git
+[submodule "monitoring"]
+	path = monitoring
+	url = https://github.com/spaceone-dev/monitoring.git
+[submodule "statistics"]
+	path = statistics
+	url = https://github.com/spaceone-dev/statistics.git
+[submodule "billing"]
+	path = billing
+	url = https://github.com/spaceone-dev/billing.git
+[submodule "power-scheduler"]
+	path = power-scheduler
+	url = https://github.com/spaceone-dev/power-scheduler.git
+[submodule "cost-saving"]
+	path = cost-saving
+	url = https://github.com/spaceone-dev/cost-saving.git

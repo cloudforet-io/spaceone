@@ -1,0 +1,53 @@
+console:
+    image:
+        version: 1.6.2.1
+
+console-api:
+    image:
+        version: 1.6.2.1
+
+identity:
+    image:
+        version: 1.6.2.5
+
+secret:
+    image:
+        version: 1.6.2.1
+
+repository:
+    image:
+        version: 1.6.2.1
+
+plugin:
+    image:
+        version: 1.6.2
+
+config:
+    image:
+        version: 1.6.2.1
+
+inventory:
+    image:
+        version: 1.6.2.6
+    
+monitoring:
+    image:
+        version: 1.6.2.1
+
+statistics:
+    image:
+        version: 1.6.2.1
+
+billing:
+    image:
+        version: 1.6.2
+
+power-scheduler:
+    image:
+        version: 1.6.2
+
+supervisor:
+    image:
+        version: 1.6.4
+
+

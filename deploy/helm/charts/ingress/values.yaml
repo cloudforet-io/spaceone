@@ -1,0 +1,19 @@
+###############################
+# DEFAULT 
+###############################
+enabled: true
+name: ingress
+annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/inbound-cidrs: 0.0.0.0/0 # replace or leave out
+    alb.ingress.kubernetes.io/scheme: "internet-facing" # internet-facing
+    alb.ingress.kubernetes.io/target-type: instance # Your console and console-api should be NodePort for this configuration.
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:... # This should be replaced with your cert arn.
+
+# Put your endpoint domain name of console, console-api
+
+endpoint:
+    console: "console.cloudeco.io"
+    console_api: "console-api.cloudeco.io"

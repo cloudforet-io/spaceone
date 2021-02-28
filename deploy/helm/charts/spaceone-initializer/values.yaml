@@ -1,0 +1,10 @@
+###############################
+# DEFAULT 
+###############################
+enabled: true
+image:
+    repository: spaceone
+    name: spacectl
+    version: 1.5.3
+imagePullPolicy: IfNotPresent
+

@@ -1,0 +1,32 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+{{ include "spaceone.labels" . | indent 4 }}
+    spaceone.service: redis 
+  name: redis
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      spaceone.service: redis
+  template:
+    metadata:
+      annotations:
+        spaceone.deployment.tool: helm
+      labels:
+{{ include "spaceone.labels" . | indent 8 }}
+        spaceone.service: redis
+    spec:
+      terminationGracePeriodSeconds: {{ .Values.gracePeriod }}
+      containers:
+        - name: redis 
+          image: {{ .Values.image.name }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.port }}
+
+{{- end }}

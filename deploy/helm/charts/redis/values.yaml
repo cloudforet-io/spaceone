@@ -1,0 +1,15 @@
+###############################
+# DEFAULT 
+###############################
+enabled: true
+image:
+    name: redis
+imagePullPolicy: IfNotPresent
+port: 6379
+service:
+    type: ClusterIP
+    ports:
+        - name: redis
+          port: 6379
+          targetPort: 6379
+          protocol: TCP

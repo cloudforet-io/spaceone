@@ -1,0 +1,12 @@
+# deploy always
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spacectl-apply-files-conf
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
+data:
+{{ range $path, $_ :=  .Files.Glob  "config/spacectl/*.yaml" }}
+{{ $file_name := split "/" $path }}
+  {{ $file_name._2 }}: |
+{{ $.Files.Get $path | indent 4 }}
+{{ end }}

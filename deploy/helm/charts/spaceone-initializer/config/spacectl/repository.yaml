@@ -1,0 +1,17 @@
+tasks:
+  - name: Create Repository
+    id: repository
+    uses: "@modules/resource"
+    spec:
+      resource_type: repository.Repository
+      data:
+        domain_id: ${{ tasks.domain.output.domain_id }}
+        name: ${{ var.domain_name }}
+        repository_type: local
+      matches:
+        - domain_id
+        - name
+      mode: NO_UPDATE
+      verb:
+        create: register
+

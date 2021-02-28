@@ -1,0 +1,67 @@
+apiVersion: v2
+name: spaceone
+description: A Helm chart for SpaceONE
+
+type: application
+version: "1.6.4"
+appVersion: "1.6.4"
+
+home: https://www.spaceone.org
+
+dependencies:
+    - name: console
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: console.enabled
+    - name: console-api
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: console-api.enabled
+    - name: identity
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: identity.enabled
+    - name: secret
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: secret.enabled
+    - name: repository
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: repository.enabled
+    - name: plugin
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: plugin.enabled
+    - name: config
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: config.enabled
+    - name: inventory
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: inventory.enabled
+    - name: monitoring
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: monitoring.enabled
+    - name: statistics
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: statistics.enabled
+    - name: billing
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: billing.enabled
+    - name: power-scheduler
+      version: ">=1.6.4"
+      repositroy: https://spaceone-dev.github.io/charts
+      condition: power-scheduler.enabled
+ 
+    - name: supervisor
+      version: ">=1.6.4"
+      condition: supervisor.enabled
+
+    - name: domain-initializer
+      version: ">=1.6.4"
+      condition: domain-initialzer.enabled

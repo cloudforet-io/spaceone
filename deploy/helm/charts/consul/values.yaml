@@ -1,0 +1,15 @@
+###############################
+# DEFAULT 
+###############################
+enabled: false
+image:
+    name: consul
+imagePullPolicy: IfNotPresent
+port: 6379
+service:
+    type: ClusterIP
+    ports:
+        - name: http
+          port: 8500
+          targetPort: 8500
+          protocol: TCP
