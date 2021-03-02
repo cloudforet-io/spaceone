@@ -45,6 +45,9 @@ billing:
 power-scheduler:
   image:
     version: 1.6.2
+spot-automation:
+  image:
+    version: 1.6.3
 supervisor:
   image:
     version: 1.6.4-rc2
