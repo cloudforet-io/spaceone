@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-google-cloud-services', 'plugin-azure-vm', 'plugin-aws-power-state', 'plugin-google-cloud-power-state', 'plugin-azure-monitor', 'plugin-monitoring-metric-collector', 'plugin-azure-power-state', 'plugin-azure-cloud-services', 'plugin-aws-personal-health-dashboard', 'plugin-google-cloud-power-controller']
+        target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-google-cloud-services', 'plugin-azure-vm', 'plugin-aws-power-state', 'plugin-google-cloud-power-state', 'plugin-azure-monitor', 'plugin-monitoring-metric-collector', 'plugin-azure-power-state', 'plugin-azure-cloud-services', 'plugin-aws-personal-health-dashboard', 'plugin-google-cloud-power-controller', 'plugin-aws-spot-automation-controller']
         branch: ['master']
     runs-on: ubuntu-latest
     continue-on-error: true
