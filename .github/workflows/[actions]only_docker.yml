@@ -43,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console-assets', 'console-api', 'power-scheduler', 'project-site']
+        target: ['console-assets', 'console-api', 'power-scheduler', 'project-site', 'spot-automation']
         branch: ['master']
     runs-on: ubuntu-latest
     steps:
@@ -66,9 +66,10 @@ jobs:
           cd ${{ env.target }}
           git checkout ${{ matrix.branch }}
           cd ..
-          rm -rf ${{ env.target }}/.github/workflows/*
-          \cp -rf github_actions/common/workflows ${{ env.target }}/.github/
-          \cp -rf github_actions/only_docker/workflows ${{ env.target }}/.github/
+          rm -rf ${{ env.target }}/.github/workflows
+          mkdir -p ${{ env.target }}/.github/workflows
+          \cp -rf github_actions/common/workflows ${{ env.target }}/.github
+          \cp -rf github_actions/only_docker/workflows ${{ env.target }}/.github
           cd ${{ env.target }}
           git add . && git commit -m "[CI/CD] update github actions" && git push
   no_master_push_update:
