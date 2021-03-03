@@ -44,7 +44,7 @@ billing:
     repository: spaceone
 power-scheduler:
   image:
-    version: 1.6.2
+    version: 1.6.4-rc2.20210303.182846
 spot-automation:
   image:
     version: 1.6.4.20210303.093911
