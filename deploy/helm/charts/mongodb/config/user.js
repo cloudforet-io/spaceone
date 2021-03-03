@@ -80,6 +80,15 @@ db.createUser(
                 }
 );
 db.auth('admin','password')
+db = db.getSiblingDB('spot_automation')
+db.createUser(
+        {
+                    user: "spot_automation_user",
+                    pwd: "spot_automation_password",
+                    roles: [ {role: "readWrite", db: "spot_automation" } ]
+                }
+);
+db.auth('admin','password')
 db = db.getSiblingDB('marketplace')
 db.createUser(
         {

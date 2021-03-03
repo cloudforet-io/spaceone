@@ -40,3 +40,6 @@
 [submodule "supervisor"]
 	path = supervisor
 	url = https://github.com/spaceone-dev/supervisor.git
+[submodule "spot-automation"]
+	path = spot-automation
+	url = https://github.com/spaceone-dev/spot-automation.git
