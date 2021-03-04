@@ -1,6 +1,6 @@
 console:
   image:
-    version: 1.6.4
+    version: 1.6.4.20210304.192311
     repository: spaceone
 console-api:
   image:
