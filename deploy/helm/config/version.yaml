@@ -9,7 +9,7 @@ console-api:
 identity:
   image:
     version: 1.6.4
-    repository: pyengine
+    repository: spaceone
 secret:
   image:
     version: 1.6.4-rc2
