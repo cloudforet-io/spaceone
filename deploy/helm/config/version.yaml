@@ -20,7 +20,7 @@ repository:
     repository: spaceone
 plugin:
   image:
-    version: 1.6.4-rc2
+    version: 1.6.4
     repository: spaceone
 config:
   image:
