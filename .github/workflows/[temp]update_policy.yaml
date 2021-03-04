@@ -7,7 +7,7 @@ jobs:
       fail-fast: false
       matrix:
         target: ['plugin-aws-cloudservices', 'plugin-aws-ec2', 'plugin-googlecloud-compute', 'plugin-aws-cloudwatch', 'plugin-aws-trustedadvisor', 'plugin-googlecloud-stackdriver', 'plugin-google-cloud-services', 'plugin-azure-vm', 'plugin-aws-power-state', 'plugin-google-cloud-power-state', 'plugin-azure-monitor', 'plugin-monitoring-metric-collector', 'plugin-azure-power-state', 'plugin-azure-cloud-services', 'plugin-aws-personal-health-dashboard', 'plugin-google-cloud-power-controller']
-        branch: ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10']
+        branch: ['main']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -29,10 +29,10 @@ jobs:
           git pull
           git clone git@github.com:spaceone-dev/${{ env.target }}.git
           cd ${{ env.target }}
-          git checkout release-${{ matrix.branch }}
+          git checkout ${{ matrix.branch }}
           cd ..
           rm -rf ${{ env.target }}/.github/workflows/*
           mkdir -p ${{ env.target }}/.github/workflows
           \cp -f github_actions/plugins/public/* ${{ env.target }}/.github/workflows
           cd ${{ env.target }}
-          git add . && git commit -m "[CI/CD] policy change: unite CI workflows to master branch" && git push
+          git add . && git commit -m "[CI/CD] policy change : remain workflow at release branch" && git push
