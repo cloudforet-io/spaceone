@@ -48,7 +48,7 @@ power-scheduler:
     repository: pyengine
 spot-automation:
   image:
-    version: 1.6.4.20210304.181727
+    version: 1.6.4.20210304.233012
     repository: pyengine
 supervisor:
   image:
