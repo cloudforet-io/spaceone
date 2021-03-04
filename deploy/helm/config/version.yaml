@@ -5,7 +5,7 @@ console:
 console-api:
   image:
     version: 1.6.4.20210304.210810
-    repository: spaceone
+    repository: pyengine
 identity:
   image:
     version: 1.6.4
