@@ -44,7 +44,7 @@ billing:
     repository: spaceone
 power-scheduler:
   image:
-    version: 1.6.4.20210304.194202
+    version: 1.6.4.20210305.161849
     repository: pyengine
 spot-automation:
   image:
