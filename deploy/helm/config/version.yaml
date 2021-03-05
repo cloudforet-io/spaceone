@@ -1,6 +1,6 @@
 console:
   image:
-    version: 1.6.4.20210305.112539
+    version: 1.6.4.20210305.131003
     repository: pyengine
 console-api:
   image:
