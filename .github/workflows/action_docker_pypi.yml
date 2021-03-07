@@ -1,4 +1,4 @@
-name: "[actions]docker_pypi"
+name: "[actions] docker_pypi"
 on:
   workflow_dispatch:
 
@@ -39,7 +39,7 @@ jobs:
           rm -rf ${{ env.target }}/.github/workflows/*
           \cp -rf github_actions/common/workflows ${{ env.target }}/.github/
           \cp -rf github_actions/backend/workflows ${{ env.target }}/.github/
-          \cp -rf github_actions/helm-chart/workflows ${{ env.target }}/.github/
+          \cp -rf github_actions/helm_chart/workflows ${{ env.target }}/.github/
           cd ${{ env.target }}
           git add . && git commit -m "[CI/CD] update github actions" && git push
 

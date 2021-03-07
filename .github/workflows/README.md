@@ -2,5 +2,5 @@
 
 Category | Description 
 ---      | ----
-action   | Update github action files in <repository>/.github/workflows/
+action   | Update github action files at REPOSITORY/.github/workflows/
 
