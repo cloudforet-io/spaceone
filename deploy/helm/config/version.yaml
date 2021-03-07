@@ -24,7 +24,7 @@ plugin:
     repository: pyengine
 config:
   image:
-    version: 1.6.4-rc2
+    version: 1.6.4.20210307.200829
     repository: spaceone
 inventory:
   image:
