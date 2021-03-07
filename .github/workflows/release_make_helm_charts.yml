@@ -1,0 +1,36 @@
+name: "[release] make helm chart"
+on:
+  workflow_dispatch:
+jobs:
+  dispatch_make_helm_chart:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ['console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'power-scheduler', 'spot-automation', 'supervisor']
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      TAG: ${{ github.event.inputs.tag }}
+    steps:
+      - name: task
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: spaceone-dev/${{ matrix.target }}
+          event-type: make_helm_chart
+  
+    
+  notify_to_slack:
+    if: github.repository_owner == 'spaceone-dev'
+    needs: [dispatch_create_workflow_svc]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack
+        if: always()
+        uses: 8398a7/action-slack@v3.2.0
+        with:
+          status: ${{job.status}}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+          author_name: Github Action Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
