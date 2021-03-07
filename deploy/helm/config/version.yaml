@@ -17,7 +17,7 @@ secret:
 repository:
   image:
     version: 1.6.4.20210307.200824
-    repository: pyengine
+    repository: spaceone
 plugin:
   image:
     version: 1.6.4.20210307.200825
@@ -32,7 +32,7 @@ inventory:
     repository: spaceone
 monitoring:
   image:
-    version: 1.6.4.20210307.182418
+    version: 1.6.4.20210307.200839
     repository: pyengine
 statistics:
   image:
