@@ -20,7 +20,7 @@ repository:
     repository: spaceone
 plugin:
   image:
-    version: 1.6.4.20210307.182408
+    version: 1.6.4.20210307.200825
     repository: pyengine
 config:
   image:
