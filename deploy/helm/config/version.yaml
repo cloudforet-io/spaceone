@@ -37,7 +37,7 @@ monitoring:
 statistics:
   image:
     version: 1.6.4.20210307.182422
-    repository: spaceone
+    repository: pyengine
 billing:
   image:
     version: 1.6.4-rc2
