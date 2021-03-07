@@ -53,4 +53,4 @@ spot-automation:
 supervisor:
   image:
     version: 1.6.4.20210307.182434
-    repository: spaceone
+    repository: pyengine
