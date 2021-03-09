@@ -5,6 +5,22 @@
 
 각 MicroService에 대한 기능 안정화 BugFix 적용
 
+|서비스|버전   |
+|---   |---    |
+| console     		| 1.6.4.2       |
+| console-api     	| 1.6.4.5      |
+| identity     		|  1.6.4.1     |
+| secret     		|  1.6.4     |
+| repository     	| 1.6.4      |
+| plugin     		|  1.6.4     |
+| config     		|  1.6.4     |
+| inventory     	| 1.6.4      |
+| monitoring     	| 1.6.4      |
+| statistics     	| 1.6.4      |
+| billing     		| 1.6.4      |
+| power-scheduler     	| 1.6.4       |
+| supervisor     	| 1.6.4      |
+
 ## Plugin 
 SpaceONE v1.6.4 에 호환되는 플러그인 버전을 안내 드립니다. 
 기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
