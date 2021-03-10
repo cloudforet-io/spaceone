@@ -37,7 +37,8 @@ SpaceONE v1.6.4 에 호환되는 플러그인 버전을 안내 드립니다.
 ## Hotfix Update
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
-|-|-|-|-|
+|2021.03.10|console|1.6.4.3|Not applied search filter issue fixed |
+|2021.03.10|repository|1.6.4.1|Authorization failing error fixed|
 
 
 
