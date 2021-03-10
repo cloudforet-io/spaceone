@@ -45,7 +45,7 @@ SpaceONE v1.6.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|monitoring.DataSource|aws|aws-cloudwatch|v1.1|
 |Updated|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.3|
 |-|monitoring.DataSource|aws|azure-monitor|v1.0|
-|-|power_scheduler.Controller|aws|aws-power-scheduler-controller|v1.4.1|
+|-|power_scheduler.Controller|aws|aws-power-scheduler-controller|v1.4.4|
 |-|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.1.2|
 |-|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
 
