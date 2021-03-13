@@ -52,5 +52,5 @@ spot-automation:
     repository: pyengine
 supervisor:
   image:
-    version: 1.6.4.20210308.133745
+    version: 1.6.4.20210313.181225
     repository: pyengine
