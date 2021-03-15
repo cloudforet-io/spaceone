@@ -1,3 +1,4 @@
+{{- if eq .Release.Revision 1 }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -25,3 +26,5 @@ spec:
       - name: initializer
         image: "alpine:3.3"
         command: ["/bin/sleep","{{ default "1" .Values.sleepyTime }}"]
+
+{{- end }}

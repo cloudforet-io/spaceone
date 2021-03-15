@@ -8,6 +8,10 @@ redis:
 consul:
     enabled: true
 
+# for Developer, instead of aWS SecretsManager
+vault:
+    enabled: false
+
 console:
     enable: true
 
@@ -20,11 +24,15 @@ secret:
     enabled: true
     application:
         CONNECTORS:
-            AWSSecretManagerConnector:
-                aws_access_key_id: aaaaaaaaaaaaaaaaaaaa
-                aws_secret_access_key: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                region_name: us-west-1
-
+#            AWSSecretManagerConnector:
+#                aws_access_key_id: aaaaaaaaaaaaaaaaaaaa
+#                aws_secret_access_key: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+#                region_name: us-west-1
+#
+# Note: VaultConnector is for only developer
+#           VaultConnector:
+#               url: http://vault:8200
+#               token: myroot
 repository:
     enabled: true
     application:

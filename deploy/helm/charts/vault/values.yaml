@@ -1,0 +1,15 @@
+###############################
+# DEFAULT 
+###############################
+enabled: false
+image:
+    name: vault
+imagePullPolicy: IfNotPresent
+port: 8200
+service:
+    type: ClusterIP
+    ports:
+        - name: http
+          port: 8200
+          targetPort: 8200
+          protocol: TCP
