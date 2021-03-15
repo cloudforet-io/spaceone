@@ -13,7 +13,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: '3.4.0'
+          version: '3.3.0'
       - name: Run Helm packaging
         run: |
           export cache_dir=/tmp/helm
@@ -35,6 +35,7 @@ jobs:
 
           cd deploy/helm
           helm dependency update
+          ls charts/
           cd ../../
           helm package deploy/helm -u --destination .deploy
           cr upload -o spaceone-dev -r charts -p .deploy --token ${{ secrets.PAT_TOKEN }}
