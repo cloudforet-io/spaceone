@@ -33,7 +33,6 @@ jobs:
           echo 'Update helm version in chart.yaml and values.yaml'
           echo "SERVICE=${SERVICE}" >> $GITHUB_ENV
 
-          helm repo add spaceone https://spaceone-dev.github.io/charts
           cd deploy/helm
           helm dependency update
           cd ../../
