@@ -44,7 +44,7 @@ billing:
     repository: pyengine
 power-scheduler:
   image:
-    version: 1.6.4.20210307.200848
+    version: 1.6.4.20210316.110458
     repository: pyengine
 spot-automation:
   image:
