@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mongo-shard-key
-  namespace: {{ .Release.Namespace }}
-type: Opaque
-data:
-  mongo-shard.pem: |
-    {{ (.Files.Glob "mongo-shard.pem").AsSecrets | indent 4 }}
