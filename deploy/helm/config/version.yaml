@@ -28,7 +28,7 @@ config:
     repository: spaceone
 inventory:
   image:
-    version: 1.6.4-rc3
+    version: 1.6.4.20210318.181857
     repository: spaceone
 monitoring:
   image:
