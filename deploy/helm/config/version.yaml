@@ -8,7 +8,7 @@ console-api:
     repository: pyengine
 identity:
   image:
-    version: 1.6.4.1.20210319.131418
+    version: 1.6.4.1.20210319.144523
     repository: pyengine
 secret:
   image:
