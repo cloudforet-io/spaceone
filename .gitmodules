@@ -43,3 +43,6 @@
 [submodule "spot-automation"]
 	path = spot-automation
 	url = https://github.com/spaceone-dev/spot-automation.git
+[submodule "console-assets"]
+	path = console-assets
+	url = https://github.com/spaceone-dev/console-assets.git
