@@ -35,29 +35,29 @@ secret:
 #               token: myroot
 repository:
     enabled: true
-    application:
-        ROOT_TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
-        CONNECTORS:
-            RegistryConnector:
-                host: https://257706363616.dkr.ecr.ap-northeast-2.amazonaws.com
-                verify_ssl: False
-                api_version: 2
-                username: AWS
+#    application:
+#        ROOT_TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
+#        CONNECTORS:
+#            RegistryConnector:
+#                host: https://257706363616.dkr.ecr.ap-northeast-2.amazonaws.com
+#                verify_ssl: False
+#                api_version: 2
+#                username: AWS
 
 plugin:
     enabled: true
     scheduler: true
     worker: true
-    application_scheduler:
-        TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
+#    application_scheduler:
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
 
 config:
     enabled: true
@@ -66,20 +66,20 @@ inventory:
     enabled: true
     scheduler: true
     worker: true
-    application:
-        TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
+#    application:
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
         collect_queue: collector_q
 
-    application_scheduler:
-        TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
+#    application_scheduler:
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
 
 
 monitoring:
@@ -89,12 +89,12 @@ statistics:
     enabled: true
     scheduler: true
     worker: true
-    application_scheduler:
-        TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
+#    application_scheduler:
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
 
 
 billing:
@@ -104,12 +104,12 @@ power-scheduler:
     enabled: true
     scheduler: true
     worker: true
-    application_scheduler:
-        TOKEN_INFO:
-            protocol: consul
-            config:
-                host: consul
-            uri: debug/supervisor/TOKEN
+#    application_scheduler:
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
 
 
 # include config/alb.yaml (for ALB)
