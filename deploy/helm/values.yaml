@@ -22,8 +22,8 @@ identity:
     enabled: true
 secret:
     enabled: true
-    application:
-        CONNECTORS:
+#    application:
+#        CONNECTORS:
 #            AWSSecretManagerConnector:
 #                aws_access_key_id: aaaaaaaaaaaaaaaaaaaa
 #                aws_secret_access_key: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -72,7 +72,7 @@ inventory:
 #            config:
 #                host: consul
 #            uri: debug/supervisor/TOKEN
-        collect_queue: collector_q
+#        collect_queue: collector_q
 
 #    application_scheduler:
 #        TOKEN_INFO:
