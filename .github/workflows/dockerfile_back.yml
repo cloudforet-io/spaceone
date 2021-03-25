@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-assets', 'custom-report', 'console-api', 'console']
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin']
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
