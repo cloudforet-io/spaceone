@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'custom-report', 'power-scheduler', 'console-assets', 'billing']
+        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'power-scheduler', 'console-assets', 'billing', 'cost-saving', 'spot-automation']
     needs: dispatch_make_final_release_base
     runs-on: ubuntu-latest
     continue-on-error: true
