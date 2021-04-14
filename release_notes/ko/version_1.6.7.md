@@ -43,8 +43,8 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|inventory.Collector|azure|azure-vm|v1.2.2|
 |Updated|inventory.Collector|azure|azure-cloud-services|v1.1.2|
 |Updated|inventory.Collector|azure|azure-power-state|v1.0.1|
-|Updated|monitoring.DataSource|oracle|oracle-cloud-services|v1.0|
-|Updated|monitoring.DataSource|alibaba|alibaba-cloud-ecs|v1.0|
+|Updated|inventory.Collector|oracle|oracle-cloud-services|v1.0|
+|Updated|inventory.Collector|alibaba|alibaba-cloud-ecs|v1.0|
 |Updated|inventory.Collector|spaceone|monitoring-metric-collector|v1.1.1|
 |Updated|monitoring.DataSource|aws|aws-cloudwatch|v1.1.1|
 |Updated|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.4|
