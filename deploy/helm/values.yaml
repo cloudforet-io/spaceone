@@ -14,14 +14,31 @@ vault:
 
 console:
     enable: true
+    image:
+        name: spaceone/console
+        version: 1.6.7
 
 console-api:
     enable: true
+    image:
+        name: spaceone/console-api
+        version: 1.6.7
+
 
 identity:
     enabled: true
+    image:
+        name: spaceone/identity
+        version: 1.6.7
+
+
 secret:
     enabled: true
+    image:
+        name: spaceone/secret
+        version: 1.6.7
+
+
 #    application:
 #        CONNECTORS:
 #            AWSSecretManagerConnector:
@@ -35,6 +52,11 @@ secret:
 #               token: myroot
 repository:
     enabled: true
+    image:
+        name: spaceone/repository
+        version: 1.6.7
+
+
 #    application:
 #        ROOT_TOKEN_INFO:
 #            protocol: consul
@@ -52,6 +74,11 @@ plugin:
     enabled: true
     scheduler: true
     worker: true
+    image:
+        name: spaceone/plugin
+        version: 1.6.7
+
+
 #    application_scheduler:
 #        TOKEN_INFO:
 #            protocol: consul
@@ -61,11 +88,20 @@ plugin:
 
 config:
     enabled: true
+    image:
+        name: spaceone/config
+        version: 1.6.7
+
 
 inventory:
     enabled: true
     scheduler: true
     worker: true
+    image:
+        name: spaceone/inventory
+        version: 1.6.7
+
+
 #    application:
 #        TOKEN_INFO:
 #            protocol: consul
@@ -84,11 +120,20 @@ inventory:
 
 monitoring:
     enabled: true
+    image:
+        name: spaceone/monitoring
+        version: 1.6.7
+
 
 statistics:
     enabled: true
     scheduler: true
     worker: true
+    image:
+        name: spaceone/statistics
+        version: 1.6.7
+
+
 #    application_scheduler:
 #        TOKEN_INFO:
 #            protocol: consul
@@ -99,11 +144,36 @@ statistics:
 
 billing:
     enabled: true
+    image:
+        name: spaceone/billing
+        version: 1.6.7
+
 
 power-scheduler:
     enabled: true
     scheduler: true
     worker: true
+    image:
+        name: spaceone/power-scheduler
+        version: 1.6.7
+
+cost-saving:
+    enabled: true
+    scheduler: true
+    worker: true
+    image:
+        name: spaceone/cost-saving
+        version: 1.6.7
+
+spot-automation:
+    enabled: true
+    scheduler: true
+    worker: true
+    image:
+        name: spaceone/spot-automation
+        version: 1.6.7
+
+
 #    application_scheduler:
 #        TOKEN_INFO:
 #            protocol: consul
@@ -116,11 +186,15 @@ power-scheduler:
 # include config/nlb.yaml (for NLB)
 supervisor:
     enabled: true
+    image:
+        name: spaceone/supervisor
+        version: 1.6.7
+
 
 spaceone-initializer:
-    enabled: true
+    enabled: false
     image:
-        version: 1.6.2
+        version: 1.6.7
 
 domain-initialzer:
     enabled: false

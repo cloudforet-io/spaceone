@@ -3,8 +3,8 @@ name: spaceone
 description: A Helm chart for SpaceONE
 
 type: application
-version: "1.6.5"
-appVersion: "1.6.5"
+version: "1.6.7"
+appVersion: "1.6.7"
 
 home: https://www.spaceone.org
 
@@ -57,7 +57,20 @@ dependencies:
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
       condition: power-scheduler.enabled
- 
+    - name: cost-saving
+      version: ">=1.0.0"
+      repository: https://spaceone-dev.github.io/charts
+      condition: cost-saving.enabled
+    - name: spot-automation
+      version: ">=1.0.0"
+      repository: https://spaceone-dev.github.io/charts
+      condition: spot-automation.enabled
+
+    - name: marketplace-asset
+      version: ">=1.0.0"
+      repository: https://spaceone-dev.github.io/charts
+      condition: marketplace-asset.enabled
+  
     - name: supervisor
       version: "1.1.2"
       repository: https://spaceone-dev.github.io/charts

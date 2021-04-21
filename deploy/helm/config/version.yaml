@@ -1,56 +1,42 @@
 console:
   image:
-    version: 1.6.4.4.20210317.184550
-    repository: pyengine
+    version: 1.6.7 
 console-api:
   image:
-    version: 1.6.4.6.20210316.161257
-    repository: pyengine
+    version: 1.6.7 
 identity:
   image:
-    version: 1.6.4.1.20210319.160029
-    repository: pyengine
+    version: 1.6.7 
 secret:
   image:
-    version: 1.6.4.20210317.143953
-    repository: pyengine
+    version: 1.6.7 
 repository:
   image:
-    version: 1.6.4.1.20210315.180700
-    repository: pyengine
+    version: 1.6.7 
 plugin:
   image:
-    version: 1.6.4.20210307.200825
-    repository: pyengine
+    version: 1.6.7 
 config:
   image:
-    version: 1.6.4.20210307.200829
-    repository: spaceone
+    version: 1.6.7 
 inventory:
   image:
-    version: 1.6.4.20210318.181857
-    repository: pyengine
+    version: 1.6.7 
 monitoring:
   image:
-    version: 1.6.4.20210307.200839
-    repository: pyengine
+    version: 1.6.7 
 statistics:
   image:
-    version: 1.6.4.20210307.200839
-    repository: pyengine
+    version: 1.6.7 
 billing:
   image:
-    version: 1.6.4.20210307.200843
-    repository: pyengine
+    version: 1.6.7 
 power-scheduler:
   image:
-    version: 1.6.4.20210316.110458
-    repository: pyengine
+    version: 1.6.7 
 spot-automation:
   image:
-    version: 1.6.4.20210319.120447
-    repository: pyengine
+    version: 1.6.7 
 supervisor:
   image:
-    version: 1.6.4.20210313.181225
-    repository: pyengine
+    version: 1.6.7 
