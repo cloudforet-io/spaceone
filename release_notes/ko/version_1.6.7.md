@@ -44,9 +44,9 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |New|inventory.Collector|oracle|oracle-cloud-services|v1.0|
 |New|inventory.Collector|alibaba|alibaba-cloud-ecs|v1.0|
 |Updated|inventory.Collector|spaceone|monitoring-metric-collector|v1.2.1|
-|Updated|monitoring.DataSource|aws|aws-cloudwatch|v1.1.1|
-|Updated|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.4|
-|Updated|monitoring.DataSource|aws|azure-monitor|v1.0.2|
+|Updated|monitoring.DataSource|aws|aws-cloudwatch|v1.1.2|
+|Updated|monitoring.DataSource|google cloud|google-cloud-stackdriver|v1.0.5|
+|Updated|monitoring.DataSource|aws|azure-monitor|v1.0.3|
 |Updated|power_scheduler.Controller|aws|aws-power-scheduler-controller|v1.4.4|
 |Updated|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.1.3|
 |-|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
