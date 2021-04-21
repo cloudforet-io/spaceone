@@ -1,11 +1,11 @@
 # Version 1.6.4
 
 
-## 신규 추가/개선 기능
+## New addition/improvement functions
 
-각 MicroService에 대한 기능 안정화 BugFix 적용
+Functional stabilization BugFix applied to each MicroService
 
-|서비스|버전   |
+|Service|Version |
 |---   |---    |
 | console     		| 1.6.4.2       |
 | console-api     	| 1.6.4.5      |
@@ -21,13 +21,13 @@
 | power-scheduler     	| 1.6.4       |
 | supervisor     	| 1.6.4      |
 
-## Plugin 
-SpaceONE v1.6.4 에 호환되는 플러그인 버전을 안내 드립니다. 
-기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
+## Plugin
+Introducing the plug-in version compatible with SpaceONE v1.6.4.
+If there is something wrong with the function, the latest update of the plugin to the version below is required.
 
-### 호환 플러그인 리스트
+### Compatible plugin list
 
-|추가여부|plugin 종류|Provider|플러그인 이름|버전|
+|whether added|plugin type|Provider|plug-in name|version|
 |:---:|---|:---:|:---:|:---:|
 |-|identity.Auth|oAuth|google-oauth2|v1.1|
 |-|inventory.Collector|aws|aws-trusted-advisor|v1.2|
@@ -51,7 +51,7 @@ SpaceONE v1.6.4 에 호환되는 플러그인 버전을 안내 드립니다.
 
 
 ## Hotfix Update
-|일자|Micro Service|Version|변경사항|
+|Date|Micro Service|Version|Changes|
 |---|:---:|:---:|:---:|
 |2021.03.10|console|1.6.4.3|Not applied search filter issue fixed |
 |2021.03.10|repository|1.6.4.1|Authorization failing error fixed|

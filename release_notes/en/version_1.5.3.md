@@ -1,82 +1,82 @@
 # Version 1.5.3
 
 
-## 신규 추가 기능
+## New additional features
 
-### 1. Cloud 비용 관리기능(Billing Management Widget)
+### 1. Cloud cost management function (Billing Management Widget)
 
-- 이제 사용중인 Cloud 자원 현황과 비용 현황을 SpaceONE 에서 통합 관리 가능합니다.(Megazone Hyperbilling Plugin 활성화가 필요)
-- Multi Cloud와 계정별로 흩어져있는 비용 정보를 SpaceONE을 통해 손쉽게 관리 가능합니다.
- 
-
-### 2. Multi Cloud 리소스 통합관리/모니터링 기능
-
-- Global Public Cloud 3사(AWS, Azure, Google Cloud)에 대한 통합 관리 기능을 제공 합니다. 
-- 이제 각 회사에서 제공하는 Cloud Console에 로그인 하지 않아도, SpaceONE 통해 자원을 관리/모니터링 할 수 있습니다.
+-Now, the status of cloud resources and cost status in use can be integrated and managed in SpaceONE. (Megazone Hyperbilling Plugin is required to be activated)
+-You can easily manage multi-cloud and expense information scattered by account through SpaceONE.
 
 
-### 3. Dashboard Widget 
+### 2. Multi Cloud resource integrated management/monitoring function
+
+-Provides integrated management function for 3 Global Public Cloud companies (AWS, Azure, Google Cloud).
+-You can now manage/monitor resources through SpaceONE without logging in to the Cloud Console provided by each company.
+
+
+### 3. Dashboard Widget
 
 **AWS Trusted Advisor Widget**
 
-- AWS의 비용/보안 최적화 관리기능인 Trusted Advisor를 SpaceONE을 통해 편리하게 활용할 수 있습니다. 
-- Trusted Advisor가 제안하는 요소들을 한눈에 파악하고, 신속한 조치를 할 수 있도록 지원합니다. 
+-You can conveniently use Trusted Advisor, AWS' cost/security optimization management function through SpaceONE.
+-We understand at a glance the factors suggested by Trusted Advisor and support you to take quick action
 
 
 **AWS Personal Health Dashboard Widget**
 
-- AWS의 작업 및 장애 내역 및 이로인해 영향받는 Cloud 자원 리스트를 편리하게 확인할 수 있습니다.
+-You can conveniently check the list of AWS operations and failures and cloud resources affected by this.
 
 
 
 **Role Based Access Control(RBAC, Alpha Release)**
 
-- 이제 도메인 구성원들을 역할별로 구분하여 관리 가능합니다. 
-- 사용자를 Domain Admin, Project Admin, Project User 단계로 나누어 API 레벨의 기능/접근권한 관리가 가능합니다.
-- 현재 Alpha Release로 지속적인 업데이트 중에 있습니다. 
+-Now you can manage domain members by classifying them by role.
+-It is possible to manage API level functions/access rights by dividing users into Domain Admin, Project Admin, and Project User levels.
+-We are continuing to update to Alpha Release.
 
 
-### 5. Multi 인증 기능
+### 5. Multi authentication function
 
-- 복수의 인증 Backend 연동이 가능합니다. 
-- ID/PW, oAuth2, KeyClock, ActiveDirectory 등 다양한 조합을 통해 유연한 협업 환경을 구성 해보세요.
+-Multiple authentication backends can be linked.
+-Create a flexible collaboration environment through various combinations such as ID/PW, oAuth2, KeyClock, and ActiveDirectory.
 
-### 6. Console Login Page 리뉴얼
+### 6. Console Login Page Renewal
 
-- 사용자 로그인 페이지의 디자인 및 성능 & 안정성이 개선 되었습니다. 
-- SSO 기능 제공(oAuth2 인증인 경우)
+-The design, performance & stability of the user login page have been improved.
+-Provides SSO function (in case of oAuth2 authentication)
 
-## 버그픽스
+## Bug fixes
 
-- API 인증 관련 마이너 버그 다수 개선
-- PowerScheduler Console Bug 수정
+-Improved a number of minor bugs related to API authentication
+-PowerScheduler Console Bug fix
 
 
-## 수집/모니터링 가능한 Cloud Service List
+## Cloud Service List that can be collected/monitored
 
 ### AWS
-- 수집 가능 서비스 : EC2, ELB, VPC, S3, RDS, DocumentDB, DynamoDB, EKS, ECR, ECS, EFS, API Gateway, AutoScaling, CloudFront, CloudTrail, DirectConnect, Security Group, EIP, IAM, KMS, Lambda, Redshift, Route53, Secrets Manager, SNS, SQS, Personal Health Dashboard, Trusted Advisor
-- 모니터링 연동 : cloudwatch
+-Collectible services: EC2, ELB, VPC, S3, RDS, DocumentDB, DynamoDB, EKS, ECR, ECS, EFS, API Gateway, AutoScaling, CloudFront, CloudTrail, DirectConnect, Security Group, EIP, IAM, KMS, Lambda, Redshift , Route53, Secrets Manager, SNS, SQS, Personal Health Dashboard, Trusted Advisor
+-Monitoring linkage: cloudwatch
 
 ### Azure
-- 수집 가능 서비스 : Server, Snapshot, Disk
-- 모니터링 연동 : azure monitor
+-Collectible services: Server, Snapshot, Disk
+-Monitoring interlocking: azure monitor
 
 ### Google Cloud
-- 수집 가능 서비스 : Server, Instance Group, Instance Template, Machine Images, Disk, Snapshot, Storage, Cloud SQL, VPC 
-- 모니터링 연동 : google stackdriver
+-Collectible services: Server, Instance Group, Instance Template, Machine Images, Disk, Snapshot, Storage, Cloud SQL, VPC
+-Monitoring integration: google stackdriver
 
-### 향후 예정사항
-- Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, KT Cloud 등 국내외 주요 클라우드로 확장해 나갈 예정입니다.
+### Future plans
+-We plan to expand to major domestic and foreign clouds such as Alibaba Cloud, Oracle Cloud, vSphere, Openstack, Naver Cloud, and KT Cloud.
 
 
-## Plugin 
-SpaceOne v1.5.3 에 호환되는 플러그인 버전을 안내 드립니다. 
-기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
+## Plugin
+Introducing the plug-in version compatible with SpaceOne v1.5.3.
+If there is something wrong with the function, the latest update of the plugin to the version below is required.
 
-### 호환 플러그인 리스트
+### Compatible plugin list
 
-|추가여부|plugin 종류|Provider|플러그인 이름|버전|
+|whether added|plugin type|Provider|plug-in name|version|
 |:---:|---|:---:|:---:|:---:|
 |-|identity.Auth|oAuth|google-oauth2|v1.1|
 |new|inventory.Collector|aws|aws-trusted-advisor|v1.1|
@@ -99,16 +99,16 @@ SpaceOne v1.5.3 에 호환되는 플러그인 버전을 안내 드립니다.
 |new|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
 
 
-### 지원 제외 플러그인
-- 대상 플러그인은 aws-personal-health-dashboard 로 대체되어 기능 제공 됩니다
-- 1.5.3 버전 설치시 삭제가 필요합니다. 
+### Plug-ins not supported
+-The target plugin is replaced by aws-personal-health-dashboard to provide a function.
+-Uninstallation is required when installing version 1.5.3.
 
-|plugin 종류|Provider|플러그인 이름|버전| 
+|plugin type|Provider|plug-in name|version|
 |---|:---:|:---:|:---:|
 |monitoring.DataSource|aws|aws-health|v1.0.2|
 
 ## Hotfix Update
-|일자|Micro Service|Version|변경사항|
+|Date|Micro Service|Version|Changes|
 |---|:---:|:---:|:---:|
 |2020.12.30|inventory|1.5.3.5|modified resource collecting stability issue|
 |2020.12.30|identity|1.5.3.1|fixed minor bug|

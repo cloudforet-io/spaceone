@@ -1,48 +1,48 @@
 # Version 1.6.1
 
 
-## 신규 추가/개선 기능
+## New addition/improvement functions
 
-### 1. Cloud 비용 상세 History 위젯 추가
+### 1. Cloud cost detail history widget added
 
-- Project Dashboard에서 Cloud 비용 History를 일별/월별로 상세 조회 가능합니다. 
+- Cloud cost history can be viewed in detail on a daily/monthly basis in the Project Dashboard.
 
-### 2. Garbage Collection 동작 방식
+### 2. How Garbage Collection works
 
-- Cloud Resource의 변경 사항을 더 빠르게 업데이트 하기 위해 아래와 같은 방식으로 변경 되었습니다.
+- In order to update Cloud Resource changes more quickly, it has been changed in the following manner.
 
-|SpaceONE 버전|GC 실행 주기|GC 동작 방식|
+|SpaceONE version|GC run cycle|How GC works|
 |:---:|:---:|:---:|
-|~ v1.5.3|Everyday utc 00:00|<ul><li>24시간 동안 미수집 Disconnected</li><li>48시간 동안 미수집 Deleted</li></ul> |
-|v1.6.1 ~|Collector 동작시 매번 수행|<ul><li>1회 수집 실패 Disconnected</li><li>2회 수집 실패 Deleted</li></ul>|
+|~ v1.5.3|Everyday utc 00:00|<ul><li>Not collected in 24 hours Disconnected</li><li>Not collected in 48 hours Deleted</li></ul> |
+|v1.6.1 ~|Executed every time the collector is in operation|<ul><li>1 collection failed Disconnected</li><li>2 collection failed Deleted</li></ul>|
 
-### 3. Cloud Resource 검색 기능 개선
-- 수집된 Parameter 이외에 모니터링 데이터 및 Tag 검색 가능
-- 모니터링 데이터 검색을 위해서는 Monitoring Collector 추가 필요
+### 3. Improved Cloud Resource search function
+- In addition to the collected parameters, monitoring data and tags can be searched.
+- To search monitoring data, Monitoring Collector needs to be added.
 
-### 4. 기타 개선사항
+### 4. Other improvements
 
-- Console에서 복사 버튼 클릭시 'Copied' 메시지 안내
-- User Page에서 'Assigned Role' 조회 가능(실제 RBAC 적용은 추후 예정)
-- User 추가 후 'Pending State' 추가(최초 로그인 대기상태)
-- Console내 언어변경 미지원 Component 추가 지원
+- Guide to'Copied' message when clicking the copy button on the console
+- 'Assigned Role' can be searched on User Page (actual RBAC application will be scheduled later)
+- Add a'Pending State' after adding a user (waiting for initial login)
+- Additional support for components that do not support language change in the console
 
-## 버그픽스
+## Bug fixes
 
-- Server Multi Select 시 오류
-- Job Page내 상태 조회 오류
-- Service Account의 'Connect to Console'링크 오류
-- User Page내 Role 조회 및 설정 관련 오류 개선
-- 기타 Minor bugfix
+- Error in Server Multi Select
+- Status inquiry error in Job Page
+- 'Connect to Console' link error in Service Account
+- Improvement of errors related to role search and setting in User Page
+- Other Minor bugfix
 
 
-## Plugin 
-SpaceOne v1.6.1 에 호환되는 플러그인 버전을 안내 드립니다. 
-기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
+## Plugin
+Here are the plug-in versions compatible with SpaceOne v1.6.1.
+If there is something wrong with the function, the latest update of the plugin to the version below is required.
 
-### 호환 플러그인 리스트
+### Compatible plugin list
 
-|추가여부|plugin 종류|Provider|플러그인 이름|버전|
+|whether added|plugin type|Provider|plug-in name|version|
 |:---:|---|:---:|:---:|:---:|
 |-|identity.Auth|oAuth|google-oauth2|v1.1|
 |Updated|inventory.Collector|aws|aws-trusted-advisor|v1.2|
@@ -66,7 +66,7 @@ SpaceOne v1.6.1 에 호환되는 플러그인 버전을 안내 드립니다.
 
 
 ## Hotfix Update
-|일자|Micro Service|Version|변경사항|
+|Date|Micro Service|Version|Changes|
 |---|:---:|:---:|:---:|
 |2020.01.25|statistics|1.6.1.3|query bug fixed|
 |2020.01.26|identity|1.6.1.1|authentication handler added|
