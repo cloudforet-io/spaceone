@@ -38,8 +38,8 @@ If there is something wrong with the function, the latest update of the plugin t
 |Updated|inventory.Collector|google cloud|google-cloud-compute|v1.2.5|
 |Updated|inventory.Collector|google cloud|google-cloud-services|v1.1.9|
 |Updated|inventory.Collector|google cloud|google-cloud-power-state|v1.1.2|
-|Updated|inventory.Collector|azure|azure-vm|v1.2.4|
-|Updated|inventory.Collector|azure|azure-cloud-services|v1.1.3|
+|Updated|inventory.Collector|azure|azure-vm|v1.2.1|
+|Updated|inventory.Collector|azure|azure-cloud-services|v1.1.1|
 |Updated|inventory.Collector|azure|azure-power-state|v1.0|
 |Updated|inventory.Collector|spaceone|monitoring-metric-collector|v1.1|
 |Updated|monitoring.DataSource|aws|aws-cloudwatch|v1.1|

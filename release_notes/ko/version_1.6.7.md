@@ -38,7 +38,7 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|inventory.Collector|google cloud|google-cloud-compute|v1.2.6|
 |Updated|inventory.Collector|google cloud|google-cloud-services|v1.2.4|
 |Updated|inventory.Collector|google cloud|google-cloud-power-state|v1.1.3|
-|Updated|inventory.Collector|azure|azure-vm|v1.2.3|
+|Updated|inventory.Collector|azure|azure-vm|v1.2.4|
 |Updated|inventory.Collector|azure|azure-cloud-services|v1.1.3|
 |Updated|inventory.Collector|azure|azure-power-state|v1.0.2|
 |New|inventory.Collector|oracle|oracle-cloud-services|v1.0|
