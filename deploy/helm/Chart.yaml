@@ -66,10 +66,10 @@ dependencies:
       repository: https://spaceone-dev.github.io/charts
       condition: spot-automation.enabled
 
-    - name: marketplace-asset
+    - name: marketplace-assets
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
-      condition: marketplace-asset.enabled
+      condition: marketplace-assets.enabled
   
     - name: supervisor
       version: "1.1.2"
