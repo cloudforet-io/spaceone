@@ -9,7 +9,7 @@
 
 ### 관리자 기능 개선
 
-- 이제 Domain의 관리자가 멤버의 Profile을 변경할 수 있습니다. Member의 PW 분실시 자체적으로 Reset이 가능합니다. 
+- 이제 Domain의 관리자가 멤버의 Profile을 변경할 수 있습니다. Member의 PW 분실시 관리자 권한으로 변경이 가능합니다. 
 
 ### Bugfix
 - 각 MicroService에 대한 기능 안정화 BugFix 적용
