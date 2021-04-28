@@ -40,7 +40,7 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|inventory.Collector|google cloud|google-cloud-services|v1.2.4|
 |Updated|inventory.Collector|google cloud|google-cloud-services|v1.1.3|
 |Updated|inventory.Collector|azure|azure-vm|v1.2.4|
-|Updated|inventory.Collector|azure|azure-cloud-services|v1.1.7|
+|Updated|inventory.Collector|azure|azure-cloud-services|v1.1.6|
 |Updated|inventory.Collector|azure|azure-power-state|v1.0.2|
 |New|inventory.Collector|oracle|oracle-cloud-services|v1.0|
 |New|inventory.Collector|alibaba|alibaba-cloud-ecs|v1.0|
@@ -57,4 +57,5 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
 |-|-|-|-|
+|28/04/2021|azure-cloud-services|1.6.7|Update SqlServer Label|
 
