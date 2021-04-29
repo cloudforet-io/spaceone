@@ -57,5 +57,7 @@ SpaceONE v1.6.7 에 호환되는 플러그인 버전을 안내 드립니다.
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
 |-|-|-|-|
-|28/04/2021|azure-cloud-services|1.6.7|Update SqlServer Label|
+|28/04/2021|azure-cloud-services|1.1.7|Update SqlServer Label|
+|29/04/2021|azure-cloud-services|1.1.9|Update SQL cloud service group name to uppercase|
+
 
