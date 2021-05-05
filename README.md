@@ -24,6 +24,7 @@ The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.m
 
 | Date        |  Version   | See Details  |
 | ---         | ----       | ----         |
+| 2021-04-21  | 1.6.7      | [Version 1.6.7-korean](./release_notes/ko/version_1.6.7.md)|
 | 2021-03-09  | 1.6.4      | [Version 1.6.4-korean](./release_notes/ko/version_1.6.4.md)|
 | 2021-02-17  | 1.6.2      | [Version 1.6.2-korean](./release_notes/ko/version_1.6.2.md)|
 | 2021-01-25  | 1.6.1      | [Version 1.6.1-korean](./release_notes/ko/version_1.6.1.md)|
@@ -31,4 +32,23 @@ The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.m
 | 2020-11-23  | 1.5.1      | [Version 1.5.1-korean](./release_notes/ko/version_1.5.1.md)|
 | 2020-9-28   | 1.3.2      | [Version 1.3.2](./release_notes/en/version_1.3.2.md) |
 
+# Service Component
+
+| Service	| Description           	|
+| ---           | ---                           |
+| console       | Web Frontend                  |
+| console-api   | Web Frontend rest-api         |
+| identity      |                               |
+| secret        |                               |
+| repository    |                               |
+| plugin        |                               |
+| config        |                               |
+| inventory     |                               |
+| monitoring    |                               |
+| statistics    |                               |
+| billing       |                               |
+| power-scheduler |                             |
+| cost-saving   |                               |
+| spot-automation |                             |
+| supervisor    |                               |
 
