@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['identity', 'inventory', 'monitoring', 'repository', 'statistics', 'secret', 'config', 'supervisor', 'plugin', 'console-api', 'console', 'power-scheduler', 'console-assets', 'billing', 'cost-saving', 'spot-automation']
+        target: ['console', 'console-api', 'console-assets', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'power-scheduler', 'cost-saving', 'spot-automation', 'supervisor', 'spacectl', 'tester', 'spaceone-initializer', 'marketplace-assets']
     needs: dispatch_create_workflow_base
     runs-on: ubuntu-latest
     continue-on-error: true
