@@ -5,6 +5,7 @@ jobs:
   dispatch_make_helm_chart:
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
         target: ['console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'power-scheduler', 'spot-automation', 'supervisor']
     runs-on: ubuntu-latest
