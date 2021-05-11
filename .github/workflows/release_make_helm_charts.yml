@@ -24,7 +24,7 @@ jobs:
         uses: whatnick/wait-action@master
         with:
           time: '1m'  
-			
+	
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
     needs: [dispatch_make_helm_chart]
