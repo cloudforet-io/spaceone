@@ -20,10 +20,10 @@ jobs:
           repository: spaceone-dev/${{ matrix.target }}
           event-type: make_helm_chart
 
-			- name: Sleep for 1 minutes
-				uses: whatnick/wait-action@master
-				with:
-					time: '1m'  
+      - name: Sleep for 1 minutes
+        uses: whatnick/wait-action@master
+        with:
+          time: '1m'  
 			
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
