@@ -47,9 +47,9 @@ SpaceONE v1.7.1 에 호환되는 플러그인 버전을 안내 드립니다.
 |Updated|inventory.Collector|aws|aws-cloud-service|v1.10.0|
 |-|inventory.Collector|aws|aws-power-state|v1.6|
 |Updated|inventory.Collector|aws|aws-personal-health-dashboard|v1.4|
-|-|inventory.Collector|google cloud|google-cloud-compute|v1.2.6|
-|-|inventory.Collector|google cloud|google-cloud-services|v1.2.4|
-|-|inventory.Collector|google cloud|google-cloud-services|v1.1.3|
+|Updated|inventory.Collector|google cloud|google-cloud-compute|v1.2.7|
+|Updated|inventory.Collector|google cloud|google-cloud-services|v1.2.６|
+|-|inventory.Collector|google cloud|google-cloud-power-state|v1.1.3|
 |-|inventory.Collector|azure|azure-vm|v1.2.4|
 |Updated|inventory.Collector|azure|azure-cloud-services|v1.1.10|
 |-|inventory.Collector|azure|azure-power-state|v1.0.2|
