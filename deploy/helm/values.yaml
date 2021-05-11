@@ -6,7 +6,7 @@ mongodb:
 redis:
     enabled: true
 consul:
-    enabled: true
+    enabled: false
 
 # for Developer, instead of aWS SecretsManager
 vault:
@@ -16,27 +16,28 @@ console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.6.7
+        version: 1.7.1
 
 console-api:
     enable: true
     image:
         name: spaceone/console-api
-        version: 1.6.7
+        version: 1.7.1
 
 
 identity:
     enabled: true
     image:
         name: spaceone/identity
-        version: 1.6.7
-
+        version: 1.7.1
+    application_grpc: {}
 
 secret:
     enabled: true
     image:
         name: spaceone/secret
-        version: 1.6.7
+        version: 1.7.1
+    application_grpc: {}
 
 
 #    application:
@@ -54,8 +55,9 @@ repository:
     enabled: true
     image:
         name: spaceone/repository
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 #    application:
 #        ROOT_TOKEN_INFO:
@@ -76,8 +78,9 @@ plugin:
     worker: true
     image:
         name: spaceone/plugin
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 #    application_scheduler:
 #        TOKEN_INFO:
@@ -90,8 +93,9 @@ config:
     enabled: true
     image:
         name: spaceone/config
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 inventory:
     enabled: true
@@ -99,8 +103,9 @@ inventory:
     worker: true
     image:
         name: spaceone/inventory
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 #    application:
 #        TOKEN_INFO:
@@ -122,8 +127,9 @@ monitoring:
     enabled: true
     image:
         name: spaceone/monitoring
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 statistics:
     enabled: true
@@ -131,8 +137,9 @@ statistics:
     worker: true
     image:
         name: spaceone/statistics
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 #    application_scheduler:
 #        TOKEN_INFO:
@@ -146,8 +153,9 @@ billing:
     enabled: true
     image:
         name: spaceone/billing
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 power-scheduler:
     enabled: true
@@ -155,7 +163,9 @@ power-scheduler:
     worker: true
     image:
         name: spaceone/power-scheduler
-        version: 1.6.7
+        version: 1.7.1
+
+    application_grpc: {}
 
 cost-saving:
     enabled: true
@@ -163,7 +173,9 @@ cost-saving:
     worker: true
     image:
         name: spaceone/cost-saving
-        version: 1.6.7
+        version: 1.7.1
+
+    application_grpc: {}
 
 spot-automation:
     enabled: true
@@ -171,8 +183,9 @@ spot-automation:
     worker: true
     image:
         name: spaceone/spot-automation
-        version: 1.6.7
+        version: 1.7.1
 
+    application_grpc: {}
 
 #    application_scheduler:
 #        TOKEN_INFO:
@@ -188,13 +201,13 @@ supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.6.7
+        version: 1.7.1
 
 
 spaceone-initializer:
     enabled: false
     image:
-        version: 1.6.7
+        version: 1.7.1
 
 domain-initialzer:
     enabled: false
