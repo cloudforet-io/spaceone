@@ -70,4 +70,5 @@ SpaceONE v1.7.1 에 호환되는 플러그인 버전을 안내 드립니다.
 |---|:---:|:---:|:---:|
 |2021.05.12|console|1.7.1.1|Monitoring related bug fixed|
 |2021.05.12|console|1.7.1.2|Excel related bug fixed|
+|2021.05.12|console|1.7.1.3|Excel related bug fixed|
 
