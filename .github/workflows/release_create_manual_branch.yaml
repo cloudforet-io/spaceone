@@ -43,7 +43,7 @@ jobs:
 
   notify_to_slack:
     if: github.repository_owner == 'spaceone-dev'
-    needs: [dispatch_create_workflow_svc_3]
+    needs: [dispatch_create_workflow_svc_1]
     runs-on: ubuntu-latest
     steps:
       - name: Slack
