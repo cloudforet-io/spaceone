@@ -21,10 +21,6 @@
 
 ## Plugin 
 
-### 신규 Plugin 추가
-- 신규 Power Scheduler Controller가 추가 되었습니다.
-  - azure-power-controller 
- 
 
 ### 호환 플러그인 리스트
 
