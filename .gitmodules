@@ -46,3 +46,6 @@
 [submodule "console-assets"]
 	path = console-assets
 	url = https://github.com/spaceone-dev/console-assets.git
+[submodule "notification"]
+	path = notification
+	url = https://github.com/spaceone-dev/notification.git

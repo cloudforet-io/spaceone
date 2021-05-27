@@ -1,4 +1,4 @@
-name: "[release]make final releases" # console-asset과 custom-report는 제외
+name: "[release]make final temp" # console-asset과 custom-report는 제외
 on:
   workflow_dispatch:
     inputs:
@@ -15,31 +15,31 @@ jobs:
           if [[ !(${{ github.event.inputs.tag }} =~ ^[0-9]\.[0-9]\.[0-9]$) ]];
             then exit 1
           fi
-  dispatch_make_final_release_base:
-    strategy:
-      fail-fast: false
-      matrix:
-        target: ['api', 'python-core']
-    needs: condition_check
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    env:
-      TAG: v${{ github.event.inputs.tag }}
-    steps:
-      - name: dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
-          event-type: branch_tagging
-          client-payload: '{"version": "${{ env.TAG }}"}'
+          #  dispatch_make_final_release_base:
+          #    strategy:
+          #      fail-fast: false
+          #      matrix:
+          #        target: ['api', 'python-core']
+          #    needs: condition_check
+          #    runs-on: ubuntu-latest
+          #    continue-on-error: true
+          #    env:
+          #      TAG: v${{ github.event.inputs.tag }}
+          #    steps:
+          #      - name: dispatch
+          #        uses: peter-evans/repository-dispatch@v1
+          #        with:
+          #          token: ${{ secrets.PAT_TOKEN }}
+          #          repository: spaceone-dev/${{ matrix.target }}
+          #          event-type: branch_tagging
+          #          client-payload: '{"version": "${{ env.TAG }}"}'
   dispatch_make_final_release_svc:
     strategy:
       fail-fast: false
       max-parallel: 4
       matrix:
         target: ['console', 'console-api', 'console-assets', 'marketplace-assets', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'power-scheduler', 'cost-saving', 'spot-automation', 'supervisor', 'spacectl', 'tester', 'spaceone-initializer']
-    needs: dispatch_make_final_release_base
+        #needs: dispatch_make_final_release_base
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
