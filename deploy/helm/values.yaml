@@ -1,5 +1,10 @@
 enabled: true
 
+#######################################
+# Shared configmap
+# Every micro-service this configmap
+#######################################
+
 # Service
 mongodb:
     enabled: false
@@ -221,3 +226,56 @@ global:
     frontend:
         sidecar: []
         volumes: []
+    shared_conf:
+        HANDLERS:
+            authentication:
+            - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler
+              uri: grpc://identity:50051/v1/Domain/get_public_key
+            authorization:
+            - backend: spaceone.core.handler.authorization_handler.AuthorizationGRPCHandler
+              uri: grpc://identity:50051/v1/Authorization/verify
+            mutation:
+            - backend: spaceone.core.handler.mutation_handler.SpaceONEMutationHandler
+        CONNECTORS:
+            IdentityConnector:
+                endpoint:
+                    v1: grpc://identity:50051
+            SecretConnector:
+                endpoint:
+                    v1: grpc://secret:50051
+            RepositoryConnector:
+                endpoint:
+                    v1: grpc://repository:50051
+            PluginConnector:
+                endpoint:
+                    v1: grpc://plugin:50051
+            ConfigConnector:
+                endpoint:
+                    v1: grpc://config:50051
+            InventoryConnector:
+                endpoint:
+                    v1: grpc://inventory:50051
+            MonitoringConnector:
+                endpoint:
+                    v1: grpc://monitoring:50051
+            StatisticsConnector:
+                endpoint:
+                    v1: grpc://statistics:50051
+            BillingConnector:
+                endpoint:
+                    v1: grpc://billing:50051
+            NotificationConnector:
+                endpoint:
+                    v1: grpc://notification:50051
+            PowerSchedulerConnector:
+                endpoint:
+                    v1: grpc://power-scheduler:50051
+        CACHES:
+            default:
+                backend: spaceone.core.cache.redis_cache.RedisCache
+                host: redis
+                port: 6379
+                db: 0
+                encoding: utf-8
+                socket_timeout: 10
+                socket_connect_timeout: 10
