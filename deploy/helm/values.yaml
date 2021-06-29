@@ -21,27 +21,27 @@ console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.7.2
+        version: 1.7.3
 
 console-api:
     enable: true
     image:
         name: spaceone/console-api
-        version: 1.7.2
+        version: 1.7.3
 
 
 identity:
     enabled: true
     image:
         name: spaceone/identity
-        version: 1.7.2
+        version: 1.7.3
     application_grpc: {}
 
 secret:
     enabled: true
     image:
         name: spaceone/secret
-        version: 1.7.2
+        version: 1.7.3
     application_grpc: {}
 
 
@@ -60,7 +60,7 @@ repository:
     enabled: true
     image:
         name: spaceone/repository
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -83,7 +83,7 @@ plugin:
     worker: true
     image:
         name: spaceone/plugin
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -98,7 +98,7 @@ config:
     enabled: true
     image:
         name: spaceone/config
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -108,7 +108,7 @@ inventory:
     worker: true
     image:
         name: spaceone/inventory
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -130,11 +130,38 @@ inventory:
 
 monitoring:
     enabled: true
+    scheduler: false
+    worker: false
+    rest: false 
+    replicas: 1         # replica number of grpc server
+    replicas_worker: 1  # replica number of worker server
     image:
         name: spaceone/monitoring
-        version: 1.7.2
+        version: 1.7.3
 
-    application_grpc: {}
+    application_grpc:
+        WEBHOOK_DOMAIN: https://monitoring-webhook
+
+#    application_rest:
+#        #TOKEN: XXXXXXXXXXXXX (if you want to use instead of TOKEN_INFO)
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
+
+#    application_scheduler:
+#        #TOKEN: XXXXXXXXXXXXX (if you want to use instead of TOKEN_INFO)
+#        TOKEN_INFO:
+#            protocol: consul
+#            config:
+#                host: consul
+#            uri: debug/supervisor/TOKEN
+
+    application_grpc:
+        WEBHOOK_DOMAIN: https://monitoring-webhook
+
+
 
 statistics:
     enabled: true
@@ -142,7 +169,7 @@ statistics:
     worker: true
     image:
         name: spaceone/statistics
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -158,9 +185,18 @@ billing:
     enabled: true
     image:
         name: spaceone/billing
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
+
+notification:
+    enabled: true
+    image:
+        name: spaceone/notification
+        version: 1.7.3
+
+    application_grpc: {}
+
 
 power-scheduler:
     enabled: false
@@ -168,7 +204,7 @@ power-scheduler:
     worker: true
     image:
         name: spaceone/power-scheduler
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -178,7 +214,7 @@ cost-saving:
     worker: true
     image:
         name: spaceone/cost-saving
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -188,7 +224,7 @@ spot-automation:
     worker: true
     image:
         name: spaceone/spot-automation
-        version: 1.7.2
+        version: 1.7.3
 
     application_grpc: {}
 
@@ -206,13 +242,13 @@ supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.7.2
+        version: 1.7.3
 
 
 spaceone-initializer:
     enabled: false
     image:
-        version: 1.7.2
+        version: 1.7.3
 
 domain-initialzer:
     enabled: false
@@ -270,6 +306,9 @@ global:
             PowerSchedulerConnector:
                 endpoint:
                     v1: grpc://power-scheduler:50051
+            SpotAutomationConnector:
+                endpoint:
+                    v1: grpc://spot-automation:50051
         CACHES:
             default:
                 backend: spaceone.core.cache.redis_cache.RedisCache
