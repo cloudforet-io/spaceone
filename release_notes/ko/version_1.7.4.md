@@ -47,13 +47,13 @@ SpaceONE v1.7.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|identity.Auth|oAuth|google-oauth2|v1.1|
 |-|inventory.Collector|aws|aws-trusted-advisor|v1.4|
 |-|inventory.Collector|aws|aws-ec2|v1.12|
-|Updated|inventory.Collector|aws|aws-cloud-service|v1.11.8|
+|-|inventory.Collector|aws|aws-cloud-service|v1.11.8|
 |-|inventory.Collector|aws|aws-power-state|v1.6|
 |-|inventory.Collector|aws|aws-personal-health-dashboard|v1.4|
 |-|inventory.Collector|google cloud|google-cloud-compute|v1.2.7|
 |-|inventory.Collector|google cloud|google-cloud-services|v1.2.６|
 |-|inventory.Collector|google cloud|google-cloud-power-state|v1.1.3|
-|Updated|inventory.Collector|azure|azure-vm|v1.2.12|
+|-|inventory.Collector|azure|azure-vm|v1.2.12|
 |Updated|inventory.Collector|azure|azure-cloud-services|v1.2.4|
 |-|inventory.Collector|azure|azure-power-state|v1.0.2|
 |-|inventory.Collector|oracle|oracle-cloud-services|v1.0|
@@ -66,12 +66,12 @@ SpaceONE v1.7.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|power_scheduler.Controller|google cloud|google-cloud-power-controller|v1.1.4|
 |-|power_scheduler.Controller|azure|azure-power-controller|v1.0.1|
 |-|billing.DataSource|hyperbilling|aws-hyperbilling|v1.0.2|
-|New|monitoring.Webhook|-|aws-sns-webhook|v1.0|
-|New|monitoring.Webhook|-|amorepacific-monitoring-webhook|v1.0.2|
-|New|monitoring.Webhook|-|grafana-monitoring-webhook|v1.0|
-|New|notification.Protocol|-|megazone-sms-notification-protocol|v1.0.1|
-|New|notification.Protocol|-|megazone-voicecall-notification-protocol|v1.0.1|
-|New|notification.Protocol|-|slack-notification-protocol|v1.0.1|
+|-|monitoring.Webhook|-|aws-sns-webhook|v1.0|
+|-|monitoring.Webhook|-|amorepacific-monitoring-webhook|v1.0.2|
+|-|monitoring.Webhook|-|grafana-monitoring-webhook|v1.0|
+|Updated|notification.Protocol|-|megazone-sms-notification-protocol|v1.0.1|
+|Updated|notification.Protocol|-|megazone-voicecall-notification-protocol|v1.0.1|
+|Updated|notification.Protocol|-|slack-notification-protocol|v1.0.1|
 
 
 
