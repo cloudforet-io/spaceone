@@ -21,7 +21,7 @@ console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.7.4
+        version: 1.7.4.1
 
 console-api:
     enable: true
@@ -137,7 +137,7 @@ monitoring:
     replicas_worker: 1  # replica number of worker server
     image:
         name: spaceone/monitoring
-        version: 1.7.4
+        version: 1.7.4.1
 
     application_grpc:
         WEBHOOK_DOMAIN: https://monitoring-webhook
