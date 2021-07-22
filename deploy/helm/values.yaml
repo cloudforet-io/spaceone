@@ -108,7 +108,7 @@ inventory:
     worker: true
     image:
         name: spaceone/inventory
-        version: 1.7.4
+        version: 1.7.4.1
 
     application_grpc: {}
 
