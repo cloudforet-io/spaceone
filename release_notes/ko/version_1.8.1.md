@@ -76,7 +76,7 @@ SpaceONE v1.8.1 에 호환되는 플러그인 버전을 안내 드립니다.
 ## Hotfix Update
 |일자|Micro Service|Version|변경사항|
 |---|:---:|:---:|:---:|
-|-|-|-| - |
+|2021/08/23|azure-cloud-services|v1.2.6|[BUG-FIX] Invisible data on Azure Storage Account cloud service|
 |-|-|-| - |
 
 
