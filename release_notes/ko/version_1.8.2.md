@@ -72,8 +72,8 @@ SpaceONE v1.8.2 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|monitoring.Webhook|-|grafana-monitoring-webhook|v1.0.2|
 |New|monitoring.Webhook|-|zabbix-monitoring-webhook|v1.0|
 |-|notification.Protocol|-|megazone-sms-notification-protocol|v1.0.1|
-|-|notification.Protocol|-|megazone-voicecall-notification-protocol|v1.0.1|
-|-|notification.Protocol|-|slack-notification-protocol|v1.0.1|
+|-|notification.Protocol|-|megazone-voicecall-notification-protocol|v1.0.4|
+|-|notification.Protocol|-|slack-notification-protocol|v1.0.2|
 |New|notification.Protocol|-|telegram-notification-protocol|v1.0.1|
 |New|notification.Protocol|-|email-notification-protocol|v1.0|
 
