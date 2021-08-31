@@ -24,6 +24,7 @@ The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.m
 
 | Date        |  Version   | See Details  |
 | ---         | ----       | ----         |
+| 2021-08-31  | 1.8.2      | [Version 1.8.2-korean](./release_notes/ko/version_1.8.2.md)|
 | 2021-08-17  | 1.8.1      | [Version 1.8.1-korean](./release_notes/ko/version_1.8.1.md)|
 | 2021-07-21  | 1.7.4      | [Version 1.7.4-korean](./release_notes/ko/version_1.7.4.md)|
 | 2021-06-29  | 1.7.3      | [Version 1.7.3-korean](./release_notes/ko/version_1.7.3.md)|
