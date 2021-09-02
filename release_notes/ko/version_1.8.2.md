@@ -23,13 +23,17 @@
 
 ### 신규 Plugin 추가
 
+Identiy Auth 플러그인이 추가 되었습니다.
+- identity.Auth 타입 플러그인
+  - plugin-keycloak-identity-auth
+
 Alert Manager 서비스를 위한 플러그인이 추가 되었습니다. 
 - monitoring.Webhook 타입 플러그인 
     - plugin-zabbix-mon-webhook
 - notification.Protocol 타입 플러그인
     - plugin-telegram-noti-protocol
     - plugin-email-noti-protocol
-    
+ 
 ### 기존 Plugin 지원 Resource 추가
 
 Plugin의 주요 Update List 입니다.
