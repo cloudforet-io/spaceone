@@ -43,7 +43,7 @@ SpaceONE v1.8.2 에 호환되는 플러그인 버전을 안내 드립니다.
 기능에 이상이 있는 경우 아래의 버전으로 플러그인 최신 업데이트가 필요 합니다.
 
 |추가여부|plugin 종류|Provider|플러그인 이름| plugin_id | version |
-|:---:|---|:---:|:---:|:---:|
+|:---:|---|:---:|:---:|:---:|:---:|
 |Updated|identity.Auth|keycloak|Keycloak Identity Auth Plugin|plugin-keycloak-identity-auth|v1.2|
 |-|identity.Auth|oAuth|google-oauth2|plugin-e6b1b0bbacc6|v1.1|
 |-|inventory.Collector|aws|aws-trusted-advisor|plugin-eb120a41bb8d|v1.4|
