@@ -63,13 +63,13 @@ SpaceONE v1.8.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|billing.DataSource|hyperbilling|aws-hyperbilling|plugin-b60505e70f9d|v1.0.2|
 |-|monitoring.Webhook|-|AWS SNS Webhook|plugin-aws-sns-monitoring-webhook|v1.1|
 |-|monitoring.Webhook|-| Amore Pacific Webhook |plugin-amorepacific-monitoring-webhook|v1.0.2|
-|Updated|monitoring.Webhook|-| Grafana Webhook | plugin-grafana-monitoring-webhook |v1.0.2|
+|Updated|monitoring.Webhook|-| Grafana Webhook | plugin-grafana-monitoring-webhook |v1.0.4|
 |-|monitoring.Webhook|-| Zabbix Webhook | plugin-zabbix-mon-webhook |v1.0|
 |New|monitoring.Webhook|-| Prometheus Webhook | plugin-prometheus-mon-webhook |v1.0|
 |-|notification.Protocol|-| Megazone SMS Notification Protocol | plugin-sms-notification-protocol |v1.0.1|
 |-|notification.Protocol|-| Megazone Voicecall Notification Protocol | plugin-voicecall-notification-protocol |v1.0.4|
-|Updated|notification.Protocol|-| Slack Notification Protocol | slack-notification-protocol |v1.0.2|
-|Updated|notification.Protocol|-| Telegram Notification Protocol | plugin-telegram-noti-protocol |v1.0.1|
+|Updated|notification.Protocol|-| Slack Notification Protocol | slack-notification-protocol |v1.0.3|
+|Updated|notification.Protocol|-| Telegram Notification Protocol | plugin-telegram-noti-protocol |v1.0.2|
 |Updated|notification.Protocol|-| Email Notification Protocol | plugin-email-noti-protocol |v1.0|
 
 
