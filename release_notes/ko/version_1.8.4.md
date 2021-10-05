@@ -11,11 +11,6 @@
   
 ## Plugin 
 
-### 신규 Plugin 추가
-Notification 서비스 지원을 위해 플러그인이 추가 되었습니다.
-
-- plugin-prometheus-mon-webhook
-
 ### 기존 Plugin 지원 Resource 추가
 
 Plugin의 주요 Update List 입니다.
@@ -65,7 +60,6 @@ SpaceONE v1.8.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|monitoring.Webhook|-| Amore Pacific Webhook |plugin-amorepacific-monitoring-webhook|v1.0.2|
 |Updated|monitoring.Webhook|-| Grafana Webhook | plugin-grafana-monitoring-webhook |v1.0.2|
 |-|monitoring.Webhook|-| Zabbix Webhook | plugin-zabbix-mon-webhook |v1.0|
-|New|monitoring.Webhook|-| Prometheus Webhook | plugin-prometheus-mon-webhook |v1.0|
 |-|notification.Protocol|-| Megazone SMS Notification Protocol | plugin-sms-notification-protocol |v1.0.1|
 |-|notification.Protocol|-| Megazone Voicecall Notification Protocol | plugin-voicecall-notification-protocol |v1.0.4|
 |Updated|notification.Protocol|-| Slack Notification Protocol | slack-notification-protocol |v1.0.2|
