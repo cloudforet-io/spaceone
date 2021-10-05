@@ -49,7 +49,7 @@ SpaceONE v1.8.4 에 호환되는 플러그인 버전을 안내 드립니다.
 |-|inventory.Collector|google cloud|google-cloud-services|plugin-87dc35ecb550|v1.2.9|
 |-|inventory.Collector|google cloud|google-cloud-power-state|plugin-11f322fa4106|v1.1.3|
 |-|inventory.Collector|azure|azure-vm|plugin-c1104066ca52|v1.2.12|
-|Updated|inventory.Collector|azure|azure-cloud-services|plugin-6fec638f139c|v1.2.7|
+|Updated|inventory.Collector|azure|azure-cloud-services|plugin-6fec638f139c|v1.2.10|
 |-|inventory.Collector|azure|azure-power-state|plugin-d7a1d8670488|v1.0.3|
 |-|inventory.Collector|oracle|oracle-cloud-services| N/A | |
 |-|inventory.Collector|alibaba|alibaba-cloud-ecs| N/A | |
