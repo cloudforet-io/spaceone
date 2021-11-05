@@ -7,7 +7,7 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        target: ['console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'notification', 'power-scheduler', 'cost-saving', 'spot-automation', 'supervisor']
+        target: ['console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'cost-analysis',  'notification', 'power-scheduler', 'cost-saving', 'spot-automation', 'supervisor']
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
