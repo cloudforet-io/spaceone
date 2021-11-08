@@ -190,7 +190,7 @@ billing:
     application_grpc: {}
 
 cost-analysis:
-    enabled: true
+    enabled: false
     image:
         name: spaceone/cost-analysis
         version: 1.8.5
