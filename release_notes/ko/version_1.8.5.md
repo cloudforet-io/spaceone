@@ -1,16 +1,16 @@
 # Version 1.8.5 
 
 ## 신규 추가/개선 기능
-- 서버 안정화 코드가 적용 되었습니다. 
+- 서버 안정화 코드가 적용 되었습니다.
 
 ## Plugin
 
 ### 기존 Plugin 지원 Resource 추가
 
 Plugin의 주요 Update List 입니다.
- 
+
 - azure-cloud-services
-    - Azure PostgresSQL Resource 추가
+  - Azure PostgresSQL Resource 추가
   
 ### 호환 플러그인 리스트
 
