@@ -49,7 +49,6 @@ The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.m
 | console-api     | Web Frontend rest-api   |              |
 | identity        |                         |              |
 | secret          |                         |              |
-| cost-analysis   |                         | 1.8.7        |
 | repository      |                         |              |
 | plugin          |                         |              |
 | config          |                         |              |
@@ -58,6 +57,7 @@ The detailed coverage matrix is at [coverage matrix](./docs/collector_coverage.m
 | statistics      |                         |              |
 | billing         |                         |              |
 | notification    |                         | 1.8.2        |
+| cost-analysis   |                         | 1.8.7        |
 | power-scheduler |                         | N/A          |
 | cost-saving     |                         | N/A          |
 | spot-automation |                         | N/A          |
