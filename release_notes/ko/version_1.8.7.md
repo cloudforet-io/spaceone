@@ -48,8 +48,8 @@ SpaceONE v1.8.7 에 호환되는 플러그인 버전을 안내 드립니다.
 | Updated | inventory.Collector        |     aws      |            aws-cloud-service             |          plugin-54487559e402           |  v1.12  |
 |    -    | inventory.Collector        |     aws      |             aws-power-state              |          plugin-516babd3637c           |  v1.6   |
 |    -    | inventory.Collector        |     aws      |      aws-personal-health-dashboard       |          plugin-986155af217b           |  v1.4   |
-| Updated | inventory.Collector        | google cloud |           google-cloud-compute           |          plugin-13c3051967ce           | v1.2.7  |
-| Updated | inventory.Collector        | google cloud |          google-cloud-services           |          plugin-87dc35ecb550           | v1.2.9  |
+| Updated | inventory.Collector        | google cloud |           google-cloud-compute           |          plugin-13c3051967ce           | v1.3.0  |
+| Updated | inventory.Collector        | google cloud |          google-cloud-services           |          plugin-87dc35ecb550           | v1.3.0  |
 |    -    | inventory.Collector        | google cloud |         google-cloud-power-state         |          plugin-11f322fa4106           | v1.1.3  |
 | Updated | inventory.Collector        |    azure     |                 azure-vm                 |          plugin-c1104066ca52           | v1.2.4  |
 | Updated | inventory.Collector        |    azure     |           azure-cloud-services           |          plugin-6fec638f139c           | v1.2.13 |
