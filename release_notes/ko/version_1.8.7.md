@@ -25,9 +25,9 @@
 ### 선택적 자원수집 기능 추가
   - 아래의 플러그인은 수집하고자 하는 자원을 선택적으로 수집할 수 있습니다. 
   - 설정 방법에 대해서는 각 서비스의 Git Repo. 를 참고 해주세요.
-    - [azure-cloud-services](https://github.com/spaceone-dev/plugin-azure-vm-inven-collector#readme)
-    - [aws-cloud-service](https://github.com/spaceone-dev/plugin-azure-cloud-service-inven-collector#readme)
-    - [google-cloud-services](https://github.com/spaceone-dev/plugin-google-cloud-service-inven-collector#readme)
+    - [azure-cloud-services](https://github.com/spaceone-dev/plugin-azure-cloud-service-inven-collector#options)
+    - [aws-cloud-service](https://github.com/spaceone-dev/plugin-aws-cloud-service-inven-collector#options)
+    - [google-cloud-services](https://github.com/spaceone-dev/plugin-google-cloud-service-inven-collector#options)
 
 ### 자원 조회 속도 향상
   - 사용자들이 자주 검색하는 키워드에 대해서 최적화 작업을 통해 검색 속도를 향상 하였습니다. 
