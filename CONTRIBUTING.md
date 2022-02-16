@@ -4,7 +4,7 @@ Thanks for your interest in SpaceONE. Together, we make OUR UNIVERSE a better pl
 
 ## Getting Started
 
-SpaceONE's [open issues are here](https://github.com/orgs/spaceone-dev/projects/4). Issues that would make a good first pull request for new contributors with the `beginner-task` tag. An easy way to get started helping the project is to *file an issue*. Issues can include bugs, new features, or documentation that looks outdated. For community support, [ask for help in Gitbub Feedback](https://www.spaceone.org/community/).
+SpaceONE's [open issues are here](https://github.com/orgs/spaceone-dev/projects/4). Issues that would make a good first pull request for new contributors with the `beginner-task` tag. An easy way to get started helping the project is to *file an issue*. Issues can include bugs, new features, or documentation that looks outdated. For community support, [ask for help in SpaceONE Community Channel](https://www.spaceone.org/community/).
 
 ## Contributions
 
@@ -20,7 +20,7 @@ expected from contributors and committers in at least equal proportion to their 
 
 ## Conduct
 
-Please refer to our [Code of Conduct](https://github.com/spaceone-dev/spaceone/blob/master/CODE_OF_CONDUCT.md]
+Please refer to our [Code of Conduct](https://github.com/spaceone-dev/spaceone/blob/master/CODE_OF_CONDUCT.md)
 
 ## Contributor License Agreement ("CLA")
 
