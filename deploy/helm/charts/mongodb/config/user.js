@@ -1,5 +1,4 @@
 db.auth('admin','password')
-db = db.getSiblingDB('identity')
 db.createUser(
         {
                     user: "identity_user",
@@ -9,7 +8,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('secret')
 db.createUser(
         {
                     user: "secret_user",
@@ -19,7 +17,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('repository')
 db.createUser(
         {
                     user: "repository_user",
@@ -29,7 +26,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('plugin')
 db.createUser(
         {
                     user: "plugin_user",
@@ -39,7 +35,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('config')
 db.createUser(
         {
                     user: "config_user",
@@ -49,7 +44,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('inventory')
 db.createUser(
         {
                     user: "inventory_user",
@@ -59,7 +53,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('monitoring')
 db.createUser(
         {
                     user: "monitoring_user",
@@ -69,7 +62,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('statistics')
 db.createUser(
         {
                     user: "statistics_user",
@@ -79,7 +71,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('billing')
 db.createUser(
         {
                     user: "billing_user",
@@ -89,7 +80,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('notification')
 db.createUser(
         {
                     user: "notification_user",
@@ -99,7 +89,6 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('cost_saving')
 db.createUser(
         {
                     user: "cost_saving_user",
@@ -109,7 +98,15 @@ db.createUser(
 );
 
 db.auth('admin','password')
-db = db.getSiblingDB('power_scheduler')
+db.createUser(
+        {
+                    user: "cost_analysis_user",
+                    pwd: "cost_analysis_password",
+                    roles: [ {role: "readWrite", db: "cost-analysis" } ]
+                }
+);
+
+db.auth('admin','password')
 db.createUser(
         {
                     user: "power_scheduler_user",
@@ -117,8 +114,8 @@ db.createUser(
                     roles: [ {role: "readWrite", db: "power_scheduler" } ]
                 }
 );
+
 db.auth('admin','password')
-db = db.getSiblingDB('spot_automation')
 db.createUser(
         {
                     user: "spot_automation_user",
