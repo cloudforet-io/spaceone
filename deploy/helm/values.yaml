@@ -21,26 +21,26 @@ console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.9.3
+        version: 1.9.4
 
 console-api:
     enable: true
     image:
         name: spaceone/console-api
-        version: 1.9.3
+        version: 1.9.4
 
 identity:
     enabled: true
     image:
         name: spaceone/identity
-        version: 1.9.3
+        version: 1.9.4
     application_grpc: {}
 
 secret:
     enabled: true
     image:
         name: spaceone/secret
-        version: 1.9.3
+        version: 1.9.4
     application_grpc: {}
 
 
@@ -59,7 +59,7 @@ repository:
     enabled: true
     image:
         name: spaceone/repository
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -82,7 +82,7 @@ plugin:
     worker: true
     image:
         name: spaceone/plugin
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -97,7 +97,7 @@ config:
     enabled: true
     image:
         name: spaceone/config
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -107,7 +107,7 @@ inventory:
     worker: true
     image:
         name: spaceone/inventory
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -136,7 +136,7 @@ monitoring:
     replicas_worker: 1  # replica number of worker server
     image:
         name: spaceone/monitoring
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc:
         WEBHOOK_DOMAIN: https://monitoring-webhook
@@ -168,7 +168,7 @@ statistics:
     worker: true
     image:
         name: spaceone/statistics
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -184,7 +184,7 @@ billing:
     enabled: true
     image:
         name: spaceone/billing
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -192,7 +192,7 @@ cost-analysis:
     enabled: true
     image:
         name: spaceone/cost-analysis
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -200,7 +200,7 @@ notification:
     enabled: true
     image:
         name: spaceone/notification
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -211,7 +211,7 @@ power-scheduler:
     worker: true
     image:
         name: spaceone/power-scheduler
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -221,7 +221,7 @@ cost-saving:
     worker: true
     image:
         name: spaceone/cost-saving
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -231,7 +231,7 @@ spot-automation:
     worker: true
     image:
         name: spaceone/spot-automation
-        version: 1.9.3
+        version: 1.9.4
 
     application_grpc: {}
 
@@ -249,13 +249,13 @@ supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.9.3
+        version: 1.9.4
 
 
 spaceone-initializer:
     enabled: false
     image:
-        version: 1.9.3
+        version: 1.9.4
 
 domain-initialzer:
     enabled: false
