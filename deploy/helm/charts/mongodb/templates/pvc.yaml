@@ -7,8 +7,7 @@ spec:
   storageClassName: {{ .Values.pvc.storageClassName }}
   accessModes:
 {{- toYaml .Values.pvc.accessModes | nindent 4 }}
-{{- end }}
   resources:
     requests:
-      storage: {{ .values.pvc.requests.storage }}
+      storage: {{ .Values.pvc.requests.storage }}
 {{ end }}
