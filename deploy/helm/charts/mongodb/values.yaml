@@ -14,3 +14,10 @@ service:
           port: 27017
           targetPort: 27017
           protocol: TCP
+pvc:
+    enabled: false
+    storageClassName: null # `null` value will use the Kubernetes cluster's default StorageClass
+    accessModes: 
+        - "ReadWriteOnce"
+    requests:
+        storage: 8Gi
