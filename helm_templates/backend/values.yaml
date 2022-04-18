@@ -1,0 +1,98 @@
+###############################
+# DEFAULT 
+###############################
+enabled: true
+developer: false
+grpc: true
+scheduler: false
+worker: false
+rest: false
+name: {service_name}
+
+image:
+    name: spaceone/{service_name}
+    version: latest
+imagePullPolicy: IfNotPresent
+
+database: {}
+
+application: {}
+# local sidecar
+##########################
+#sidecar:
+
+
+##########################
+# Local volumes
+##########################
+volumes:
+    - name: timezone
+      hostPath:
+          path: /usr/share/zoneinfo/Asia/Seoul
+    - name: log-volume
+      emptyDir: {}
+#######################
+# global variable
+#######################
+global:
+    shared: {}
+    backend:
+        sidecar: []
+        volumes: []
+
+# Service
+service:
+    grpc:
+        type: ClusterIP
+        annotations: {}
+        ports:
+            - name: grpc
+              port: 50051
+              targetPort: 50051
+              protocol: TCP
+    rest:
+        type: ClusterIP
+        annotations: {}
+        ports:
+            - name: rest
+              port: 80
+              targetPort: 80
+              protocol: TCP
+
+# Ingress
+ingress:
+  rest:
+    enabled: false
+    annotations:
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+        alb.ingress.kubernetes.io/inbound-cidrs: 0.0.0.0/0 # replace or leave out
+        alb.ingress.kubernetes.io/scheme: internet-facing
+        alb.ingress.kubernetes.io/target-type: ip 
+        alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:111111111111:certificate/11111111-6c4c-414a-beab-fa87f44dd105"
+        alb.ingress.kubernetes.io/healthcheck-path: "/check"
+        alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=600
+        external-dns.alpha.kubernetes.io/hostname: micro-service.example.com
+    servicePort: 80
+    path: /
+
+################################
+# volumeMount per deployment
+################################
+volumeMounts:
+    application_grpc: []
+    application_rest: []
+    application_scheduler: []
+    application_worker: []
+
+
+####################################
+# pod spec (append more pod spec)
+# example nodeSelect
+#
+# pod:
+#   spec:
+#     nodeSelector:
+#       application: my-node-group
+####################################
+pod:
+    spec: {}
