@@ -1,0 +1,29 @@
+REMOTE_URL:
+- file:///opt/spaceone/{service_name}/config/database.yaml
+- file:///opt/spaceone/{service_name}/config/shared.yaml
+- file:///opt/spaceone/{service_name}/config/application.yaml
+GLOBAL:
+  MAX_WORKERS: 1000
+  DATABASES:
+    default:
+      db: {service_name}
+      host: mongodb
+      port: 27017
+      maxPoolSize: 200
+      username: {service_name}_user
+      password: {service_name}_password
+  CACHES:
+    default:
+      backend: spaceone.core.cache.redis_cache.RedisCache
+      host: redis
+      port: 6379
+      db: 1
+      encoding: utf-8
+      socket_timeout: 10
+      socket_connect_timeout: 10
+  LOG:
+    loggers:
+      spaceone:
+        handlers:
+          - console
+          - file
