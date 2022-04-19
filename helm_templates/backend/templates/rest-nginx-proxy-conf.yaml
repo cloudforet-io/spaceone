@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: rest-nginx-proxy-conf
+  name: {{ .Values.name }}-rest-nginx-proxy-conf
   namespace: {{ .Values.global.namespace | default .Release.Namespace }}
 data:
   proxy.conf: |-
