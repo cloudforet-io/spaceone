@@ -1,4 +1,5 @@
 {{- if .Values.enabled }}
+{{- if .Values.rest }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,4 +8,5 @@ metadata:
 data:
   proxy.conf: |-
 {{ .Files.Get "config/proxy.conf" | nindent 4 }}
+{{- end }}
 {{- end }}
