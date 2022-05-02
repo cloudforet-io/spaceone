@@ -124,3 +124,13 @@ db.createUser(
                 }
 );
 
+db.auth('admin','password')
+db.createUser(
+        {
+                    user: "board_user",
+                    pwd: "board_password",
+                    roles: [ {role: "readWrite", db: "board" } ]
+                }
+);
+
+
