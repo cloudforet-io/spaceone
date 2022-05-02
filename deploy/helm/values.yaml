@@ -241,7 +241,7 @@ spot-automation:
 board:
     enabled: false
     image:
-        name: spaceone/supervisor
+        name: spaceone/board
         version: 1.9.6
 
 supervisor:
