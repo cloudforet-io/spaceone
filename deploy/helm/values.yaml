@@ -243,8 +243,6 @@ spot-automation:
 #            uri: debug/supervisor/TOKEN
 
 
-# include config/alb.yaml (for ALB)
-# include config/nlb.yaml (for NLB)
 supervisor:
     enabled: true
     image:
@@ -261,7 +259,7 @@ domain-initialzer:
     enabled: false
 
 global:
-    namespace: spaceone
+    namespace: {} # will be used helm release namespace
     supervisor_namespace: root-supervisor
     backend:
         sidecar: []

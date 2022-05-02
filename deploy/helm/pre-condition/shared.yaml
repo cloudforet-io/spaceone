@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: shared-conf
-  namespace: spaceone
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
 data:
   shared.yaml: |
     ---
