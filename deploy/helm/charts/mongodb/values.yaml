@@ -15,8 +15,7 @@ service:
           targetPort: 27017
           protocol: TCP
 pvc:
-    enabled: false
-    storageClassName: null # `null` value will use the Kubernetes cluster's default StorageClass
+    storageClassName: null # You must specify a storage class name. Otherwise, the mongodb pod will not use pvc.
     accessModes: 
         - "ReadWriteOnce"
     requests:
