@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  helm_cloudforet:
+helm_cloudforet:
     if: github.repository_owner == 'spaceone-dev'
     runs-on: ubuntu-latest
     steps:
@@ -13,7 +13,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: '3.4.0'
+          version: '3.3.0'
       - name: Run Helm packaging
         run: |
           export cache_dir=/tmp/helm
@@ -33,7 +33,11 @@ jobs:
           echo 'Update helm version in chart.yaml and values.yaml'
           echo "SERVICE=${SERVICE}" >> $GITHUB_ENV
 
-          helm package deploy/helm --destination .deploy
+          cd deploy/helm
+          helm dependency update
+          ls charts/
+          cd ../../
+          helm package deploy/helm -u --destination .deploy
           cr upload -o cloudforet-io -r charts -p .deploy --token ${{ secrets.CLOUDFORET_PAT_TOKEN }}
           cr index -i ./index.yaml -p .deploy/ -o cloudforet-io -r charts -c https://cloudforet-io.github.io/charts --token ${{ secrets.CLOUDFORET_PAT_TOKEN }}
           cp index.yaml /tmp/index.yaml
