@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 jobs:
-helm_cloudforet:
+  helm_cloudforet:
     if: github.repository_owner == 'spaceone-dev'
     runs-on: ubuntu-latest
     steps:
