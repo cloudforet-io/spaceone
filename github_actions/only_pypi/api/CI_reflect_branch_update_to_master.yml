@@ -17,8 +17,8 @@ jobs:
           fi
       - name: get existing official version
         run: |
-          echo "current=$(cat VERSION | cut -c 2-6)" >> $GITHUB_ENV
-          echo "new_ver=$(echo ${{ env.VERSION }} | cut -c 2-6)" >> $GITHUB_ENV
+          echo "current=$(cat VERSION | cut -d'v' -f2 | cut -d '-' -f 1)" >> $GITHUB_ENV
+          echo "new_ver=$(echo ${{ env.VERSION }} | cut -d'v' -f2 | cut -d '-' -f 1)" >> $GITHUB_ENV
       - name: Is new_ver is latest?
         run: |
           if [ $(echo ${{ env.current }} | cut -c 1) \> $(echo ${{ env.new_ver }} | cut -c 1) ]
