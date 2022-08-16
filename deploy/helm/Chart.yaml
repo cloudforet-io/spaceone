@@ -49,10 +49,6 @@ dependencies:
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
       condition: statistics.enabled
-    - name: billing
-      version: ">=1.0.0"
-      repository: https://spaceone-dev.github.io/charts
-      condition: billing.enabled
     - name: cost-analysis
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
@@ -61,22 +57,14 @@ dependencies:
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
       condition: notification.enabled
-    - name: power-scheduler
-      version: ">=1.0.0"
-      repository: https://spaceone-dev.github.io/charts
-      condition: power-scheduler.enabled
-    - name: cost-saving
-      version: ">=1.0.0"
-      repository: https://spaceone-dev.github.io/charts
-      condition: cost-saving.enabled
-    - name: spot-automation
-      version: ">=1.0.0"
-      repository: https://spaceone-dev.github.io/charts
-      condition: spot-automation.enabled
     - name: board
       version: ">=1.0.0"
       repository: https://spaceone-dev.github.io/charts
       condition: board.enabled
+    - name: file-manager
+      version: ">=1.0.0"
+      repository: https://spaceone-dev.github.io/charts
+      condition: file-manager.enabled  
       
     - name: marketplace-assets
       version: ">=1.0.0"
