@@ -15,7 +15,7 @@ service:
           targetPort: 27017
           protocol: TCP
 pvc:
-    storageClassName: null # You must specify a storage class name. Otherwise, the mongodb pod will not use pvc.
+    storageClassName: null # You must specify a storage class name. Otherwise, the mongodb pod will use empty volume.
     accessModes: 
         - "ReadWriteOnce"
     requests:

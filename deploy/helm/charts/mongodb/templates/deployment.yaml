@@ -44,7 +44,7 @@ spec:
               value: admin
 
       volumes:
-{{ if .Values.pvc.enabled }}
+{{ if .Values.pvc.storageClassName }}
         - name: mongodb-data
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-mongodb-pvc
