@@ -105,7 +105,7 @@ jobs:
           git push && \git push -f origin "${{ env.VERSION }}"
 
   docker:
-    if: github.repository_owner == 'spaceone-dev'
+    if: github.repository_owner == 'cloudforet-io'
     needs: [condition_check, update_local_version_file]
     runs-on: ubuntu-latest
     env:
@@ -134,7 +134,7 @@ jobs:
           docker push ${{ env.ECR_REPO }}/${{ env.SERVICE }}
 
   notify_to_slack:
-    if: github.repository_owner == 'spaceone-dev'
+    if: github.repository_owner == 'cloudforet-io'
     needs: [condition_check, update_local_version_file, docker]
     runs-on: ubuntu-latest
     steps:

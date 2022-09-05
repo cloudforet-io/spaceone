@@ -44,7 +44,7 @@ jobs:
           git add . && git commit -m "[CI/CD] update github actions" && git push
 
   notify_to_slack:
-    if: github.repository_owner == 'spaceone-dev'
+    if: github.repository_owner == 'cloudforet-io'
     needs: [all_in_one_update]
     runs-on: ubuntu-latest
     steps:

@@ -134,7 +134,7 @@ jobs:
 # pypi만 : api, python-core
 
   notify_to_slack:
-    if: github.repository_owner == 'spaceone-dev'
+    if: github.repository_owner == 'cloudforet-io'
     needs: [dispatch_create_workflow_svc_3]
     runs-on: ubuntu-latest
     steps:

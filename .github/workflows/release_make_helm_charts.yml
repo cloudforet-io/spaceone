@@ -25,7 +25,7 @@ jobs:
         with:
           time: '1m'
   notify_to_slack:
-    if: github.repository_owner == 'spaceone-dev'
+    if: github.repository_owner == 'cloudforet-io'
     needs: [dispatch_make_helm_chart]
     runs-on: ubuntu-latest
     steps:
