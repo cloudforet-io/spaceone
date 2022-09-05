@@ -17,7 +17,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: make_helm_chart
 
       - name: Sleep for 1 minutes

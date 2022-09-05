@@ -30,7 +30,7 @@ jobs:
           #        uses: peter-evans/repository-dispatch@v1
           #        with:
           #          token: ${{ secrets.PAT_TOKEN }}
-          #          repository: spaceone-dev/${{ matrix.target }}
+          #          repository: cloudforet-io/${{ matrix.target }}
           #          event-type: branch_tagging
           #          client-payload: '{"version": "${{ env.TAG }}"}'
   dispatch_make_final_release_svc:
@@ -61,7 +61,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: branch_tagging
           client-payload: '{"version": "v${{ env.TAG }}"}'
   

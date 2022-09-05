@@ -30,7 +30,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}'
 
@@ -62,7 +62,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}' 
   
@@ -94,7 +94,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}' 
  
@@ -125,7 +125,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ matrix.target }}
+          repository: cloudforet-io/${{ matrix.target }}
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}' 
     

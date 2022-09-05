@@ -32,7 +32,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-          repository: spaceone-dev/${{ github.event.inputs.target }}
+          repository: cloudforet-io/${{ github.event.inputs.target }}
           event-type: create_release_branch
           client-payload: '{"version": "${{ env.TAG }}"}' 
   
