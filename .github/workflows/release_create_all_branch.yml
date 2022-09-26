@@ -102,7 +102,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['supervisor', 'spacectl', 'tester', 'spaceone-initializer']
+        target: ['supervisor', 'spacectl', 'tester', 'spaceone-initializer', 'docs']
     needs: dispatch_create_workflow_svc_2
     runs-on: ubuntu-latest
     continue-on-error: true
