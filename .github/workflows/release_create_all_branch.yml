@@ -39,7 +39,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ['console', 'console-api', 'console-assets', 'marketplace-assets']
+        target: ['console', 'console-api', 'console-assets', 'marketplace-assets', 'console-api-v2']
     needs: dispatch_create_workflow_base
     runs-on: ubuntu-latest
     continue-on-error: true
