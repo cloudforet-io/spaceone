@@ -3,8 +3,8 @@ name: spaceone
 description: A Helm chart for SpaceONE
 
 type: application
-version: "1.10.3"
-appVersion: "1.10.3"
+version: "1.10.4-dev1"
+appVersion: "1.10.4"
 
 home: https://www.spaceone.org
 
