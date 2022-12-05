@@ -133,4 +133,11 @@ db.createUser(
                 }
 );
 
-
+db.auth('admin','password')
+db.createUser(
+        {
+                    user: "dashboard_user",
+                    pwd: "dashboard_password",
+                    roles: [ {role: "readWrite", db: "dashboard" } ]
+                }
+);
