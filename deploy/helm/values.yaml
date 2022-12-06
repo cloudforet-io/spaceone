@@ -12,6 +12,8 @@ redis:
     enabled: true
 consul:
     enabled: false
+    connectInject:
+        enabled: false
 
 # for Developer, instead of aWS SecretsManager
 vault:
