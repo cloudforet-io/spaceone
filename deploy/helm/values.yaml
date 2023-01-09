@@ -1,23 +1,62 @@
+#######################################
+# Configuration of spaceone
+#######################################
 enabled: true
+image:
+    name: alpine
+    version: 3.3
+
+resources: {}
+#     requests:
+#         memory: "128Mi"
+#         cpu: "25m"
+#     limits:
+#         memory: "256Mi"
+#         cpu: "50m"
+
+# imagePullSecrets:
+#   - name: <name of imagePullSecret>
 
 #######################################
-# Shared configmap
-# Every micro-service this configmap
+# Configuration of sub-charts
 #######################################
 
 # Service
 mongodb:
     enabled: false
+    resources: {}
+    #     requests:
+    #         memory: "128Mi"
+    #         cpu: "25m"
+    #     limits:
+    #         memory: "256Mi"
+    #         cpu: "50m"
+
 redis:
     enabled: true
+    resources: {}
+    #     requests:
+    #         memory: "128Mi"
+    #         cpu: "25m"
+    #     limits:
+    #         memory: "256Mi"
+    #         cpu: "50m"
+
 consul:
     enabled: false
     connectInject:
         enabled: false
 
-# for Developer, instead of aWS SecretsManager
+# for Developer, instead of AWS SecretsManager
 vault:
     enabled: false
+    resources: {}
+    #     requests:
+    #         memory: "128Mi"
+    #         cpu: "25m"
+    #     limits:
+    #         memory: "256Mi"
+    #         cpu: "50m"
 
 console:
     enable: true

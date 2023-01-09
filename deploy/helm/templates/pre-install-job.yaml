@@ -3,6 +3,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: "{{ .Release.Name }}"
+  namespace: {{ .Values.global.namespace | default .Release.Namespace }}
   labels:
     app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
     app.kubernetes.io/instance: {{ .Release.Name | quote }}
@@ -21,10 +22,27 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name | quote }}
         helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     spec:
+{{- if .Values.global.serviceAccountName }}
+      serviceAccountName: {{ .Values.global.serviceAccountName }}
+{{- end }}
+{{- if .Values.imagePullSecrets}}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end}}
       restartPolicy: Never
       containers:
       - name: initializer
-        image: "alpine:3.3"
-        command: ["/bin/sleep","{{ default "1" .Values.sleepyTime }}"]
+        image: {{ .Values.image.name }}:{{ .Values.image.version }}
+{{- if .Values.resources }}
+        resources:
+        {{- toYaml .Values.resources | nindent 10 }}
+{{- end }}
+        command: ["/bin/sleep", "{{ default '1' .Values.sleepyTime }}"]
+{{- if .Values.global.common_env }}
+        env:
+{{- toYaml .Values.global.common_env | nindent 10 }}
+{{- end }}
 
 {{- end }}
