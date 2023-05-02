@@ -23,99 +23,124 @@ resources: {}
 
 # Service
 mongodb:
-    enabled: false
+    enabled: true
     resources: {}
-    #     requests:
-    #         memory: "128Mi"
-    #         cpu: "25m"
-    #     limits:
-    #         memory: "256Mi"
-    #         cpu: "50m"
 
 redis:
     enabled: true
     resources: {}
-    #     requests:
-    #         memory: "128Mi"
-    #         cpu: "25m"
-    #     limits:
-    #         memory: "256Mi"
-    #         cpu: "50m"
 
-consul:
-    enabled: false
-    connectInject:
-        enabled: false
+marketplace-assets:
+    enabled: true
+    image:
+        name: spaceone/marketplace-assets
+        version: 1.11.0.1 
 
-# for Developer, instead of AWS SecretsManager
-vault:
-    enabled: false
-    resources: {}
-    #     requests:
-    #         memory: "128Mi"
-    #         cpu: "25m"
-    #     limits:
-    #         memory: "256Mi"
-    #         cpu: "50m"
+docs:
+    enabled: true
+    image:
+        name: pyengine/docs
+        version: 0.1.20230502.153847
 
 console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.10.4
+        version: 1.11.0.27
+    production_json:
+        CONSOLE_API:
+            ENDPOINT: https://console.api.example.com
+        CONSOLE_API_V2:
+            ENDPOINT: https://console-v2.api.example.com
 
 console-api:
     enable: true
     image:
         name: spaceone/console-api
-        version: 1.10.4
+        version: 1.11.0.2
 
 identity:
     enabled: true
     image:
         name: spaceone/identity
-        version: 1.10.4
-    application_grpc: {}
+        version: 1.11.0
+    application_grpc:
+        DATABASES:
+            default:
+              db: identity
+              read_preference: PRIMARY
+
+        ENDPOINTS: []
+        INTERNAL_ENDPOINTS:
+        - service: identity
+          name: Identity Service
+          endpoint: grpc://identity:50051
+        - service: inventory
+          name: Inventory Service
+          endpoint: grpc://inventory:50051
+        - service: repository
+          name: Repository Service
+          endpoint: grpc://repository:50051
+        - service: secret
+          name: Secret Service
+          endpoint: grpc://secret:50051
+        - service: monitoring
+          name: Monitoring Service
+          endpoint: grpc://monitoring:50051
+        - service: config
+          name: Config Service
+          endpoint: grpc://config:50051
+        - service: plugin
+          name: Plugin Manager 
+          endpoint: grpc://plugin:50051
+        - service: statistics
+          name: Statistics Service
+          endpoint: grpc://statistics:50051
+        - service: notification
+          name: Notification Service
+          endpoint: grpc://notification:50051
+        - service: cost_analysis
+          name: Cost Analysis Service
+          endpoint: grpc://cost-analysis:50051
+        - service: board
+          name: Board Service
+          endpoint: grpc://board:50051
+        - service: file_manager
+          name: File Manager
+          endpoint: grpc://file-manager:50051
+        - service: dashboard 
+          name: Dashboard Service
+          endpoint: grpc://dashboard:50051
 
 secret:
     enabled: true
     image:
         name: spaceone/secret
-        version: 1.10.4
-    application_grpc: {}
+        version: 1.11.0
+    application_grpc:
+        DATABASES:
+            default:
+              db: secret 
+              read_preference: PRIMARY
+        BACKEND: MongoDBConnector
+        CONNECTORS:
+            MongoDBConnector:
+                host: mongodb 
+                port: 27017
+                username: admin 
+                password: password
 
-
-#    application:
-#        CONNECTORS:
-#            AWSSecretManagerConnector:
-#                aws_access_key_id: aaaaaaaaaaaaaaaaaaaa
-#                aws_secret_access_key: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-#                region_name: us-west-1
-#
-# Note: VaultConnector is for only developer
-#           VaultConnector:
-#               url: http://vault:8200
-#               token: myroot
 repository:
     enabled: true
     image:
         name: spaceone/repository
-        version: 1.10.4
+        version: 1.11.0
 
-    application_grpc: {}
-
-#    application:
-#        ROOT_TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
-#        CONNECTORS:
-#            RegistryConnector:
-#                host: https://257706363616.dkr.ecr.ap-northeast-2.amazonaws.com
-#                verify_ssl: False
-#                api_version: 2
-#                username: AWS
+    application_grpc:
+        DATABASES:
+            default:
+              db: repository 
+              read_preference: PRIMARY
 
 plugin:
     enabled: true
@@ -123,24 +148,35 @@ plugin:
     worker: true
     image:
         name: spaceone/plugin
-        version: 1.10.4
+        version: 1.11.0
 
-    application_grpc: {}
-
-#    application_scheduler:
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
+    application_grpc:
+        DATABASES:
+            default:
+              db: plugin 
+              read_preference: PRIMARY
+    application_scheduler:
+        DATABASES:
+            default:
+              db: plugin 
+              read_preference: PRIMARY
+    application_worker:
+        DATABASES:
+            default:
+              db: plugin 
+              read_preference: PRIMARY
 
 config:
     enabled: true
     image:
         name: spaceone/config
-        version: 1.10.4
+        version: 1.11.0
 
-    application_grpc: {}
+    application_grpc:
+        DATABASES:
+            default:
+              db: config 
+              read_preference: PRIMARY
 
 inventory:
     enabled: true
@@ -148,55 +184,78 @@ inventory:
     worker: true
     image:
         name: spaceone/inventory
-        version: 1.10.4
+        version: 1.11.0.3
 
-    application_grpc: {}
+    application_grpc:
+        collect_queue: collector_q
+        DATABASES:
+            default:
+              db: inventory 
+              read_preference: PRIMARY
 
-#    application:
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
-#        collect_queue: collector_q
+    application_scheduler:
+        DATABASES:
+            default:
+              db: inventory 
+              read_preference: PRIMARY
 
-#    application_scheduler:
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
-
+    application_worker:
+        HANDLERS:
+            authentication: []
+            authorization: []
+            mutation: []
+        DATABASES:
+            default:
+              db: inventory 
+              read_preference: PRIMARY
 
 monitoring:
     enabled: true
     scheduler: false
     worker: false
     rest: false 
-    replicas: 1         # replica number of grpc server
-    replicas_worker: 1  # replica number of worker server
     image:
         name: spaceone/monitoring
-        version: 1.10.4
+        version: 1.11.0.3
 
     application_grpc:
-        WEBHOOK_DOMAIN: https://monitoring-webhook
+        DATABASES:
+            default:
+              db: monitoring 
+              read_preference: PRIMARY
+        INSTALLED_DATA_SOURCE_PLUGINS:
+          - name: AWS CloudWatch
+            plugin_info:
+              plugin_id: plugin-41782f6158bb
+              provider: aws
+          - name: Azure Monitor
+            plugin_info:
+              plugin_id: plugin-c6c14566298c
+              provider: azure
+          - name: Google Cloud Monitoring
+            plugin_info:
+              plugin_id: plugin-57773973639a
+              provider: google_cloud
+          - name: AWS CloudTrail
+            plugin_info:
+              plugin_id: plugin-aws-cloudtrail-mon-datasource
+              provider: aws
+          - name: Azure Activity Log
+            plugin_info:
+              plugin_id: plugin-azure-activity-log-mon-datasource
+              provider: azure
 
-#    application_rest:
-#        #TOKEN: XXXXXXXXXXXXX (if you want to use instead of TOKEN_INFO)
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
+    application_scheduler:
+        DATABASES:
+            default:
+              db: monitoring 
+              read_preference: PRIMARY
 
-#    application_scheduler:
-#        #TOKEN: XXXXXXXXXXXXX (if you want to use instead of TOKEN_INFO)
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
+    application_worker:
+        DATABASES:
+            default:
+              db: monitoring 
+              read_preference: PRIMARY
 
 statistics:
     enabled: true
@@ -204,73 +263,199 @@ statistics:
     worker: true
     image:
         name: spaceone/statistics
-        version: 1.10.4
+        version: 1.11.0
 
-    application_grpc: {}
-
-#    application_scheduler:
-#        TOKEN_INFO:
-#            protocol: consul
-#            config:
-#                host: consul
-#            uri: debug/supervisor/TOKEN
+    application_grpc:
+        DATABASES:
+            default:
+              db: statistics 
+              read_preference: PRIMARY
+    application_scheduler:
+        DATABASES:
+            default:
+              db: statistics 
+              read_preference: PRIMARY
+    application_worker:
+        DATABASES:
+            default:
+              db: statistics 
+              read_preference: PRIMARY
 
 cost-analysis:
     enabled: true
+    scheduler: true
+    worker: true
+    replicas_worker: 4
     image:
         name: spaceone/cost-analysis
-        version: 1.10.4
+        version: 1.11.0.3
 
-    application_grpc: {}
+    application_grpc:
+        DATABASES:
+            default:
+              db: cost_analysis
+              read_preference: PRIMARY
+        DEFAULT_EXCHANGE_RATE:
+            KRW: 1340.10
+            JPY: 133.80
+
+    application_scheduler:
+        DATABASES:
+            default:
+              db: cost_analysis
+              read_preference: PRIMARY
+
+    application_worker:
+        DATABASES:
+            default:
+              db: cost_analysis
+              read_preference: PRIMARY
+        DEFAULT_EXCHANGE_RATE:
+            KRW: 1340.10
+            JPY: 133.80
 
 notification:
     enabled: true
+    scheduler: true
+    worker: true
     image:
         name: spaceone/notification
-        version: 1.10.4
+        version: 1.11.0
 
-    application_grpc: {}
+    application_grpc:
+        DEFAULT_QUOTA:
+            plugin-ms-teams-noti-protocol:
+              month: -1
+              day: -1
+            plugin-slack-noti-protocol: 
+              month: -1
+              day: -1
+            plugin-telegram-noti-protocol:
+              month: -1
+              day: -1
+        INSTALLED_PROTOCOL_PLUGINS:
+          - name: MS Teams
+            plugin_info:
+              plugin_id: plugin-ms-teams-noti-protocol
+          - name: Slack
+            plugin_info:
+              plugin_id: slack-notification-protocol
+              options: {}
+              schema: slack_webhook
+          - name: Telegram
+            plugin_info:
+              plugin_id: plugin-telegram-noti-protocol
+              options: {}
+              schema: telegram_auth_token
+        DATABASES:
+            default:
+              db: notification 
+              read_preference: PRIMARY
+    application_scheduler:
+        DATABASES:
+            default:
+              db: notification 
+              read_preference: PRIMARY
+    application_worker:
+        DEFAULT_QUOTA:
+            plugin-ms-teams-noti-protocol:
+              month: -1
+              day: -1
+            plugin-slack-noti-protocol: 
+              month: -1
+              day: -1
+            plugin-telegram-noti-protocol:
+              month: -1
+              day: -1
+        DATABASES:
+            default:
+              db: notification 
+              read_preference: PRIMARY
 
 board:
     enabled: true
     image:
         name: spaceone/board
-        version: 1.10.4
+        version: 1.11.0
+    application_grpc:
+        DATABASES:
+            default:
+              db: board 
+              read_preference: PRIMARY
 
 file-manager:
-    enabled: true
+    enabled: false
     image:
         name: spaceone/file-manager
-        version: 1.10.4
+        version: 1.11.0
+    application_grpc:
+        DATABASES:
+            default:
+              db: file_manager 
+              read_preference: PRIMARY
+
+dashboard:
+    enabled: true
+    image:
+        name: spaceone/dashboard
+        version: 1.11.0.4
+    application_grpc:
+        DATABASES:
+            default:
+              db: dashboard 
+              read_preference: PRIMARY
+
+console-api-v2:
+    enabled: true
+    image:
+        name: spaceone/console-api-v2
+        version: 1.11.0.2
 
 supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.10.4
+        version: 1.11.0.2
+    application_scheduler:
+        NAME: root
+        HOSTNAME: spaceone-plugin.svc.cluster.local
+        BACKEND: KubernetesConnector
+        CONNECTORS:
+            RepositoryConnector:
+                endpoint:
+                    v1: grpc://repository:50051
+            PluginConnector:
+                endpoint:
+                    v1: grpc://plugin:50051
+            KubernetesConnector:
+                namespace: spaceone-plugin 
+                start_port: 50051
+                end_port: 50052
+                headless: true
+                replica:
+                    inventory.Collector: 4
+                    monitoring.DataSource: 4
+                    cost_analysis.DataSource: 4
+        TOKEN: ''
 
-spaceone-initializer:
-    enabled: false
-    image:
-        version: 1.10.4
-
-domain-initialzer:
-    enabled: false
 
 global:
     namespace: spaceone
-    supervisor_namespace: root-supervisor
+    supervisor_namespace: spaceone 
     backend:
         sidecar: []
         volumes: []
     frontend:
         sidecar: []
         volumes: []
+
     shared_conf:
         HANDLERS:
             authentication:
             - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler
               uri: grpc://identity:50051/v1/Domain/get_public_key
+            - backend: spaceone.core.handler.authentication_api_key_handler.AuthenticationAPIKeyHandler
+              uri: grpc://identity:50051/v1/APIKey/get
             authorization:
             - backend: spaceone.core.handler.authorization_handler.AuthorizationGRPCHandler
               uri: grpc://identity:50051/v1/Authorization/verify
@@ -304,6 +489,19 @@ global:
             NotificationConnector:
                 endpoint:
                     v1: grpc://notification:50051
+            SpaceConnector:
+              endpoints:
+                identity: grpc://identity:50051
+                inventory: grpc://inventory:50051
+                repository: grpc://repository:50051
+                secret: grpc://secret:50051
+                monitoring: grpc://monitoring:50051
+                config: grpc://config:50051
+                statistics: grpc://statistics:50051
+                notification: grpc://notification:50051
+                cost_analysis: grpc://cost-analysis:50051
+                board: grpc://board:50051
+                file_manager: grpc://file-manager:50051
         CACHES:
             default:
                 backend: spaceone.core.cache.redis_cache.RedisCache
@@ -313,3 +511,10 @@ global:
                 encoding: utf-8
                 socket_timeout: 10
                 socket_connect_timeout: 10
+        DATABASES:
+            default:
+                username: admin
+                password: password 
+                host: mongodb 
+                port: 27017
+        TOKEN: ''

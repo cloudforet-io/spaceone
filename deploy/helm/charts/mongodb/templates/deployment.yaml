@@ -18,8 +18,8 @@ spec:
       annotations:
         spaceone.deployment.tool: helm
       labels:
-{{ include "spaceone.labels" . | indent 8 }}
         spaceone.service: mongodb
+        app.kubernetes.io/name: mongodb
     spec:
       terminationGracePeriodSeconds: {{ .Values.gracePeriod }}
 {{- if .Values.imagePullSecrets}}

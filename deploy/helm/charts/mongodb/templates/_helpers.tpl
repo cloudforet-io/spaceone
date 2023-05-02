@@ -41,7 +41,6 @@ helm.sh/chart: {{ include "spaceone.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
@@ -49,7 +48,6 @@ Selector labels
 */}}
 {{- define "spaceone.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "spaceone.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
