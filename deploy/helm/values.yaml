@@ -41,6 +41,8 @@ docs:
     image:
         name: pyengine/docs
         version: 0.1.20230502.153847
+    ingress:
+        enabled: false
 
 console:
     enable: true
