@@ -423,7 +423,7 @@ supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.11.0.3
+        version: 1.11.0.4
     application_scheduler:
         NAME: root
         HOSTNAME: spaceone-plugin.svc.cluster.local
