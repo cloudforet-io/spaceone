@@ -34,7 +34,7 @@ spacectl:
     enabled: true
     image:
         name: spaceone/spacectl
-        version: 1.11.0.11
+        version: 1.11.0.12
 
 marketplace-assets:
     enabled: true
