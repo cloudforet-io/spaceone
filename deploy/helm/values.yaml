@@ -417,7 +417,7 @@ supervisor:
     enabled: true
     image:
         name: spaceone/supervisor
-        version: 1.11.0.2
+        version: 1.11.0.3
     application_scheduler:
         NAME: root
         HOSTNAME: spaceone-plugin.svc.cluster.local
@@ -438,7 +438,6 @@ supervisor:
                     inventory.Collector: 4
                     monitoring.DataSource: 4
                     cost_analysis.DataSource: 4
-        TOKEN: ''
 
 
 global:

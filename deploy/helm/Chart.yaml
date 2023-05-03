@@ -3,82 +3,86 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 1.11.1
+version: 1.11.2-dev1
 appVersion: 1.11.1
 dependencies:
 - condition: console.enabled
   name: console
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: console-api.enabled
   name: console-api
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: identity.enabled
   name: identity
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: secret.enabled
   name: secret
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: repository.enabled
   name: repository
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: plugin.enabled
   name: plugin
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: config.enabled
   name: config
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: inventory.enabled
   name: inventory
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: monitoring.enabled
   name: monitoring
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: statistics.enabled
   name: statistics
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: cost-analysis.enabled
   name: cost-analysis
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: notification.enabled
   name: notification
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: board.enabled
   name: board
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: file-manager.enabled
   name: file-manager
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: dashboard.enabled
   name: dashboard
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: console-api-v2.enabled
   name: console-api-v2
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: supervisor.enabled
   name: supervisor
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: marketplace-assets.enabled
   name: marketplace-assets 
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
 - condition: docs.enabled
   name: docs
-  repository: https://spaceone-dev.github.io/charts
+  repository: https://cloudforet-io.github.io/charts
+  version: '>=1.0.0'
+- condition: spacectl.enabled
+  name: spacectl
+  repository: https://cloudforet-io.github.io/charts
   version: '>=1.0.0'
