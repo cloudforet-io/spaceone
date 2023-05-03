@@ -30,6 +30,13 @@ redis:
     enabled: true
     resources: {}
 
+spacectl:
+    enabled: true
+    image:
+        name: spaceone/spacectl
+        version: 1.11.0.10
+
+
 marketplace-assets:
     enabled: true
     image:
