@@ -65,7 +65,7 @@ console-api:
     enable: true
     image:
         name: spaceone/console-api
-        version: 1.11.0.3
+        version: 1.11.0.4
 
 identity:
     enabled: true
