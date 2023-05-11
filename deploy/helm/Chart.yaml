@@ -10,82 +10,82 @@ home: https://www.spaceone.org
 
 dependencies:
     - name: console
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: console.enabled
     - name: console-api
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: console-api.enabled
     - name: identity
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: identity.enabled
     - name: secret
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: secret.enabled
     - name: repository
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: repository.enabled
     - name: plugin
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: plugin.enabled
     - name: config
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: config.enabled
     - name: inventory
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: inventory.enabled
     - name: monitoring
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: monitoring.enabled
     - name: statistics
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: statistics.enabled
     - name: cost-analysis
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: cost-analysis.enabled
     - name: notification
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: notification.enabled
     - name: board
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: board.enabled
     - name: file-manager
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: file-manager.enabled
     - name: dashboard
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: dashboard.enabled
     - name: console-api-v2
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: console-api-v2.enabled
       
     - name: marketplace-assets
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: marketplace-assets.enabled
   
     - name: supervisor
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: supervisor.enabled
 
     - name: spaceone-initializer
-      version: ">=1.0.0"
+      version: "<1.12.0"
       repository: https://spaceone-dev.github.io/charts
       condition: supervisor.enabled
 
