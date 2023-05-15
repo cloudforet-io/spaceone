@@ -81,7 +81,7 @@ dependencies:
   
     - name: supervisor
       version: "<1.12.0"
-      repository: https://spaceone-dev.github.io/charts
+      repository: https://cloudforet-io.github.io/charts
       condition: supervisor.enabled
 
     - name: spaceone-initializer
