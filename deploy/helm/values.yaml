@@ -141,8 +141,8 @@ secret:
 repository:
     enabled: true
     image:
-        name: spaceone/repository
-        version: 1.11.0.2
+        name: cloudforet/repository
+        version: 1.12.dev7
 
     application_grpc:
         DATABASES:
