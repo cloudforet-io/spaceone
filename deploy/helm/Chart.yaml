@@ -39,7 +39,7 @@ dependencies:
       condition: config.enabled
     - name: inventory
       version: "<1.12.0"
-      repository: https://spaceone-dev.github.io/charts
+      repository: https://cloudforet-io.github.io/charts
       condition: inventory.enabled
     - name: monitoring
       version: "<1.12.0"
