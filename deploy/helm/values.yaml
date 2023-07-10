@@ -142,7 +142,7 @@ repository:
     enabled: true
     image:
         name: cloudforet/repository
-        version: 1.12.dev8
+        version: 1.12.dev9
 
     application_grpc:
         DATABASES:
@@ -296,7 +296,7 @@ cost-analysis:
     replicas_worker: 4
     image:
         name: spaceone/cost-analysis
-        version: 1.11.0.3
+        version: 1.12.dev8
 
     application_grpc:
         DATABASES:
