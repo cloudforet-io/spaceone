@@ -271,7 +271,7 @@ statistics:
     worker: true
     image:
         name: spaceone/statistics
-        version: 1.12.dev7
+        version: 1.12.dev6
 
     application_grpc:
         DATABASES:
