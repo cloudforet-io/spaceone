@@ -270,7 +270,7 @@ statistics:
     scheduler: true
     worker: true
     image:
-        name: spaceone/statistics
+        name: cloudforet/statistics
         version: 1.12.dev6
 
     application_grpc:
@@ -295,7 +295,7 @@ cost-analysis:
     worker: true
     replicas_worker: 4
     image:
-        name: spaceone/cost-analysis
+        name: cloudforet/cost-analysis
         version: 1.12.dev8
 
     application_grpc:
