@@ -3,8 +3,8 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 1.11.11
-appVersion: 1.11.11
+version: 1.11.12
+appVersion: 1.11.12
 dependencies:
 - condition: console.enabled
   name: console
