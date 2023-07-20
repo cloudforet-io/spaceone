@@ -54,7 +54,7 @@ console:
     enable: true
     image:
         name: spaceone/console
-        version: 1.11.0.27
+        version: 1.11.0.28
     production_json:
         CONSOLE_API:
             ENDPOINT: https://console.api.example.com
