@@ -301,7 +301,7 @@ cost-analysis:
     application_grpc:
         DATABASES:
             default:
-              db: cost_analysis
+              db: cost-analysis
               read_preference: PRIMARY
         DEFAULT_EXCHANGE_RATE:
             KRW: 1340.10
@@ -310,13 +310,13 @@ cost-analysis:
     application_scheduler:
         DATABASES:
             default:
-              db: cost_analysis
+              db: cost-analysis
               read_preference: PRIMARY
 
     application_worker:
         DATABASES:
             default:
-              db: cost_analysis
+              db: cost-analysis
               read_preference: PRIMARY
         DEFAULT_EXCHANGE_RATE:
             KRW: 1340.10
@@ -399,7 +399,7 @@ file-manager:
     application_grpc:
         DATABASES:
             default:
-              db: file_manager 
+              db: file-manager
               read_preference: PRIMARY
 
 dashboard:
