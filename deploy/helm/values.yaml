@@ -219,9 +219,9 @@ inventory:
 
 monitoring:
     enabled: true
-    scheduler: false
-    worker: false
-    rest: false 
+    scheduler: true
+    worker: true
+    rest: true
     image:
         name: spaceone/monitoring
         version: 1.11.0.3
@@ -392,7 +392,7 @@ board:
               read_preference: PRIMARY
 
 file-manager:
-    enabled: false
+    enabled: true
     image:
         name: spaceone/file-manager
         version: 1.11.0
