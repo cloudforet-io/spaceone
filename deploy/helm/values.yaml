@@ -296,7 +296,7 @@ cost-analysis:
     replicas_worker: 4
     image:
         name: cloudforet/cost-analysis
-        version: 1.12.dev11
+        version: 1.12.dev12
 
     application_grpc:
         DATABASES:
