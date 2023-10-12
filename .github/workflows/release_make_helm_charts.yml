@@ -7,7 +7,7 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        target: ['console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'billing', 'cost-analysis',  'notification', 'power-scheduler', 'cost-saving', 'spot-automation', 'supervisor']
+        target: [ 'console', 'console-api', 'identity', 'secret', 'repository', 'plugin', 'config', 'inventory', 'monitoring', 'statistics', 'cost-analysis',  'notification', 'supervisor' ]
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
@@ -26,7 +26,7 @@ jobs:
           time: '1m'
   notify_to_slack:
     if: github.repository_owner == 'cloudforet-io'
-    needs: [dispatch_make_helm_chart]
+    needs: [ dispatch_make_helm_chart ]
     runs-on: ubuntu-latest
     steps:
       - name: Slack
