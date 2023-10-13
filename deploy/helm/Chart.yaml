@@ -3,8 +3,8 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 1.12.0
-appVersion: 1.12.0
+version: 1.12.1
+appVersion: 1.12.1
 dependencies:
   - condition: console.enabled
     name: console
@@ -82,4 +82,3 @@ dependencies:
     name: spacectl
     repository: https://cloudforet-io.github.io/charts
     version: '>=1.0.0'
-
