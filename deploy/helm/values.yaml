@@ -33,7 +33,7 @@ redis:
 spacectl:
   enabled: true
   image:
-    name: spaceone/spacectl
+    name: cloudforet/spacectl
     version: 1.12.1
 
 marketplace-assets:
@@ -45,7 +45,7 @@ marketplace-assets:
 console:
   enable: true
   image:
-    name: spaceone/console
+    name: cloudforet/console
     version: 1.12.0
   production_json:
     CONSOLE_API:
@@ -56,13 +56,13 @@ console:
 console-api:
   enable: true
   image:
-    name: spaceone/console-api
+    name: cloudforet/console-api
     version: 1.12.0
 
 identity:
   enabled: true
   image:
-    name: spaceone/identity
+    name: cloudforet/identity
     version: 1.12.0
   application_grpc:
     DATABASES:
@@ -115,7 +115,7 @@ identity:
 secret:
   enabled: true
   image:
-    name: spaceone/secret
+    name: cloudforet/secret
     version: 1.12.0
   application_grpc:
     DATABASES:
@@ -147,7 +147,7 @@ plugin:
   scheduler: true
   worker: true
   image:
-    name: spaceone/plugin
+    name: cloudforet/plugin
     version: 1.12.0
 
   application_grpc:
@@ -169,7 +169,7 @@ plugin:
 config:
   enabled: true
   image:
-    name: spaceone/config
+    name: cloudforet/config
     version: 1.12.0
 
   application_grpc:
@@ -183,7 +183,7 @@ inventory:
   scheduler: true
   worker: true
   image:
-    name: spaceone/inventory
+    name: cloudforet/inventory
     version: 1.12.0
 
   application_grpc:
@@ -215,7 +215,7 @@ monitoring:
   worker: true
   rest: true
   image:
-    name: spaceone/monitoring
+    name: cloudforet/monitoring
     version: 1.12.0
 
   application_grpc:
@@ -319,7 +319,7 @@ notification:
   scheduler: true
   worker: true
   image:
-    name: spaceone/notification
+    name: cloudforet/notification
     version: 1.12.0
 
   application_grpc:
@@ -375,7 +375,7 @@ notification:
 board:
   enabled: true
   image:
-    name: spaceone/board
+    name: cloudforet/board
     version: 1.12.0
   application_grpc:
     DATABASES:
@@ -386,7 +386,7 @@ board:
 file-manager:
   enabled: true
   image:
-    name: spaceone/file-manager
+    name: cloudforet/file-manager
     version: 1.12.0
   application_grpc:
     DATABASES:
@@ -397,7 +397,7 @@ file-manager:
 dashboard:
   enabled: true
   image:
-    name: spaceone/dashboard
+    name: cloudforet/dashboard
     version: 1.12.0
   application_grpc:
     DATABASES:
@@ -408,13 +408,13 @@ dashboard:
 console-api-v2:
   enabled: true
   image:
-    name: spaceone/console-api-v2
+    name: cloudforet/console-api-v2
     version: 1.12.0
 
 supervisor:
   enabled: true
   image:
-    name: spaceone/supervisor
+    name: cloudforet/supervisor
     version: 1.12.0
   application_scheduler:
     NAME: root
