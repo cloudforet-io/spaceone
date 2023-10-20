@@ -34,7 +34,7 @@ spacectl:
   enabled: true
   image:
     name: cloudforet/spacectl
-    version: 1.12.1
+    version: 1.12.2
 
 marketplace-assets:
   enabled: true
@@ -46,7 +46,7 @@ console:
   enable: true
   image:
     name: cloudforet/console
-    version: 1.12.0
+    version: 1.12.8
   production_json:
     CONSOLE_API:
       ENDPOINT: https://console.api.example.com
@@ -63,7 +63,7 @@ identity:
   enabled: true
   image:
     name: cloudforet/identity
-    version: 1.12.0
+    version: 1.12.2
   application_grpc:
     DATABASES:
       default:
@@ -134,7 +134,7 @@ repository:
   enabled: true
   image:
     name: cloudforet/repository
-    version: 1.12.0
+    version: 1.12.3
 
   application_grpc:
     DATABASES:
@@ -184,7 +184,7 @@ inventory:
   worker: true
   image:
     name: cloudforet/inventory
-    version: 1.12.0
+    version: 1.12.2
 
   application_grpc:
     collect_queue: collector_q
@@ -288,16 +288,13 @@ cost-analysis:
   replicas_worker: 4
   image:
     name: cloudforet/cost-analysis
-    version: 1.12.0
+    version: 1.12.4
 
   application_grpc:
     DATABASES:
       default:
         db: cost-analysis
         read_preference: PRIMARY
-    DEFAULT_EXCHANGE_RATE:
-      KRW: 1340.10
-      JPY: 133.80
 
   application_scheduler:
     DATABASES:
@@ -310,9 +307,6 @@ cost-analysis:
       default:
         db: cost-analysis
         read_preference: PRIMARY
-    DEFAULT_EXCHANGE_RATE:
-      KRW: 1340.10
-      JPY: 133.80
 
 notification:
   enabled: true
@@ -409,7 +403,7 @@ console-api-v2:
   enabled: true
   image:
     name: cloudforet/console-api-v2
-    version: 1.12.0
+    version: 1.12.2
 
 supervisor:
   enabled: true
