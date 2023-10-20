@@ -63,7 +63,7 @@ identity:
   enabled: true
   image:
     name: cloudforet/identity
-    version: 1.12.2
+    version: 1.12.4
   application_grpc:
     DATABASES:
       default:
