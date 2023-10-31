@@ -34,7 +34,7 @@ spacectl:
   enabled: true
   image:
     name: cloudforet/spacectl
-    version: 1.12.2
+    version: 2.0.0
 
 marketplace-assets:
   enabled: true
@@ -46,7 +46,7 @@ console:
   enable: true
   image:
     name: cloudforet/console
-    version: 1.12.8
+    version: 1.12.12
   production_json:
     CONSOLE_API:
       ENDPOINT: https://console.api.example.com
@@ -57,7 +57,7 @@ console-api:
   enable: true
   image:
     name: cloudforet/console-api
-    version: 1.12.0
+    version: 1.12.1
 
 identity:
   enabled: true
@@ -381,7 +381,7 @@ file-manager:
   enabled: true
   image:
     name: cloudforet/file-manager
-    version: 1.12.0
+    version: 1.12.1
   application_grpc:
     DATABASES:
       default:
@@ -403,7 +403,7 @@ console-api-v2:
   enabled: true
   image:
     name: cloudforet/console-api-v2
-    version: 1.12.2
+    version: 1.12.5
 
 supervisor:
   enabled: true
