@@ -34,7 +34,7 @@ spacectl:
   enabled: true
   image:
     name: cloudforet/spacectl
-    version: 2.0.0
+    version: 2.0.2
 
 marketplace-assets:
   enabled: true
@@ -403,7 +403,7 @@ console-api-v2:
   enabled: true
   image:
     name: cloudforet/console-api-v2
-    version: 1.12.5
+    version: 1.12.6
 
 supervisor:
   enabled: true
