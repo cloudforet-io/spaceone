@@ -134,7 +134,7 @@ repository:
   enabled: true
   image:
     name: cloudforet/repository
-    version: 1.12.3
+    version: 1.12.4
 
   application_grpc:
     DATABASES:
