@@ -3,7 +3,7 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 2.0.0-dev4
+version: 2.0.0-dev5
 appVersion: 2.0.0
 dependencies:
   - condition: console.enabled
@@ -21,7 +21,7 @@ dependencies:
   - condition: secret.enabled
     name: secret
     repository: https://cloudforet-io.github.io/charts
-    version: '1.3.12'
+    version: '1.3.13'
   - condition: repository.enabled
     name: repository
     repository: https://cloudforet-io.github.io/charts
@@ -29,7 +29,7 @@ dependencies:
   - condition: plugin.enabled
     name: plugin
     repository: https://cloudforet-io.github.io/charts
-    version: '1.3.9'
+    version: '1.3.10'
   - condition: config.enabled
     name: config
     repository: https://cloudforet-io.github.io/charts
