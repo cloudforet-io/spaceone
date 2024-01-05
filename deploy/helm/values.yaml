@@ -259,8 +259,6 @@ monitoring:
 
 statistics:
   enabled: true
-  scheduler: true
-  worker: true
   image:
     name: cloudforet/statistics
     version: 2.0.dev11
