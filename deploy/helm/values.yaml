@@ -46,7 +46,7 @@ console:
   enable: true
   image:
     name: cloudforet/console
-    version: 1.12.12
+    version: 2.0.dev13
   production_json:
     CONSOLE_API:
       ENDPOINT: https://console.api.example.com
@@ -57,13 +57,13 @@ console-api:
   enable: true
   image:
     name: cloudforet/console-api
-    version: 1.12.1
+    version: 2.0.dev22
 
 identity:
   enabled: true
   image:
     name: cloudforet/identity
-    version: 1.12.4
+    version: 2.0.dev86
   application_grpc:
     DATABASES:
       default:
@@ -116,7 +116,7 @@ secret:
   enabled: true
   image:
     name: cloudforet/secret
-    version: 1.12.0
+    version: 2.0.dev19
   application_grpc:
     DATABASES:
       default:
@@ -134,7 +134,7 @@ repository:
   enabled: true
   image:
     name: cloudforet/repository
-    version: 1.12.3
+    version: 2.0.dev27
 
   application_grpc:
     DATABASES:
@@ -148,7 +148,7 @@ plugin:
   worker: true
   image:
     name: cloudforet/plugin
-    version: 1.12.0
+    version: 2.0.dev11
 
   application_grpc:
     DATABASES:
@@ -170,7 +170,7 @@ config:
   enabled: true
   image:
     name: cloudforet/config
-    version: 1.12.0
+    version: 2.0.dev8
 
   application_grpc:
     DATABASES:
@@ -184,7 +184,7 @@ inventory:
   worker: true
   image:
     name: cloudforet/inventory
-    version: 1.12.2
+    version: 2.0.dev63
 
   application_grpc:
     collect_queue: collector_q
@@ -216,7 +216,7 @@ monitoring:
   rest: true
   image:
     name: cloudforet/monitoring
-    version: 1.12.0
+    version: 2.0.dev45
 
   application_grpc:
     DATABASES:
@@ -263,7 +263,7 @@ statistics:
   worker: true
   image:
     name: cloudforet/statistics
-    version: 1.12.0
+    version: 2.0.dev11
 
   application_grpc:
     DATABASES:
@@ -288,7 +288,7 @@ cost-analysis:
   replicas_worker: 4
   image:
     name: cloudforet/cost-analysis
-    version: 1.12.4
+    version: 2.0.dev42
 
   application_grpc:
     DATABASES:
@@ -314,7 +314,7 @@ notification:
   worker: true
   image:
     name: cloudforet/notification
-    version: 1.12.0
+    version: 2.0.dev23
 
   application_grpc:
     DEFAULT_QUOTA:
@@ -370,7 +370,7 @@ board:
   enabled: true
   image:
     name: cloudforet/board
-    version: 1.12.0
+    version: 2.0.dev10
   application_grpc:
     DATABASES:
       default:
@@ -381,7 +381,7 @@ file-manager:
   enabled: true
   image:
     name: cloudforet/file-manager
-    version: 1.12.1
+    version: 2.0.dev10
   application_grpc:
     DATABASES:
       default:
@@ -392,7 +392,7 @@ dashboard:
   enabled: true
   image:
     name: cloudforet/dashboard
-    version: 1.12.0
+    version: 2.0.dev20
   application_grpc:
     DATABASES:
       default:
@@ -403,13 +403,13 @@ console-api-v2:
   enabled: true
   image:
     name: cloudforet/console-api-v2
-    version: 1.12.6
+    version: 2.0.dev52
 
 supervisor:
   enabled: true
   image:
     name: cloudforet/supervisor
-    version: 1.12.0
+    version: 2.0.dev17
   application_scheduler:
     NAME: root
     HOSTNAME: spaceone-plugin.svc.cluster.local
