@@ -259,6 +259,8 @@ monitoring:
 
 statistics:
   enabled: true
+  scheduler: true
+  worker: true
   image:
     name: cloudforet/statistics
     version: 2.0.dev11
@@ -443,15 +445,11 @@ global:
   shared_conf:
     HANDLERS:
       authentication:
-        - backend: spaceone.core.handler.authentication_handler.AuthenticationGRPCHandler
-          uri: grpc://identity:50051/v1/Domain/get_public_key
-        - backend: spaceone.core.handler.authentication_api_key_handler.AuthenticationAPIKeyHandler
-          uri: grpc://identity:50051/v1/APIKey/get
+        - backend: spaceone.core.handler.authentication_handler:SpaceONEAuthenticationHandler
       authorization:
-        - backend: spaceone.core.handler.authorization_handler.AuthorizationGRPCHandler
-          uri: grpc://identity:50051/v1/Authorization/verify
+        - backend: spaceone.core.handler.authorization_handler:SpaceONEAuthorizationHandler
       mutation:
-        - backend: spaceone.core.handler.mutation_handler.SpaceONEMutationHandler
+        - backend: spaceone.core.handler.mutation_handler:SpaceONEMutationHandler
     CONNECTORS:
       IdentityConnector:
         endpoint:
