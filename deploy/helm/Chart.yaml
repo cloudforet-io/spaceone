@@ -3,7 +3,7 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 2.0.0-dev19
+version: 2.0.0-dev20
 appVersion: 2.0.0
 dependencies:
   - condition: console.enabled
@@ -73,7 +73,7 @@ dependencies:
   - condition: search.enabled
     name: search
     repository: https://cloudforet-io.github.io/charts
-    version: '1.0.0'
+    version: '1.0.1'
   - condition: supervisor.enabled
     name: supervisor
     repository: https://cloudforet-io.github.io/charts
