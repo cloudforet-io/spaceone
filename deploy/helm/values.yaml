@@ -405,6 +405,12 @@ console-api-v2:
     name: cloudforet/console-api-v2
     version: 2.0.dev58
 
+search:
+  enabled: true
+  image:
+    name: cloudforet/search
+    version: 0.0.1
+
 supervisor:
   enabled: true
   image:
