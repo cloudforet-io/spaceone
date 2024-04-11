@@ -30,9 +30,6 @@ redis:
   enabled: true
   resources: { }
 
-spaceone:
-  enabled: true
-
 spacectl:
   enabled: true
   image:
