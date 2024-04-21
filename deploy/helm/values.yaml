@@ -37,7 +37,7 @@ spacectl:
     version: 2.0.2
 
 marketplace-assets:
-  enabled: true
+  enabled: false
   image:
     name: cloudforet/marketplace-assets
     version: 1.12.0
@@ -226,15 +226,15 @@ monitoring:
     INSTALLED_DATA_SOURCE_PLUGINS:
       - name: AWS CloudWatch
         plugin_info:
-          plugin_id: plugin-41782f6158bb
+          plugin_id: plugin-aws-cloudwatch-mon-datasource
           provider: aws
       - name: Azure Monitor
         plugin_info:
-          plugin_id: plugin-c6c14566298c
+          plugin_id: plugin-azure-monitor-mon-datasource
           provider: azure
       - name: Google Cloud Monitoring
         plugin_info:
-          plugin_id: plugin-57773973639a
+          plugin_id: plugin-google-stackdriver-mon-datasource
           provider: google_cloud
       - name: AWS CloudTrail
         plugin_info:
@@ -285,7 +285,7 @@ cost-analysis:
   enabled: true
   scheduler: true
   worker: true
-  replicas_worker: 4
+  replicas_worker: 1
   image:
     name: cloudforet/cost-analysis
     version: 1.12.4
@@ -427,9 +427,9 @@ supervisor:
         end_port: 50052
         headless: true
         replica:
-          inventory.Collector: 4
-          monitoring.DataSource: 4
-          cost_analysis.DataSource: 4
+          inventory.Collector: 1
+          monitoring.DataSource: 1
+          cost_analysis.DataSource: 1
 
 
 global:

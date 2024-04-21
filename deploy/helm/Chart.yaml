@@ -1,9 +1,9 @@
 apiVersion: v2
 name: spaceone
-description: A Helm chart for SpaceONE
-home: https://www.spaceone.org
+description: A Helm chart for Cloudforet
+home: https://cloudforet.io
 type: application
-version: 1.12.12
+version: 1.12.16
 appVersion: 1.12.12
 dependencies:
   - condition: console.enabled
