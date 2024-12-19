@@ -36,6 +36,12 @@ spacectl:
     name: cloudforet/spacectl
     version: 2.0.9
 
+cfctl:
+  enabled: true
+  image:
+    name: cloudforet/cfctl
+    version: v1.0.9
+
 marketplace-assets:
   enabled: true
   image:
