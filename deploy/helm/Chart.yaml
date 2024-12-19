@@ -3,7 +3,7 @@ name: spaceone
 description: A Helm chart for SpaceONE
 home: https://www.spaceone.org
 type: application
-version: 2.0.0-dev31
+version: 2.0.0-dev32
 appVersion: 2.0.0
 dependencies:
   - condition: board.enabled
@@ -86,3 +86,8 @@ dependencies:
     name: supervisor
     repository: https://cloudforet-io.github.io/charts
     version: '1.1.15'
+
+  - condition: cfctl.enabled
+    name: cfctl
+    repository: https://cloudforet-io.github.io/charts
+    version: '1.0.0'
