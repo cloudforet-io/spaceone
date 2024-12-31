@@ -385,9 +385,10 @@ board:
 
 file-manager:
   enabled: true
+  rest: true
   image:
     name: cloudforet/file-manager
-    version: 2.0.dev14
+    version: 2.0.dev22
   application_grpc:
     DATABASES:
       default:
