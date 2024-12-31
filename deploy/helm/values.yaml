@@ -388,7 +388,7 @@ file-manager:
   rest: true
   image:
     name: cloudforet/file-manager
-    version: 2.0.dev22
+    version: 2.0.dev14
   application_grpc:
     DATABASES:
       default:
