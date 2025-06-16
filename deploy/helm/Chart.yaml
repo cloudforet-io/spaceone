@@ -90,4 +90,4 @@ dependencies:
   - condition: cfctl.enabled
     name: cfctl
     repository: https://cloudforet-io.github.io/charts
-    version: '1.0.0'
+    version: '1.0.1'
